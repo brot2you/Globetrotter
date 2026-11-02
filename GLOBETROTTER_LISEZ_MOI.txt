@@ -1,0 +1,1 @@
+GLOBETROTTER V0.4 — New interactive home screen. Original game modules preserved. England is playable; other countries show coming soon. ZIP for testing, do not replace production before testing.

@@ -184,3 +184,23 @@
 .passport-profile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
 .passport-profile-facts span{border:1px solid #5b8eb0;background:#0c2c49;padding:10px;border-radius:9px}
 @media(max-width:600px){.passport-profile-facts{grid-template-columns:1fr}.passport-country-profile{padding:10px}}
+
+/* Fully interactive collectible England country profile */
+.passport-live{background:linear-gradient(145deg,#163d63,#0d2949);border:3px solid #dcb465;box-shadow:0 12px 30px #0004}
+.passport-live-head{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.passport-kicker{font-size:11px;letter-spacing:2px;font-weight:900;color:#ffda83;margin-bottom:7px}
+.passport-count{font-size:35px;font-weight:900;color:#ffe3a0;white-space:nowrap}
+.passport-count small{font-size:15px;color:#c3d9e9}
+.passport-progress{height:12px;background:#08223c;border-radius:15px;border:1px solid #96753f;overflow:hidden;margin:14px 0 20px}
+.passport-progress>div{height:100%;background:linear-gradient(90deg,#dca342,#ffe28e);transition:width .3s}
+.passport-live-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.passport-fact{display:flex;gap:12px;align-items:flex-start;min-height:112px;padding:15px 12px;border-radius:13px;border:2px solid #a47e45;background:#f5e3b5;color:#2e2b2c}
+.passport-fact.locked{background:#183b57;border-color:#4c6980;color:#c5d1dc}
+.passport-fact-icon{font-size:27px;flex:0 0 33px}
+.passport-fact-label{font-size:12px;text-transform:uppercase;letter-spacing:.7px;opacity:.8;font-weight:800}
+.passport-fact strong{display:block;font-size:16px;margin:5px 0;overflow-wrap:anywhere}
+.passport-fact-hint{font-size:11px;line-height:1.35;opacity:.85}
+.passport-fact.unlocked .passport-fact-hint{color:#287248;font-weight:800}
+.passport-live-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:18px}
+@media(max-width:900px){.passport-live-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.passport-live-grid{grid-template-columns:1fr}.passport-fact{min-height:90px}.passport-live-head{align-items:flex-start}.passport-count{font-size:27px}}

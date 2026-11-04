@@ -3,3 +3,38 @@
 /* GLOBETROTTER V2: responsive illustrated home artwork, original asset as fallback. */
 .hero{background-image:linear-gradient(90deg,#09213999,#09213918),url('assets/globetrotter_home_desktop.webp'),url('assets/london.webp');background-position:center;background-size:cover;background-repeat:no-repeat}
 @media(max-width:760px){.hero{background-image:linear-gradient(0deg,#092139aa,#09213908 75%),url('assets/globetrotter_home_mobile.webp'),url('assets/london_mobile.webp');background-position:center center;background-size:cover;background-repeat:no-repeat}}
+
+/* GLOBETROTTER premium pixel-adventure homepage v3 */
+.hero.hero-v3{position:relative;min-height:clamp(610px,78vh,820px);padding:clamp(16px,3vw,34px);background-image:linear-gradient(90deg,rgba(4,18,36,.16),transparent 60%),url('assets/globetrotter_home_desktop.webp');background-size:cover;background-position:center center;display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;isolation:isolate}
+.hero-v3:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,18,36,.1) 0%,transparent 45%,rgba(3,16,32,.34) 100%);z-index:-1}
+.hero-v3 .home-sky{display:flex;justify-content:center;align-items:flex-start;width:100%;min-height:150px}
+.hero-v3 .hero-logo{width:min(680px,83%);max-height:220px;object-position:center;filter:drop-shadow(0 7px 1px #081b3b) drop-shadow(0 10px 16px #071a36aa)}
+.home-game-menu{align-self:flex-end;width:min(400px,45%);display:flex;flex-direction:column;gap:11px;margin:0 2% 32px 0}
+.home-menu-kicker,.home-menu-footer{text-align:center;font-weight:1000;font-size:12px;letter-spacing:2px;color:#fff1c3;text-shadow:0 3px 4px #07152f,0 0 10px #08152f}
+.home-menu-footer{font-size:10px;letter-spacing:1.5px;margin-top:4px}
+.home-game-button{width:100%;min-height:78px;display:flex;align-items:center;gap:12px;padding:11px 15px;border:3px solid #ffe5a0;border-radius:14px;background:linear-gradient(165deg,#327db1 0%,#184775 46%,#102a55 100%);color:#fff7db;text-align:left;box-shadow:0 5px 0 #805020,0 9px 0 #0b213c,0 14px 18px #06162ac9,inset 0 2px 0 #a2e5ff8c,inset 0 -3px 0 #091d3b;font-weight:900;text-shadow:0 2px #07162b;transition:transform .15s,filter .15s}
+.home-game-button:hover{transform:translateY(-3px);filter:brightness(1.13)}
+.home-game-button:active{transform:translateY(3px);box-shadow:0 2px 0 #805020,0 5px 0 #0b213c}
+.home-game-primary{background:linear-gradient(165deg,#f8c969,#d79036 46%,#91511f 100%);border-color:#fff0b5;color:#17263a;text-shadow:none;box-shadow:0 5px 0 #633516,0 9px 0 #0b213c,0 14px 18px #06162ac9,inset 0 2px 0 #fff4bf}
+.home-button-icon{display:grid;place-items:center;flex:none;width:52px;height:52px;border:2px solid #ffe6a5;border-radius:12px;background:#0a2b55a8;font-size:29px;text-shadow:none;box-shadow:inset 0 2px 6px #0006}
+.home-button-copy{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.home-button-copy strong{font-size:clamp(15px,1.6vw,21px);letter-spacing:.4px;line-height:1.13}
+.home-button-copy small{font-size:11px;font-weight:600;opacity:.88}
+.home-button-arrow{font-size:20px;opacity:.9}
+.home-signature{position:absolute;bottom:12px;left:24px;color:#fff0c0;font-size:12px;font-weight:900;letter-spacing:2px;text-shadow:0 2px 5px #000}
+@media(max-width:760px){
+ .app:has(.hero-v3) .top{display:none}
+ .app:has(.hero-v3){padding:0}
+ .app:has(.hero-v3) .screen{border:0;border-radius:0}
+ .app:has(.hero-v3) .footer{display:none}
+ .hero.hero-v3{min-height:100dvh;background-image:linear-gradient(180deg,#071a3333 0%,transparent 42%,#08172f9e 100%),url('assets/globetrotter_home_mobile.webp');background-position:center center;padding:20px 14px 35px}
+ .hero-v3 .home-sky{min-height:100px}
+ .hero-v3 .hero-logo{width:min(94%,490px);max-height:160px}
+ .home-game-menu{width:min(100%,440px);align-self:center;margin:0 0 42px;gap:9px}
+ .home-game-button{min-height:70px;padding:9px 12px}
+ .home-button-icon{width:44px;height:44px;font-size:25px}
+ .home-button-copy strong{font-size:16px}
+ .home-menu-kicker{font-size:11px}
+ .home-signature{left:50%;transform:translateX(-50%);bottom:14px;white-space:nowrap}
+}
+@media(max-width:390px){.hero.hero-v3{padding:12px 10px 25px}.hero-v3 .hero-logo{max-height:120px}.home-game-menu{margin-bottom:24px}.home-game-button{min-height:64px}.home-button-copy small{font-size:10px}}

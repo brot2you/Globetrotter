@@ -196,3 +196,13 @@ button{cursor:pointer}
  .gt-country img{width:100%;height:100%;object-fit:contain!important}
 }
 @media(max-width:420px){.gt-home{gap:10px;padding:0 9px 12px}.gt-logo{margin-bottom:clamp(135px,39vw,180px)}.gt-dest-scroll{height:100px}.gt-country{flex-basis:124px}}
+
+/* Mobile button artwork: use single column so full-size illustrations never overlap. */
+@media(max-width:760px){
+ .gt-home .gt-menu{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:repeat(2,auto)!important;gap:14px!important;width:min(100%,380px)!important;align-self:center}
+ .gt-home .gt-menu-button{box-sizing:border-box;width:100%!important;min-width:0!important;min-height:0!important;height:clamp(66px,18vw,88px)!important;aspect-ratio:auto!important;overflow:hidden!important;filter:none}
+ .gt-home .gt-menu-button img{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
+ .gt-home .gt-mobile-more-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .gt-home .gt-mobile-more-btn{width:100%;height:76px;aspect-ratio:auto;overflow:hidden}
+ .gt-home .gt-mobile-more-btn img{max-width:100%;max-height:100%;object-fit:contain}
+}

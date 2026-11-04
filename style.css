@@ -166,3 +166,12 @@
 .hero-sprite .sprite-small-row{gap:clamp(10px,1.1vw,17px);margin-top:3px}
 .hero-sprite .sprite-small-row .sprite-button{aspect-ratio:2.95/1;background-size:260% auto}
 @media(max-width:760px){.hero-sprite .sprite-menu{gap:9px}.hero-sprite .sprite-button{aspect-ratio:6.05/1}.hero-sprite .sprite-small-row{gap:10px;margin-top:3px}.hero-sprite .sprite-small-row .sprite-button{aspect-ratio:2.95/1}}
+
+/* v7: actual individual transparent PNGs, no sprite cropping */
+.hero-sprite .sprite-menu{gap:clamp(6px,.7vw,10px)}
+.hero-sprite .sprite-button,.hero-sprite .sprite-small-row .sprite-button{background:none!important;background-image:none!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important;border:0!important;box-shadow:none!important;padding:0!important;overflow:visible!important;display:block!important;line-height:0}
+.hero-sprite .sprite-img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;pointer-events:none;user-select:none}
+.hero-sprite .sprite-small-row{gap:clamp(8px,1vw,14px);margin-top:0}
+.hero-sprite .sprite-button:hover{transform:translateY(-2px) scale(1.025);filter:brightness(1.08) drop-shadow(0 5px 5px #0006)}
+.hero-sprite .sprite-button:active{transform:scale(.975)}
+@media(max-width:760px){.hero-sprite .sprite-menu{gap:5px}.hero-sprite .sprite-small-row{gap:7px}}

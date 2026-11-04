@@ -175,3 +175,20 @@
 .hero-sprite .sprite-button:hover{transform:translateY(-2px) scale(1.025);filter:brightness(1.08) drop-shadow(0 5px 5px #0006)}
 .hero-sprite .sprite-button:active{transform:scale(.975)}
 @media(max-width:760px){.hero-sprite .sprite-menu{gap:5px}.hero-sprite .sprite-small-row{gap:7px}}
+
+/* England identity card embedded directly in the existing Passport screen */
+.england-id-card{background:linear-gradient(145deg,#153956,#0c2741);border:3px solid #d6a85a;border-radius:18px;padding:20px;margin:18px 0 28px;color:#fce5ad}
+.england-id-header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.england-id-header h2{color:#ffe3a2;margin:6px 0;font-size:clamp(19px,2.4vw,27px)}
+.england-id-header p{margin:0 0 12px;color:#e1e7ec}
+.england-id-eyebrow{font-size:11px;letter-spacing:1.6px;font-weight:800}
+.england-id-count{font-size:28px;white-space:nowrap}
+.england-id-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.england-id-fact{display:flex;gap:12px;align-items:flex-start;background:#f8e6bf;color:#312b23;border:2px solid #b98d46;border-radius:12px;padding:14px;min-height:94px}
+.england-id-fact.is-locked{background:#20445f;border-color:#5b7790;color:#e5edf4}
+.england-id-symbol{font-size:27px}
+.england-id-fact small{display:block;text-transform:uppercase;letter-spacing:.7px;font-weight:800}
+.england-id-fact strong{display:block;margin:5px 0;overflow-wrap:anywhere}
+.england-id-fact span:not(.england-id-symbol){font-size:12px}
+.england-id-foot{margin:15px 0 0;color:#dbe5ed}
+@media(max-width:600px){.england-id-grid{grid-template-columns:1fr}.england-id-card{padding:13px}}

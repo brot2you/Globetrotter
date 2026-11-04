@@ -38,3 +38,40 @@
  .home-signature{left:50%;transform:translateX(-50%);bottom:14px;white-space:nowrap}
 }
 @media(max-width:390px){.hero.hero-v3{padding:12px 10px 25px}.hero-v3 .hero-logo{max-height:120px}.home-game-menu{margin-bottom:24px}.home-game-button{min-height:64px}.home-button-copy small{font-size:10px}}
+
+/* v4 illustrated pixel-button homepage — no opaque menu box */
+.app:has(.hero-v4) .top,.app:has(.hero-v4) .footer{display:none}
+.app:has(.hero-v4){max-width:1600px;width:100%;padding:0}
+.app:has(.hero-v4) .screen{padding:0;background:transparent;border:0;max-width:none}
+.hero.hero-v4{min-height:min(900px,100dvh);border-radius:18px;background-position:center center;padding:28px 4%;justify-content:space-between}
+.hero-v4 .home-sky{justify-content:flex-start;min-height:170px}
+.hero-v4 .hero-logo{width:min(640px,51%);max-height:260px}
+.hero-v4 .home-game-menu{width:min(510px,43%);margin:0 1% 5% 0;gap:13px;background:none;box-shadow:none;border:0;padding:0}
+.hero-v4 .home-game-button{min-height:81px;border:4px solid #ffe5a0;border-radius:16px;transform:skew(-1deg);background:linear-gradient(180deg,#ffe985 0%,#ffbd31 38%,#ff970c 72%,#c65a09 100%);box-shadow:inset 0 5px #fff5b4,inset 0 -5px #9c400e,0 5px 0 #07132d,0 9px 0 #0008,0 12px 12px #0007;color:#111c31;text-shadow:0 1px #fff8a6;font-family:inherit;cursor:pointer;justify-content:center}
+.hero-v4 .home-game-button:hover{transform:translateY(-3px) skew(-1deg);filter:brightness(1.12)}
+.hero-v4 .home-game-button:focus-visible{outline:4px solid white;outline-offset:4px}
+.hero-v4 .home-game-button.home-blue{background:linear-gradient(#9ce9ff,#1f9aff 35%,#005dd6 80%,#003a8d);border-color:#b4edff;color:white;text-shadow:2px 2px #06214d;box-shadow:inset 0 5px #e2f9ff,inset 0 -5px #002f7c,0 5px 0 #07132d,0 9px 0 #0008}
+.hero-v4 .home-game-button.home-purple{background:linear-gradient(#f3a6ff,#ba48e7 36%,#7923ae 78%,#47116e);border-color:#f7c5ff;color:white;text-shadow:2px 2px #3b0c57;box-shadow:inset 0 5px #ffdeff,inset 0 -5px #491071,0 5px 0 #07132d,0 9px 0 #0008}
+.hero-v4 .home-game-button.home-green{background:linear-gradient(#b5ff7b,#39df43 34%,#04a63d 78%,#07692a);border-color:#caff91;color:white;text-shadow:2px 2px #075027;box-shadow:inset 0 5px #e4ffbd,inset 0 -5px #046128,0 5px 0 #07132d,0 9px 0 #0008}
+.hero-v4 .home-button-icon{border:0;background:none;box-shadow:none;font-size:38px;width:58px;height:52px;color:inherit}
+.hero-v4 .home-button-copy{flex:initial}
+.hero-v4 .home-button-copy strong{font-size:clamp(20px,2.1vw,29px);white-space:nowrap;font-weight:1000;letter-spacing:-.4px}
+.hero-v4 .home-small-buttons{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.hero-v4 .home-game-button.home-small{min-height:62px;padding:8px 12px;gap:8px;background:linear-gradient(#8fb8e5,#38639d 38%,#173c73 85%,#0b2248);border-color:#d3e6ff;color:white;text-shadow:2px 2px #071c40;font-size:clamp(16px,1.7vw,24px);font-weight:1000;box-shadow:inset 0 4px #e6f5ff,inset 0 -4px #071f48,0 5px 0 #07132d}
+.hero-v4 .home-small span{font-size:26px}
+.hero-v4 .home-signature{bottom:10px;left:22px;transform:none}
+.country-select{padding:clamp(20px,5vw,60px);max-width:1000px;margin:auto;display:flex;flex-direction:column;gap:22px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.country-locked{padding:20px;border:2px solid #58718d;border-radius:12px;background:#122d48;color:#b7c9db}
+@media(max-width:760px){
+ .hero.hero-v4{min-height:100dvh;padding:20px 12px 26px;border-radius:0;background-position:center center}
+ .hero-v4 .home-sky{justify-content:center;min-height:110px}
+ .hero-v4 .hero-logo{width:min(100%,470px);max-height:165px}
+ .hero-v4 .home-game-menu{width:min(100%,420px);margin:0 auto 35px;gap:10px}
+ .hero-v4 .home-game-button{min-height:65px;border-width:3px;padding:7px 10px}
+ .hero-v4 .home-button-copy strong{font-size:clamp(17px,5vw,23px)}
+ .hero-v4 .home-button-icon{width:43px;font-size:28px}
+ .hero-v4 .home-game-button.home-small{min-height:51px;font-size:16px}
+ .hero-v4 .home-small span{font-size:21px}
+ .hero-v4 .home-signature{left:50%;transform:translateX(-50%)}
+}

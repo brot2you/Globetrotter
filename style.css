@@ -155,3 +155,14 @@
 .country-map-illustrated .country-map-placeholder:not([hidden]){display:grid;place-items:center}
 @media(max-width:800px){.country-map-illustrated{height:155px}}
 @media(max-width:480px){.country-map-illustrated{height:120px}}
+
+/* v6: preserve full lower pixel outlines and shadows, separate each sprite */
+.hero-sprite .sprite-menu{gap:clamp(8px,1.05vw,14px)}
+.hero-sprite .sprite-button{aspect-ratio:6.05/1;background-size:128% auto}
+.hero-sprite .sprite-continue{background-position:50% 1%}
+.hero-sprite .sprite-country{background-position:50% 25.5%}
+.hero-sprite .sprite-arcade{background-position:50% 50%}
+.hero-sprite .sprite-passport{background-position:50% 74.5%}
+.hero-sprite .sprite-small-row{gap:clamp(10px,1.1vw,17px);margin-top:3px}
+.hero-sprite .sprite-small-row .sprite-button{aspect-ratio:2.95/1;background-size:260% auto}
+@media(max-width:760px){.hero-sprite .sprite-menu{gap:9px}.hero-sprite .sprite-button{aspect-ratio:6.05/1}.hero-sprite .sprite-small-row{gap:10px;margin-top:3px}.hero-sprite .sprite-small-row .sprite-button{aspect-ratio:2.95/1}}

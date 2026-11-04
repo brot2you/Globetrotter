@@ -92,3 +92,16 @@
 .hero-sprite .sprite-about{background-position:100% 100%}
 .hero-sprite .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 @media(max-width:760px){.hero-sprite .sprite-menu{width:min(100%,450px);align-self:center;margin:0 auto 35px;gap:3px}.hero-sprite .sprite-button{aspect-ratio:5.9/1}.hero-sprite .sprite-small-row{gap:6px}}
+
+/* v5 precise sprite coordinates from the 1536x1024 transparent artwork */
+.hero-sprite .sprite-menu{gap:clamp(3px,.45vw,7px)}
+.hero-sprite .sprite-button{background-size:128% auto;aspect-ratio:6.4/1;overflow:visible}
+.hero-sprite .sprite-continue{background-position:50% 2%}
+.hero-sprite .sprite-country{background-position:50% 26%}
+.hero-sprite .sprite-arcade{background-position:50% 50%}
+.hero-sprite .sprite-passport{background-position:50% 74%}
+.hero-sprite .sprite-small-row{gap:clamp(6px,.7vw,12px)}
+.hero-sprite .sprite-small-row .sprite-button{background-size:260% auto;aspect-ratio:3.25/1}
+.hero-sprite .sprite-settings{background-position:16% 100%}
+.hero-sprite .sprite-about{background-position:82% 100%}
+@media(max-width:760px){.hero-sprite .sprite-button{aspect-ratio:6.4/1}.hero-sprite .sprite-small-row .sprite-button{aspect-ratio:3.25/1}}

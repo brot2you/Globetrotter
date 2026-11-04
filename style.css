@@ -175,3 +175,12 @@
 .hero-sprite .sprite-button:hover{transform:translateY(-2px) scale(1.025);filter:brightness(1.08) drop-shadow(0 5px 5px #0006)}
 .hero-sprite .sprite-button:active{transform:scale(.975)}
 @media(max-width:760px){.hero-sprite .sprite-menu{gap:5px}.hero-sprite .sprite-small-row{gap:7px}}
+
+/* Illustrated country identity card in Pixel Passport */
+.passport-country-profile{padding:clamp(12px,2vw,24px);border:2px solid #dfb86c;border-radius:18px;background:linear-gradient(145deg,#173d5e,#102942);margin:16px 0 25px}
+.passport-country-profile h2{margin:0 0 6px;color:#ffe3a0}
+.passport-profile-art{display:block;width:100%;height:auto;max-height:1000px;object-fit:contain;border-radius:10px}
+.passport-profile-art[hidden],.passport-profile-pending[hidden]{display:none}
+.passport-profile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.passport-profile-facts span{border:1px solid #5b8eb0;background:#0c2c49;padding:10px;border-radius:9px}
+@media(max-width:600px){.passport-profile-facts{grid-template-columns:1fr}.passport-country-profile{padding:10px}}

@@ -75,3 +75,20 @@
  .hero-v4 .home-small span{font-size:21px}
  .hero-v4 .home-signature{left:50%;transform:translateX(-50%)}
 }
+
+/* Authentic transparent illustrated button sprite — source assets/boutons-accueil.png.png */
+.hero-sprite .sprite-menu{width:min(560px,46%);align-self:flex-end;display:flex;flex-direction:column;gap:5px;margin:0 1.5% 4% 0;position:relative;z-index:2}
+.hero-sprite .sprite-button{display:block;appearance:none;border:0;outline:0;cursor:pointer;background-color:transparent;background-image:url('assets/boutons-accueil.png.png');background-repeat:no-repeat;background-size:125% 500%;width:100%;aspect-ratio:5.9/1;padding:0;margin:0;filter:drop-shadow(0 4px 3px #06132a66);transition:transform .15s,filter .15s}
+.hero-sprite .sprite-button:hover{transform:scale(1.035);filter:brightness(1.12) drop-shadow(0 5px 5px #06132a88)}
+.hero-sprite .sprite-button:active{transform:scale(.975)}
+.hero-sprite .sprite-button:focus-visible{outline:3px solid #fff;border-radius:12px;outline-offset:2px}
+.hero-sprite .sprite-continue{background-position:50% 0%}
+.hero-sprite .sprite-country{background-position:50% 25%}
+.hero-sprite .sprite-arcade{background-position:50% 50%}
+.hero-sprite .sprite-passport{background-position:50% 75%}
+.hero-sprite .sprite-small-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.hero-sprite .sprite-small-row .sprite-button{background-size:250% 500%;aspect-ratio:2.85/1}
+.hero-sprite .sprite-settings{background-position:0% 100%}
+.hero-sprite .sprite-about{background-position:100% 100%}
+.hero-sprite .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:760px){.hero-sprite .sprite-menu{width:min(100%,450px);align-self:center;margin:0 auto 35px;gap:3px}.hero-sprite .sprite-button{aspect-ratio:5.9/1}.hero-sprite .sprite-small-row{gap:6px}}

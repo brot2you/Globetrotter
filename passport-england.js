@@ -38,6 +38,7 @@ function render(){
 }
 const root=document.querySelector('#app');if(!root)return;
 const observer=new MutationObserver(()=>{if(!root.querySelector('.passport-interactive'))render()});
-observer.observe(root,{childList:true,subtree:false});
+observer.observe(root,{childList:true,subtree:true});
+document.addEventListener('click',()=>setTimeout(render,0),true);
 render();
 })();

@@ -146,3 +146,12 @@
 .city-select-illustrated .map-fallback{width:100%;min-height:280px}
 .city-select-illustrated .map-fallback[hidden]{display:none}
 @media(max-width:800px){.city-select-illustrated .england-map-image{max-height:68vh}.city-select-illustrated{padding:5px}}
+
+/* Illustrated country maps in Choose a Country */
+.country-map-illustrated{height:190px;isolation:isolate}
+.country-map-illustrated .country-pixel-image{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain}
+.country-map-illustrated .country-pixel-image[hidden],.country-map-illustrated .country-map-placeholder[hidden]{display:none}
+.country-map-illustrated .country-map-placeholder{width:100%;height:100%}
+.country-map-illustrated .country-map-placeholder:not([hidden]){display:grid;place-items:center}
+@media(max-width:800px){.country-map-illustrated{height:155px}}
+@media(max-width:480px){.country-map-illustrated{height:120px}}

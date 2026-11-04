@@ -168,3 +168,31 @@ button{cursor:pointer}
 /* GLOBETROTTER mobile illustration, desktop artwork unchanged. */
 @media(max-width:760px){.gt-home{background-image:url('assets/globetrotter/background_mobile.webp'),url('assets/globetrotter/background.webp');background-size:cover,cover;background-position:center center,40% center;background-repeat:no-repeat}}
 @media(max-width:420px){.gt-home{background-position:center center,37% center}}
+
+/* GLOBETROTTER mobile-first home: calm hero, legible actions, destinations outside the art */
+.gt-mobile-more{display:none}
+@media(max-width:760px){
+ .gt-home{height:auto!important;min-height:0!important;overflow:visible;display:flex;flex-direction:column;gap:12px;padding:0 12px 16px;border-radius:18px;background-image:none!important;background:#112543!important;isolation:isolate}
+ .gt-home::before{content:"";position:absolute;inset:0 0 auto;height:clamp(310px,90vw,490px);z-index:-1;background:linear-gradient(180deg,#07172a10 0%,#07172a00 52%,#112543 100%),url('assets/globetrotter/background_mobile.webp') center top/cover no-repeat;pointer-events:none}
+ .gt-logo{position:relative;top:auto;left:auto;width:min(92%,430px);height:auto;max-height:none;margin:12px auto clamp(155px,43vw,245px);display:block;filter:drop-shadow(0 4px 4px #061326)}
+ .gt-start{position:relative;inset:auto;width:100%;order:1;margin:0;text-align:center}
+ .gt-start .btn{width:100%;max-width:100%;font-size:clamp(16px,4vw,21px)!important;padding:15px 10px!important;min-height:58px;border-radius:14px;white-space:normal}
+ .gt-menu{position:relative;inset:auto;width:100%;height:auto;order:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:10px}
+ .gt-menu-button{height:auto;min-height:64px;aspect-ratio:3.4;filter:drop-shadow(0 3px 2px #0005)}
+ .gt-menu-button:nth-child(n+3){display:none}
+ .gt-menu-button img{width:100%;height:100%;object-fit:contain!important}
+ .gt-mobile-more{display:block;position:relative;order:3;width:100%;border:2px solid #d9ad59;border-radius:13px;background:#152d50f5;color:#ffe3a1;overflow:hidden}
+ .gt-mobile-more summary{cursor:pointer;list-style:none;text-align:center;font-size:15px;font-weight:900;letter-spacing:.05em;padding:15px 10px;min-height:50px}
+ .gt-mobile-more summary::-webkit-details-marker{display:none}
+ .gt-mobile-more summary span{margin-left:8px}
+ .gt-mobile-more[open] summary{border-bottom:1px solid #b58e4b}
+ .gt-mobile-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
+ .gt-mobile-more-btn{padding:0;background:transparent;border:0;min-height:58px;aspect-ratio:3.3;cursor:pointer}
+ .gt-mobile-more-btn img{width:100%;height:100%;object-fit:contain;display:block}
+ .gt-destinations{position:relative;inset:auto;width:100%;height:auto;order:4;margin:0;padding:12px 8px;border-radius:13px;overflow:hidden}
+ .gt-dest-title{font-size:16px;line-height:1.4;margin-bottom:8px}
+ .gt-dest-scroll{height:112px;gap:10px;align-items:stretch;overflow-x:auto;overflow-y:hidden}
+ .gt-country{flex:0 0 138px;min-height:100px}
+ .gt-country img{width:100%;height:100%;object-fit:contain!important}
+}
+@media(max-width:420px){.gt-home{gap:10px;padding:0 9px 12px}.gt-logo{margin-bottom:clamp(135px,39vw,180px)}.gt-dest-scroll{height:100px}.gt-country{flex-basis:124px}}

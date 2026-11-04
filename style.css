@@ -169,58 +169,33 @@ button{cursor:pointer}
 @media(max-width:760px){.gt-home{background-image:url('assets/globetrotter/background_mobile.webp'),url('assets/globetrotter/background.webp');background-size:cover,cover;background-position:center center,40% center;background-repeat:no-repeat}}
 @media(max-width:420px){.gt-home{background-position:center center,37% center}}
 
-/* GLOBETROTTER mobile-first home: calm hero, legible actions, destinations outside the art */
-.gt-mobile-more{display:none}
+/* V1.1 — phone-first home. Desktop and all game views unchanged. */
+.gt-mobile-panel{display:none}
 @media(max-width:760px){
- .gt-home{height:auto!important;min-height:0!important;overflow:visible;display:flex;flex-direction:column;gap:12px;padding:0 12px 16px;border-radius:18px;background-image:none!important;background:#112543!important;isolation:isolate}
- .gt-home::before{content:"";position:absolute;inset:0 0 auto;height:clamp(310px,90vw,490px);z-index:-1;background:linear-gradient(180deg,#07172a10 0%,#07172a00 52%,#112543 100%),url('assets/globetrotter/background_mobile.webp') center top/cover no-repeat;pointer-events:none}
- .gt-logo{position:relative;top:auto;left:auto;width:min(92%,430px);height:auto;max-height:none;margin:12px auto clamp(155px,43vw,245px);display:block;filter:drop-shadow(0 4px 4px #061326)}
- .gt-start{position:relative;inset:auto;width:100%;order:1;margin:0;text-align:center}
- .gt-start .btn{width:100%;max-width:100%;font-size:clamp(16px,4vw,21px)!important;padding:15px 10px!important;min-height:58px;border-radius:14px;white-space:normal}
- .gt-menu{position:relative;inset:auto;width:100%;height:auto;order:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:10px}
- .gt-menu-button{height:auto;min-height:64px;aspect-ratio:3.4;filter:drop-shadow(0 3px 2px #0005)}
- .gt-menu-button:nth-child(n+3){display:none}
- .gt-menu-button img{width:100%;height:100%;object-fit:contain!important}
- .gt-mobile-more{display:block;position:relative;order:3;width:100%;border:2px solid #d9ad59;border-radius:13px;background:#152d50f5;color:#ffe3a1;overflow:hidden}
- .gt-mobile-more summary{cursor:pointer;list-style:none;text-align:center;font-size:15px;font-weight:900;letter-spacing:.05em;padding:15px 10px;min-height:50px}
+ .gt-home{height:auto!important;min-height:0!important;overflow:visible;display:flex;flex-direction:column;align-items:stretch;padding:clamp(285px,83vw,420px) 12px 15px;background-image:linear-gradient(180deg,transparent 0%,transparent 22%,#0a1b34c9 49%,#0b1a33 73%),url('assets/globetrotter/background_mobile.webp')!important;background-size:100% 100%,100% auto!important;background-position:center top!important;background-repeat:no-repeat!important;background-color:#0c2342;border-radius:20px}
+ .gt-home:before{display:none}
+ .gt-logo{top:12px;left:5%;width:90%;max-height:none;height:auto;z-index:2}
+ .gt-menu,.gt-start{display:none!important}
+ .gt-mobile-panel{display:block;position:relative;z-index:2;margin-bottom:18px}
+ .gt-mobile-primary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .gt-mobile-cta{grid-column:1/-1;min-height:58px;background:linear-gradient(#34c9aa,#087d79);border:3px solid #e7c36f;border-radius:15px;color:#fff;box-shadow:0 5px 0 #092b3a;font-weight:1000;font-size:clamp(15px,4.4vw,21px);text-shadow:0 2px #064e56;cursor:pointer}
+ .gt-mobile-action{min-width:0;min-height:68px;border:0;background:transparent;padding:0;cursor:pointer}
+ .gt-mobile-action img{width:100%;height:78px;object-fit:contain;display:block}
+ .gt-mobile-more{margin-top:15px;border:2px solid #e5b65e;border-radius:13px;background:#102846f2;color:#ffe5a4;overflow:hidden}
+ .gt-mobile-more summary{list-style:none;cursor:pointer;min-height:51px;display:flex;justify-content:center;align-items:center;gap:13px;font-weight:900;letter-spacing:.4px;font-size:14px}
  .gt-mobile-more summary::-webkit-details-marker{display:none}
- .gt-mobile-more summary span{margin-left:8px}
- .gt-mobile-more[open] summary{border-bottom:1px solid #b58e4b}
- .gt-mobile-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
- .gt-mobile-more-btn{padding:0;background:transparent;border:0;min-height:58px;aspect-ratio:3.3;cursor:pointer}
- .gt-mobile-more-btn img{width:100%;height:100%;object-fit:contain;display:block}
- .gt-destinations{position:relative;inset:auto;width:100%;height:auto;order:4;margin:0;padding:12px 8px;border-radius:13px;overflow:hidden}
- .gt-dest-title{font-size:16px;line-height:1.4;margin-bottom:8px}
- .gt-dest-scroll{height:112px;gap:10px;align-items:stretch;overflow-x:auto;overflow-y:hidden}
- .gt-country{flex:0 0 138px;min-height:100px}
- .gt-country img{width:100%;height:100%;object-fit:contain!important}
+ .gt-mobile-more[open] summary{border-bottom:1px solid #b78f4f}
+ .gt-mobile-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px}
+ .gt-mobile-more-grid button{border:0;background:transparent;min-height:62px;padding:0;cursor:pointer}
+ .gt-mobile-more-grid img{display:block;width:100%;height:72px;object-fit:contain}
+ .gt-destinations{position:relative!important;left:auto!important;bottom:auto!important;width:100%!important;height:auto!important;min-height:0;overflow:hidden;padding:10px 8px 12px;border-radius:14px;background:#102442ed}
+ .gt-dest-title{font-size:16px;margin:0 0 9px}.gt-dest-title span{display:none}
+ .gt-dest-scroll{height:auto!important;min-height:100px;gap:10px;padding:0 0 5px;overflow-x:auto;overflow-y:hidden;align-items:stretch}
+ .gt-country{flex:0 0 145px;height:103px}.gt-country img{width:100%;height:100%;object-fit:contain}
+ body:has(.gt-home) .dock{display:none!important}
+ .gt-home button:focus-visible,.gt-mobile-more summary:focus-visible{outline:3px solid #fff6a3;outline-offset:2px}
 }
-@media(max-width:420px){.gt-home{gap:10px;padding:0 9px 12px}.gt-logo{margin-bottom:clamp(135px,39vw,180px)}.gt-dest-scroll{height:100px}.gt-country{flex-basis:124px}}
+@media(max-width:390px){.gt-home{padding-top:clamp(260px,80vw,325px)}.gt-mobile-action img{height:68px}.gt-country{flex-basis:130px}}
 
-/* Mobile button artwork: use single column so full-size illustrations never overlap. */
-@media(max-width:760px){
- .gt-home .gt-menu{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:repeat(2,auto)!important;gap:14px!important;width:min(100%,380px)!important;align-self:center}
- .gt-home .gt-menu-button{box-sizing:border-box;width:100%!important;min-width:0!important;min-height:0!important;height:clamp(66px,18vw,88px)!important;aspect-ratio:auto!important;overflow:hidden!important;filter:none}
- .gt-home .gt-menu-button img{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
- .gt-home .gt-mobile-more-grid{grid-template-columns:minmax(0,1fr);gap:12px}
- .gt-home .gt-mobile-more-btn{width:100%;height:76px;aspect-ratio:auto;overflow:hidden}
- .gt-home .gt-mobile-more-btn img{max-width:100%;max-height:100%;object-fit:contain}
-}
-
-/* Mobile home v107: no overlap, no floating dock obscuring content */
-@media(max-width:760px){
- .gt-home .gt-menu{display:flex!important;flex-direction:column!important;align-items:center!important;gap:18px!important;width:100%!important}
- .gt-home .gt-menu>.gt-menu-button{display:block!important;flex:none!important;width:min(100%,360px)!important;height:82px!important;margin:0 auto!important;overflow:hidden!important;transform:none!important}
- .gt-home .gt-menu>.gt-menu-button:nth-child(n+3){display:none!important}
- .gt-home .gt-menu>.gt-menu-button img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
- .shell:has(.gt-home) .dock{position:relative!important;bottom:auto!important;z-index:1!important;margin:16px 0!important}
- .gt-home .gt-mobile-more{margin-top:4px}
- .gt-home .gt-destinations{margin-bottom:6px}
-}
-
-/* V108: readable activity list, no duplicate illustrated buttons or broken image placeholders */
-@media(max-width:760px){
- .gt-home .gt-mobile-more-grid{display:grid;grid-template-columns:1fr!important;gap:9px!important;padding:12px!important}
- .gt-home .gt-mobile-more-btn{display:flex!important;align-items:center;justify-content:center;box-sizing:border-box;min-height:54px!important;height:auto!important;aspect-ratio:auto!important;width:100%!important;padding:12px 14px!important;background:linear-gradient(180deg,#305a8a,#163257)!important;color:#fff4d8!important;border:2px solid #e4b85c!important;border-radius:12px!important;box-shadow:inset 0 2px #ffffff22,0 3px #091c35;font-size:16px!important;font-weight:850!important;text-align:center;line-height:1.3}
- .gt-home .gt-mobile-more-btn:focus-visible{outline:3px solid white;outline-offset:2px}
-}
+/* World screen: distinct world overview before the England journey card. */
+.world-map-hero{overflow:hidden;border:4px solid #d6ad69;border-radius:16px;background:#142b47;box-shadow:0 8px 24px #08192c66;margin:18px 0 26px}.world-map-hero>img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;image-rendering:auto}.world-map-caption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 18px;color:#ffe2a1;font-weight:900;letter-spacing:.05em;background:#173a5a}.world-map-caption span{color:#d5e9f3;font-size:12px;font-weight:600;letter-spacing:normal}@media(max-width:760px){.world-map-hero{margin:12px 0 18px;border-width:3px}.world-map-hero>img{max-height:260px}.world-map-caption{display:block;text-align:center;font-size:15px}.world-map-caption span{display:block;margin-top:5px;font-size:11px}}

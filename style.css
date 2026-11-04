@@ -164,3 +164,7 @@ button{cursor:pointer}
 .topbar .brand:hover{filter:brightness(1.15)}
 .gt-header-icon{display:block;width:57px;height:57px;image-rendering:pixelated;filter:drop-shadow(0 2px 0 #101c37)}
 @media(max-width:560px){.topbar{gap:7px;padding:7px 2px;min-height:64px}.topbar .brand{width:51px;height:51px;min-height:51px;border-radius:10px}.gt-header-icon{width:44px;height:44px}.statbar{gap:4px}.stat{padding:5px 6px;font-size:12px}.pill.tiny{min-width:45px;padding:7px 8px}}
+
+/* GLOBETROTTER mobile illustration, desktop artwork unchanged. */
+@media(max-width:760px){.gt-home{background-image:url('assets/globetrotter/background_mobile.webp'),url('assets/globetrotter/background.webp');background-size:cover,cover;background-position:center center,40% center;background-repeat:no-repeat}}
+@media(max-width:420px){.gt-home{background-position:center center,37% center}}

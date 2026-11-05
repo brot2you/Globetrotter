@@ -457,3 +457,10 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 
 /* Align London to the Big Ben / London Eye illustration; previous marker sat at Oxford */
 .country-select-v2 .city-select-illustrated .city-map-london{left:88.3%!important;top:57.2%!important}
+
+/* City marker fix: positions anchored to the displayed map image, including mobile. */
+.country-select-v2 .city-select-illustrated .city-map-image-anchor{position:relative;display:block;width:fit-content;max-width:100%;margin:auto}
+.country-select-v2 .city-select-illustrated .city-map-image-anchor .england-map-image{max-width:100%;width:auto;height:auto;display:block}
+.country-select-v2 .city-select-illustrated .city-map-image-anchor .city-map-lights{position:absolute;inset:0;pointer-events:none}
+.country-select-v2 .city-select-illustrated .city-map-london{left:79.0%!important;top:68.0%!important}
+.country-select-v2 .city-select-illustrated .city-map-oxford{left:68.0%!important;top:64.0%!important}

@@ -357,3 +357,25 @@ body{
 .country-select-v2 .country-back{display:block;margin:27px auto 0!important;border:3px solid #9c5c2d!important;border-radius:6px!important;background:linear-gradient(#ffe5a1,#e9a94b)!important;color:#44240e!important;box-shadow:inset 0 0 0 2px #fff1c5,0 5px 0 #7c461e!important;padding:12px 22px!important;font-family:Georgia,serif;font-weight:900;font-size:16px}
 .country-select-v2 .country-back:hover{filter:brightness(1.08)}
 @media(max-width:800px){.country-select-v2{padding:18px 12px 34px!important}.country-select-v2 .city-select-feature{gap:20px}.country-select-v2 .city-open,.country-select-v2 .city-locked{padding:14px 17px!important}.country-select-v2 .city-open strong{font-size:24px}}
+
+/* Choose a City: individually uploaded premium UI assets */
+body:has(.country-select-v2) .top .nav .pill{background-color:transparent!important;background-repeat:no-repeat!important;background-position:center!important;background-size:100% 100%!important;border:0!important;box-shadow:none!important;color:transparent!important;text-shadow:none!important;font-size:0!important;width:clamp(105px,10vw,165px);height:46px;padding:0!important;transition:transform .15s,filter .15s}
+body:has(.country-select-v2) .top .nav .pill:nth-child(1){background-image:url('assets/city-ui/nav-home.png')}
+body:has(.country-select-v2) .top .nav .pill:nth-child(2){background-image:url('assets/city-ui/nav-adventure.png')}
+body:has(.country-select-v2) .top .nav .pill:nth-child(3){background-image:url('assets/city-ui/nav-arcade.png')}
+body:has(.country-select-v2) .top .nav .pill:nth-child(4){background-image:url('assets/city-ui/nav-passport.png')}
+body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.country-select-v2 .country-title h1{background:url('assets/city-ui/title-frame.png') center/100% 100% no-repeat!important;max-width:640px;min-height:105px;display:flex;align-items:center;justify-content:center;margin:8px auto 0!important;padding:14px 45px 20px;color:#fff3c9!important;text-shadow:2px 3px #071a32,0 0 10px #091b39;font-size:clamp(31px,4vw,52px)!important}
+.country-select-v2 .country-title p{background:url('assets/city-ui/subtitle-ribbon.png') center/100% 100% no-repeat;max-width:790px;min-height:62px;padding:17px 55px!important;color:#422611!important;font-weight:900}
+.country-select-v2 .city-select-illustrated{border:0!important;background:transparent url('assets/city-ui/map-frame.png') center/100% 100% no-repeat!important;padding:17px!important;box-shadow:none!important;border-radius:0!important}
+.country-select-v2 .city-select-illustrated .england-map-image{max-height:72vh;border-radius:0!important;object-fit:contain}
+.country-select-v2 .city-open,.country-select-v2 .city-locked{background-image:url('assets/city-ui/city-london.png')!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:132px!important;padding:20px 30px!important}
+.country-select-v2 .city-locked{background-image:url('assets/city-ui/city-locked-1.png')!important;min-height:103px!important;padding-left:80px!important}
+.country-select-v2 .city-locked:nth-child(3){background-image:url('assets/city-ui/city-locked-2.png')!important}
+.country-select-v2 .city-locked:nth-child(4){background-image:url('assets/city-ui/city-locked-1.png')!important}
+.country-select-v2 .city-open strong{font-size:clamp(22px,2.3vw,31px)}
+.country-select-v2 .city-open span{background:url('assets/city-ui/start-adventure.png') center/100% 100% no-repeat!important;min-width:240px;min-height:48px;display:flex;align-items:center;justify-content:center;border:0!important;box-shadow:none!important;color:transparent!important;font-size:0!important;margin-top:9px}
+.country-select-v2 .country-back{background:url('assets/city-ui/all-countries.png') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;width:270px;height:68px;color:transparent!important;font-size:0!important}
+.country-select-v2 .country-back:hover{filter:brightness(1.1)}
+@media(max-width:800px){body:has(.country-select-v2) .top .nav .pill{width:100px;height:38px}.country-select-v2 .country-title h1{min-height:80px;padding:10px 25px}.country-select-v2 .country-title p{padding:16px 25px!important}.country-select-v2 .city-open,.country-select-v2 .city-locked{min-height:115px!important;padding:16px 22px!important}.country-select-v2 .city-locked{padding-left:65px!important}.country-select-v2 .city-open span{min-width:190px}}
+@media(max-width:480px){body:has(.country-select-v2) .top .nav .pill{width:82px;height:32px}.country-select-v2 .country-title h1{font-size:29px!important}.country-select-v2 .country-title p{font-size:12px;padding:14px 22px!important}.country-select-v2 .city-select-illustrated{padding:10px!important}}

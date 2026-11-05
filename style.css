@@ -379,3 +379,7 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .country-back:hover{filter:brightness(1.1)}
 @media(max-width:800px){body:has(.country-select-v2) .top .nav .pill{width:100px;height:38px}.country-select-v2 .country-title h1{min-height:80px;padding:10px 25px}.country-select-v2 .country-title p{padding:16px 25px!important}.country-select-v2 .city-open,.country-select-v2 .city-locked{min-height:115px!important;padding:16px 22px!important}.country-select-v2 .city-locked{padding-left:65px!important}.country-select-v2 .city-open span{min-width:190px}}
 @media(max-width:480px){body:has(.country-select-v2) .top .nav .pill{width:82px;height:32px}.country-select-v2 .country-title h1{font-size:29px!important}.country-select-v2 .country-title p{font-size:12px;padding:14px 22px!important}.country-select-v2 .city-select-illustrated{padding:10px!important}}
+
+/* Fit both country and city headings inside their illustrated title frames */
+.country-select-v2 .country-title h1{box-sizing:border-box!important;width:min(100%,640px)!important;min-height:0!important;height:clamp(88px,11vw,128px)!important;padding:15px 64px 20px!important;margin:8px auto 0!important;line-height:1.05!important;font-size:clamp(25px,3.5vw,47px)!important;white-space:normal!important;text-align:center!important;overflow-wrap:normal!important;text-wrap:balance!important}
+@media(max-width:600px){.country-select-v2 .country-title h1{height:clamp(74px,21vw,104px)!important;padding:12px 43px 17px!important;font-size:clamp(22px,6vw,35px)!important}}

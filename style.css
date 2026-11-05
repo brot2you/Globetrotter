@@ -295,3 +295,22 @@ body{
  .scene,.scene-inner{min-height:calc(100dvh - 105px)}
  .footer{padding:8px}
 }
+
+/* Accessibility contrast fix for parchment theme: dark ink on light paper */
+.screen-pad,.screen-pad p,.screen-pad li,.screen-pad label,.screen-pad small,
+.screen-pad .card,.screen-pad .card p,.screen-pad .card h2,.screen-pad .card h3,
+.screen-pad .panel,.screen-pad .panel p,.screen-pad .notice,
+.screen-pad .status{color:#392719}
+.screen-pad h1,.screen-pad h2,.screen-pad h3{color:#71381e}
+.screen-pad .muted,.screen-pad p.muted{color:#695039}
+.screen-pad .btn,.screen-pad .pill,.screen-pad .option{color:#3b2515}
+.screen-pad .btn.gold{color:#352318}
+.screen-pad .england-id-card,.screen-pad .england-id-card p,
+.screen-pad .england-id-card h2,.screen-pad .england-id-card small{color:#54321f}
+.screen-pad .england-id-fact.is-locked,.screen-pad .england-id-fact.is-locked small,
+.screen-pad .england-id-fact.is-locked strong{color:#504739}
+.screen-pad .england-id-fact.is-found{color:#34251b}
+.side,.side p,.side .sidebox,.side .sidebox p,.side .sidebox h3{color:#392719}
+.side .muted,.sidebox .muted{color:#6b4d33}
+.side .btn{color:#3b2515}
+.screen-pad .card .emoji{color:inherit}

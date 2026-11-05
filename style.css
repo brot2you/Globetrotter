@@ -419,3 +419,9 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .country-title{width:100%!important;max-width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
 .country-select-v2 .country-title h1{box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;align-self:center!important;text-align:center!important;width:min(100%,640px)!important;max-width:640px!important;margin:8px auto 0!important;padding:12px 54px 18px!important;text-indent:0!important;transform:none!important;position:relative!important;left:auto!important;right:auto!important;line-height:1.12!important}
 @media(max-width:600px){.country-select-v2 .country-title h1{padding:10px 32px 15px!important;font-size:clamp(21px,5.5vw,34px)!important}}
+
+/* Center London tile heading and subtitle as a single readable group */
+.country-select-v2 .city-select-list .city-open{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:24px 34px!important;gap:8px!important}
+.country-select-v2 .city-select-list .city-open strong{width:100%!important;display:block!important;text-align:center!important;margin:0!important;line-height:1.15!important}
+.country-select-v2 .city-select-list .city-open small{width:100%!important;display:block!important;text-align:center!important;margin:0!important;line-height:1.35!important}
+@media(max-width:600px){.country-select-v2 .city-select-list .city-open{padding:22px 25px!important}}

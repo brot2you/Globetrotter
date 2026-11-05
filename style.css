@@ -314,3 +314,24 @@ body{
 .side .muted,.sidebox .muted{color:#6b4d33}
 .side .btn{color:#3b2515}
 .screen-pad .card .emoji{color:inherit}
+
+/* Country selection: parchment-friendly readable title and playful pastel country cards */
+.country-title .country-eyebrow{color:#895020!important;text-shadow:none!important}
+.country-title h1{color:#5b2c1b!important;text-shadow:0 2px 0 #fff3ce!important}
+.country-title p{color:#62472e!important;font-weight:700;text-shadow:none!important}
+.country-map-card{background:linear-gradient(155deg,#fff3d5,#e6bf88)!important;border-color:#ae713c!important;color:#3d2819!important;box-shadow:0 5px 0 #8e5b34,0 10px 20px #6e452d35!important}
+.country-map-card:nth-child(6n+1){background:linear-gradient(155deg,#e4f5ff,#a9d9ed)!important;border-color:#478faf!important}
+.country-map-card:nth-child(6n+2){background:linear-gradient(155deg,#eaf9e4,#b3dbad)!important;border-color:#73a86a!important}
+.country-map-card:nth-child(6n+3){background:linear-gradient(155deg,#fff0df,#f6c6a1)!important;border-color:#cc8e58!important}
+.country-map-card:nth-child(6n+4){background:linear-gradient(155deg,#ffeae7,#efb8b5)!important;border-color:#c97b77!important}
+.country-map-card:nth-child(6n+5){background:linear-gradient(155deg,#e4f7f2,#a8d7ca)!important;border-color:#5c9c8b!important}
+.country-map-card:nth-child(6n+6){background:linear-gradient(155deg,#f2eaff,#d5bdec)!important;border-color:#9c79b8!important}
+.country-map-card.is-available{border-color:#b17b35!important}
+.country-map-card.is-locked{opacity:1}
+.country-map-top{color:#382619!important;text-shadow:none}
+.country-map-cities{color:#58412f!important;font-weight:650}
+.country-map-status{background:#705943!important;color:#fff1c8!important}
+.country-map-card.is-available .country-map-status{background:linear-gradient(#ffe584,#edac38)!important;color:#422918!important}
+.country-map-card.is-available:hover{box-shadow:0 9px 0 #8e5b34,0 14px 23px #6e452d45!important}
+.country-map-card.is-available:focus-visible{outline:3px solid #287bb5}
+.country-back{color:#3b2515}

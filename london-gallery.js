@@ -73,7 +73,7 @@ const KEY='globetrotter-london-explorer-v1';
 let completed=[];try{const saved=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(saved))completed=saved.filter(x=>Number.isInteger(x)&&x>=0&&x<places.length)}catch{}
 const JOURNAL_KEY='globetrotter-london-journal-v1';
 let journal={};try{const stored=JSON.parse(localStorage.getItem(JOURNAL_KEY)||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))journal=stored}catch{}
-const discovered=()=>Object.keys(journal).filter(k=>/^\\d+-[012]$/.test(k));
+const discovered=()=>Object.keys(journal).filter(k=>/^\d+-[012]$/.test(k));
 const journalSave=()=>{try{localStorage.setItem(JOURNAL_KEY,JSON.stringify(journal))}catch{}};
 let active=false,previousHTML='',lastIndex=0,phase='talk',feedback='',dialogueStep=0,dialogueBranch=-1,tab='map',newClue='';
 function nav(){return `<header class="top"><div><div class="brand">🌍 GLOBETROTTER</div><div class="tag">LONDON ADVENTURE · by BROT2YOU</div></div><nav class="nav"><button class="pill" data-london-close="1">⌂ Home</button><button class="pill" data-london-tab="map">🗺️ Places</button><button class="pill" data-london-tab="journal">📓 Story Journal</button><button class="pill" data-london-tab="guide">❔ Guide</button></nav></header>`}

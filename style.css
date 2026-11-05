@@ -425,3 +425,17 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .city-select-list .city-open strong{width:100%!important;display:block!important;text-align:center!important;margin:0!important;line-height:1.15!important}
 .country-select-v2 .city-select-list .city-open small{width:100%!important;display:block!important;text-align:center!important;margin:0!important;line-height:1.35!important}
 @media(max-width:600px){.country-select-v2 .city-select-list .city-open{padding:22px 25px!important}}
+
+/* England city selector: animated geographic highlights on hover, keyboard focus and touch */
+.country-select-v2 .city-select-illustrated{position:relative!important;isolation:isolate}
+.country-select-v2 .city-select-illustrated .england-map-image{position:relative;z-index:1}
+.country-select-v2 .city-map-lights{position:absolute;inset:0;z-index:3;pointer-events:none}
+.country-select-v2 .city-map-light{position:absolute;width:17px;height:17px;transform:translate(-50%,-50%) scale(.7);border:2px solid #fff5bc;border-radius:50%;background:#ffd24b;box-shadow:0 0 0 5px #ffdb4c44,0 0 15px 6px #ffcf34a0;opacity:.25;transition:opacity .2s,transform .24s,box-shadow .24s}
+.country-select-v2 .city-map-london{left:62%;top:77%}
+.country-select-v2 .city-map-oxford{left:56%;top:72%}
+.country-select-v2 .city-map-liverpool{left:47%;top:59%}
+.country-select-v2 .city-map-manchester{left:54%;top:57%}
+.country-select-v2 .city-select-feature[data-active-city="london"] .city-map-london,.country-select-v2 .city-select-feature[data-active-city="oxford"] .city-map-oxford,.country-select-v2 .city-select-feature[data-active-city="liverpool"] .city-map-liverpool,.country-select-v2 .city-select-feature[data-active-city="manchester"] .city-map-manchester{opacity:1;transform:translate(-50%,-50%) scale(1.4);box-shadow:0 0 0 10px #ffdb4c55,0 0 26px 12px #ffe05c}
+.country-select-v2 .city-select-list button.city-locked{width:100%;cursor:help;font-family:inherit}
+.country-select-v2 .city-select-list button.city-locked:hover,.country-select-v2 .city-select-list button.city-locked:focus-visible{filter:brightness(1.18);outline:2px solid #ffdc76;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.country-select-v2 .city-map-light{transition:none!important}}

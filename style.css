@@ -451,3 +451,6 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .city-select-feature[data-active-city="oxford"] .city-map-oxford,
 .country-select-v2 .city-select-feature[data-active-city="liverpool"] .city-map-liverpool,
 .country-select-v2 .city-select-feature[data-active-city="manchester"] .city-map-manchester{opacity:1!important}
+
+/* London marker: align with illustrated Big Ben and London Eye, not the south-east coast */
+.country-select-v2 .city-select-illustrated .city-map-london{left:78.3%!important;top:66.6%!important}

@@ -22,7 +22,7 @@ const evidence=[["A ticket stamped CAMDEN TOWN","A lost-property reference numbe
 const countryFacts=[["Country","England",0,0],["Capital","London",1,0],["Language","English",12,1],["Currency","Pound sterling (£)",2,0],["Flag of England","St George's Cross",8,2],["UK flag","Union Flag",1,1],["Location","North-west Europe",15,0],["United Kingdom","England, Scotland, Wales and Northern Ireland",4,0],["River","River Thames",6,2],["Government","UK Parliament at Westminster",4,0],["Head of state","UK monarch",5,0],["Landmark","Tower Bridge",6,0],["Historic site","Tower of London",7,1],["Transport","London Underground",10,1],["Food","Fish and chips",13,0],["Culture","Camden Market",2,0]];
 const unlockedFacts=()=>countryFacts.filter(f=>journal[f[2]+'-'+f[3]]);
 const iconFor=(label)=>({Capital:[0,0],Language:[33.33,0],Culture:[66.67,0],'Royal Landmark':[100,0],River:[0,100],Transport:[50,100],Museum:[100,100]}[label]||null);
-const identityIcon=(label)=>{const p=iconFor(label);return p?`<span class="country-icon" aria-hidden="true" style="background-position:${p[0]}% ${p[1]}%"></span>`:''};
+const identityIcon=(label)=>{const p=iconFor(label);return p?`<span class="country-icon ${p[1]===100?'country-icon-bottom':'country-icon-top'}" aria-hidden="true" style="background-position:${p[0]}% ${p[1]}%"></span>`:''};
 const identityPage=()=>`<div class="london-guide"><h2>🪪 England · Country Identity Card</h2><p>Build your country profile through conversations. England is one of the four countries of the United Kingdom.</p><p>${unlockedFacts().length}/16 facts collected</p><div class="london-journal-grid">${countryFacts.map(f=>`<section class="london-journal-place"><h3>${identityIcon(f[0])}${escape(f[0])}</h3>${journal[f[2]+'-'+f[3]]?`<p>✓ <strong>${escape(f[1])}</strong></p>`:`<p>🔒 Not collected yet</p><p>Visit: ${escape(places[f[2]][0])}</p><button data-london-place="${f[2]}">💬 Investigate</button>`}</section>`).join('')}</div></div>`;
 const style=document.createElement('style');style.textContent=`
 .london-gallery{padding:clamp(16px,3vw,44px);color:#462d20;background:linear-gradient(135deg,#fff3d4,#f7d6a2);min-height:80vh}
@@ -71,9 +71,9 @@ const style=document.createElement('style');style.textContent=`
 .london-journal-place h3{color:#6a381b;margin:0 0 8px}.london-journal-place p{margin:5px 0;font-size:.91rem}
 .london-journal-place button,.london-guide button{border:2px solid #a06b32;border-radius:10px;background:#ffe2a2;padding:9px 12px;font-weight:800;cursor:pointer;margin-top:10px}
 
-.country-icon{display:block;width:100px;height:116px;max-width:100%;margin:0 auto 8px;background-image:url('assets/country-icons.png.png?v=1');background-repeat:no-repeat;background-size:400% 200%;image-rendering:pixelated}
+.country-icon{display:block;width:120px;height:120px;max-width:100%;margin:0 auto 8px;background-image:url('assets/country-icons.png.png?v=2');background-repeat:no-repeat;image-rendering:pixelated}.country-icon-top{background-size:400% 200%}.country-icon-bottom{background-size:300% 200%}
 .london-journal-place h3{text-align:center}
-@media(max-width:600px){.country-icon{width:86px;height:100px}}
+@media(max-width:600px){.country-icon{width:104px;height:104px}}
 .passport-tabs{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}.passport-tabs button{background:#f4dfb6;border:2px solid #b78043;border-radius:12px;padding:12px 18px;font-weight:850;cursor:pointer}.passport-tabs button.selected{background:#1d568b;color:white;border-color:#113f69}.london-journal-place .country-icon{flex-shrink:0}
 `;document.head.append(style);
 const app=document.getElementById('app');if(!app)return;

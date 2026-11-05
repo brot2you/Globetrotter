@@ -98,6 +98,25 @@ const style=document.createElement('style');style.textContent=`
 .passport-stat-badge{display:block!important;position:relative;flex:none;width:175px!important;max-width:100%;height:175px!important;min-height:175px;margin:0 auto 8px;background-image:url('assets/globetrotter_passport_badges.webp?v=passport-v2');background-repeat:no-repeat;background-size:500% 100%;image-rendering:auto}.passport-stat-miles{background-position:25% center}.passport-stat-missions{background-position:50% center}.passport-stat-discoveries{background-position:75% center}.passport-stat-facts{background-position:100% center}.london-journal-grid .london-journal-place:has(.passport-stat-badge){text-align:center}.london-journal-grid .london-journal-place:has(.passport-stat-badge) h3{margin-top:0}
 .passport-stat-image{display:block;width:min(100%,195px);height:auto;max-height:205px;object-fit:contain;margin:0 auto 10px}.london-journal-grid .london-journal-place:has(.passport-stat-image){text-align:center}.london-journal-grid .london-journal-place:has(.passport-stat-image) h3{margin-top:0}
 .london-npc-speaker{display:flex;align-items:center;gap:14px;margin-bottom:12px}.london-npc-portrait{display:block;width:clamp(92px,10vw,150px);height:clamp(112px,13vw,175px);object-fit:contain;flex-shrink:0;filter:drop-shadow(0 5px 5px #38261b33)}.london-npc-dialogue{flex:1;min-width:0}.london-npc-dialogue p{margin:8px 0 0;line-height:1.5}@media(max-width:540px){.london-npc-speaker{align-items:flex-start;gap:8px}.london-npc-portrait{width:82px;height:112px}}
+
+/* London dialogue layout repair: explicit image sizing and safe text flow */
+.london-play,.london-play *{box-sizing:border-box}
+.london-play-panel{width:min(1180px,100%)!important;max-height:calc(100dvh - 24px)!important;overflow-y:auto!important;overflow-x:hidden!important}
+.london-scene-layout{display:grid!important;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr)!important;align-items:start!important;gap:16px!important}
+.london-play .london-scene-layout>img{display:block!important;width:100%!important;height:auto!important;max-height:min(67dvh,680px)!important;min-height:0!important;object-fit:contain!important;align-self:start!important}
+.london-play .london-conversation{min-width:0!important;width:100%!important;display:block!important;overflow:visible!important;padding:15px!important}
+.london-play .london-npc{min-width:0!important;overflow:visible!important;padding:14px!important}
+.london-play .london-npc-speaker{display:grid!important;grid-template-columns:108px minmax(0,1fr)!important;align-items:start!important;gap:14px!important;width:100%!important;min-width:0!important}
+.london-play .london-npc-speaker .london-npc-portrait{display:block!important;width:108px!important;height:148px!important;min-width:0!important;min-height:0!important;max-width:108px!important;max-height:148px!important;object-fit:contain!important;object-position:center top!important;background:transparent!important;border-radius:0!important;filter:drop-shadow(0 4px 5px #38261b33)!important}
+.london-play .london-npc-dialogue{min-width:0!important;overflow-wrap:anywhere!important;word-break:normal!important}
+.london-play .london-npc-dialogue strong{display:block!important;font-size:1.1rem!important;line-height:1.3!important}
+.london-play .london-npc-dialogue p{display:block!important;max-width:100%!important;margin:9px 0!important;font-size:1rem!important;line-height:1.55!important;white-space:normal!important}
+.london-play .london-options{min-width:0!important;width:100%!important;display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+.london-play .london-options button{min-width:0!important;max-width:100%!important;white-space:normal!important;overflow-wrap:break-word!important}
+.london-play .london-scene-heading h2{overflow-wrap:break-word}
+@media(max-width:850px){.london-scene-layout{grid-template-columns:minmax(0,1fr)!important}.london-play .london-scene-layout>img{max-height:35dvh!important}.london-play-panel{max-height:calc(100dvh - 12px)!important}}
+@media(max-width:480px){.london-play-panel{padding:10px!important}.london-play .london-conversation{padding:10px!important}.london-play .london-npc{padding:10px!important}.london-play .london-npc-speaker{grid-template-columns:76px minmax(0,1fr)!important;gap:10px!important}.london-play .london-npc-speaker .london-npc-portrait{width:76px!important;height:108px!important;max-width:76px!important;max-height:108px!important}.london-play .london-npc-dialogue p{font-size:.94rem!important}.london-play-actions button{flex:1 1 auto}}
+
 `;document.head.append(style);
 const app=document.getElementById('app');if(!app)return;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

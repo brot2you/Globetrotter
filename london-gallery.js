@@ -127,6 +127,15 @@ const style=document.createElement('style');style.textContent=`
 
 .london-play .london-npc-portrait{background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;visibility:visible!important;opacity:1!important;min-height:148px!important}
 @media(max-width:480px){.london-play .london-npc-portrait{min-height:108px!important}}
+
+/* London conversation: only the location image may fill the scene column */
+.london-play .london-scene-layout > img{width:100%!important;height:auto!important;max-height:65dvh!important;min-height:0!important;object-fit:contain!important}
+.london-play .london-npc-speaker{display:flex!important;align-items:flex-start!important;gap:12px!important;min-width:0!important}
+.london-play .london-npc-speaker > img.london-npc-portrait{display:block!important;flex:0 0 96px!important;width:96px!important;height:130px!important;max-width:96px!important;max-height:130px!important;min-height:0!important;object-fit:contain!important;background:transparent!important;border:0!important}
+.london-play .london-npc-dialogue{flex:1 1 0!important;min-width:0!important;max-width:100%!important;overflow-wrap:break-word!important}
+.london-play .london-npc-dialogue p{white-space:normal!important;max-width:100%!important;overflow-wrap:break-word!important}
+@media(max-width:480px){.london-play .london-npc-speaker > img.london-npc-portrait{flex-basis:72px!important;width:72px!important;max-width:72px!important;height:100px!important;max-height:100px!important}}
+
 `;document.head.append(style);
 const app=document.getElementById('app');if(!app)return;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -146,7 +155,7 @@ function viewer(i,reset=true){lastIndex=(i+places.length)%places.length;if(reset
 if(phase==='talk'){
 let text=dialogueStep===0?m[2]:dialogueStep===1?branches[dialogueBranch][1]:branches[dialogueBranch][3];
 let options=dialogueStep===0?branches.map((b,k)=>`<button data-london-branch="${k}">${escape(b[0])}</button>`):dialogueStep===1?`<button data-london-follow="1">${escape(branches[dialogueBranch][2])}</button><button data-london-quiz="1">Thanks! Let's try the challenge →</button>`:`<button data-london-quiz="1">Thanks! Start the challenge →</button><button data-london-restart="1">↺ Ask another question</button>`;
-task=`<div class="london-npc"><div class="london-npc-speaker"><div class="london-npc-portrait" role="img" aria-label="${escape(m[1])}" style="background-image:url(&quot;${portraitFor(lastIndex)}&quot;)"></div><div class="london-npc-dialogue"><strong>💬 ${escape(m[1])}</strong><p>${escape(text)}</p></div></div>${newClue?`<div class="london-evidence">🔎 DISCOVERY ADDED TO STORY JOURNAL: <strong>${escape(newClue)}</strong></div>`:''}<div class="london-options">${options}</div><p class="london-progress">Conversation ${Math.min(dialogueStep+1,3)}/3 · Choose what to say</p></div>`;
+task=`<div class="london-npc"><div class="london-npc-speaker"><img class="london-npc-portrait" src="${portraitFor(lastIndex)}" alt="${escape(m[1])}" loading="eager" style="width:96px!important;height:130px!important;min-height:0!important;max-height:130px!important;object-fit:contain!important;background:transparent!important"><div class="london-npc-dialogue"><strong>💬 ${escape(m[1])}</strong><p>${escape(text)}</p></div></div>${newClue?`<div class="london-evidence">🔎 DISCOVERY ADDED TO STORY JOURNAL: <strong>${escape(newClue)}</strong></div>`:''}<div class="london-options">${options}</div><p class="london-progress">Conversation ${Math.min(dialogueStep+1,3)}/3 · Choose what to say</p></div>`;
 }else{
 task=`<div class="london-npc"><strong>🎯 Mission: ${escape(m[4])}</strong><div class="london-options">${m[5].map((answer,k)=>`<button data-london-answer="${k}" ${phase==='done'?'disabled':''}>${escape(answer)}</button>`).join('')}</div>${feedback?`<p class="${phase==='done'?'london-result':'london-error'}">${escape(feedback)}</p>`:''}${phase==='done'?'<button data-london-restart="1">↺ Talk to the character again</button>':''}</div>`;
 };el.innerHTML=`<div class="london-play-panel"><div class="london-scene-heading"><h2>📍 ${escape(name)}</h2><span>💬 INTERACTIVE DIALOGUE · ${Math.min(dialogueStep+1,3)}/3</span></div><div class="london-scene-layout"><img src="${img(id)}" alt="${escape(name)}"><div class="london-conversation"><p class="london-conversation-label">🗣️ TALK TO A LOCAL · CHOOSE YOUR REPLY ↓</p>${task}</div></div><div class="london-play-actions"><button data-london-prev="1">← Previous place</button><button data-london-dismiss="1">Back to map</button><button data-london-next="1">Next place →</button></div><p class="london-progress">${completed.length}/16 missions · ${completed.length*15} Explorer Miles</p></div>`;document.body.append(el);el.querySelector('[data-london-dismiss]')?.focus()}

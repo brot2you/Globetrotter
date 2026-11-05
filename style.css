@@ -454,3 +454,6 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 
 /* London marker: align with illustrated Big Ben and London Eye, not the south-east coast */
 .country-select-v2 .city-select-illustrated .city-map-london{left:78.3%!important;top:66.6%!important}
+
+/* Align London to the Big Ben / London Eye illustration; previous marker sat at Oxford */
+.country-select-v2 .city-select-illustrated .city-map-london{left:88.3%!important;top:57.2%!important}

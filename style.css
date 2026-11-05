@@ -385,3 +385,9 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 @media(max-width:600px){.country-select-v2 .country-title h1{height:clamp(74px,21vw,104px)!important;padding:12px 43px 17px!important;font-size:clamp(22px,6vw,35px)!important}}
 
 .country-map-card .country-flag-svg{display:block;width:29px;height:19px;object-fit:contain;border:1px solid #ffffff88;border-radius:1px;box-shadow:0 1px 3px #0003}.country-map-card .country-flag{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle}
+
+/* London city card — no distorted artwork or compressed adventure button */
+.country-select-v2 .city-open{box-sizing:border-box!important;width:100%;min-height:190px!important;height:auto!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:center!important;gap:6px!important;padding:22px 30px!important;background-size:100% 100%!important}
+.country-select-v2 .city-open strong{display:block!important;margin:0!important;line-height:1.15!important}
+.country-select-v2 .city-open span{box-sizing:border-box!important;display:block!important;flex:none!important;align-self:center!important;width:min(100%,400px)!important;min-width:0!important;height:auto!important;min-height:0!important;aspect-ratio:5.2/1!important;margin:10px 0 0!important;padding:0!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}
+@media(max-width:600px){.country-select-v2 .city-open{min-height:160px!important;padding:16px 22px!important}.country-select-v2 .city-open span{width:min(100%,340px)!important;aspect-ratio:5.2/1!important}}

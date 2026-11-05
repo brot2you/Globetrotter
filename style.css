@@ -282,3 +282,16 @@ body{
  .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
  .hero-v3 .hero-logo{max-width:720px}
 }
+
+/* FULL-BLEED PC FIX v2 — viewport-wide layout, including zoomed/medium desktop widths */
+@media(min-width:761px){
+ html,body,#app{width:100%;min-width:0;max-width:none;min-height:100%;margin:0}
+ #app>.app,.app{box-sizing:border-box;width:100%;max-width:none!important;margin:0!important;padding:0!important;min-height:100dvh}
+ .top{box-sizing:border-box;width:100%;margin:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;padding:8px clamp(12px,2vw,34px)!important}
+ .screen{box-sizing:border-box;width:100%;max-width:none!important;margin:0!important;min-height:calc(100dvh - 82px);border-radius:0!important;border-left:0!important;border-right:0!important}
+ .hero.hero-v3,.hero.hero-v4{box-sizing:border-box;width:100%;min-height:calc(100dvh - 100px)!important;max-height:none;background-position:center center;background-size:cover}
+ .screen-pad{width:100%;max-width:none}
+ .main-grid{width:100%;grid-template-columns:minmax(0,1fr) clamp(270px,22vw,390px)}
+ .scene,.scene-inner{min-height:calc(100dvh - 105px)}
+ .footer{padding:8px}
+}

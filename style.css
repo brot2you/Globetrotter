@@ -439,3 +439,15 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .city-select-list button.city-locked{width:100%;cursor:help;font-family:inherit}
 .country-select-v2 .city-select-list button.city-locked:hover,.country-select-v2 .city-select-list button.city-locked:focus-visible{filter:brightness(1.18);outline:2px solid #ffdc76;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.country-select-v2 .city-map-light{transition:none!important}}
+
+/* Correct city coordinates against the actual illustrated UK map */
+.country-select-v2 .city-select-illustrated .city-map-london{left:82.5%!important;top:80%!important}
+.country-select-v2 .city-select-illustrated .city-map-oxford{left:70%!important;top:75%!important}
+.country-select-v2 .city-select-illustrated .city-map-liverpool{left:59.5%!important;top:58.5%!important}
+.country-select-v2 .city-select-illustrated .city-map-manchester{left:66.5%!important;top:58%!important}
+/* Keep city markers unobtrusive until the corresponding city is highlighted */
+.country-select-v2 .city-map-light{opacity:0!important}
+.country-select-v2 .city-select-feature[data-active-city="london"] .city-map-london,
+.country-select-v2 .city-select-feature[data-active-city="oxford"] .city-map-oxford,
+.country-select-v2 .city-select-feature[data-active-city="liverpool"] .city-map-liverpool,
+.country-select-v2 .city-select-feature[data-active-city="manchester"] .city-map-manchester{opacity:1!important}

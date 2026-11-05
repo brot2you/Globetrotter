@@ -464,3 +464,8 @@ body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);fi
 .country-select-v2 .city-select-illustrated .city-map-image-anchor .city-map-lights{position:absolute;inset:0;pointer-events:none}
 .country-select-v2 .city-select-illustrated .city-map-london{left:79.0%!important;top:68.0%!important}
 .country-select-v2 .city-select-illustrated .city-map-oxford{left:68.0%!important;top:64.0%!important}
+
+/* GLOBETROTTER V2: Liverpool and Manchester hover markers only.
+   All other city positions remain unchanged. */
+.country-select-v2 .city-select-illustrated .city-map-liverpool{left:62%!important;top:49%!important}
+.country-select-v2 .city-select-illustrated .city-map-manchester{left:67%!important;top:47%!important}

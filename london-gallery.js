@@ -141,6 +141,11 @@ const style=document.createElement('style');style.textContent=`
 .london-play .london-npc-speaker > img.london-npc-portrait{display:block!important;flex:0 0 132px!important;width:132px!important;height:132px!important;max-width:132px!important;max-height:132px!important;min-width:0!important;min-height:0!important;object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;filter:none!important}
 @media(max-width:520px){.london-play .london-npc-speaker > img.london-npc-portrait{flex-basis:92px!important;width:92px!important;height:92px!important;max-width:92px!important;max-height:92px!important}}
 
+
+/* Gallery thumbnails: crop the thin light strip baked into some source images */
+.london-gallery-grid .london-place{overflow:hidden!important}
+.london-gallery-grid .london-place > img{display:block!important;width:100%!important;aspect-ratio:16/9!important;height:auto!important;object-fit:cover!important;object-position:center 55%!important;transform:scale(1.045)!important;transform-origin:center center!important;clip-path:inset(0)!important}
+
 `;document.head.append(style);
 const app=document.getElementById('app');if(!app)return;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

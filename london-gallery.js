@@ -149,7 +149,7 @@ const style=document.createElement('style');style.textContent=`
 
 /* London Adventure Deluxe: responsive hero and LIVE counters; artwork asset is optional until uploaded */
 .london-gallery .london-welcome{display:block!important;padding:0!important;overflow:hidden!important;border:3px solid #bd8b37!important;border-radius:20px!important;background:#fff0c7!important;box-shadow:0 6px 0 #935a28!important}
-.london-gallery .london-welcome-art{height:clamp(150px,17vw,300px)!important;background-image:url('assets/london/london-adventure-banner.webp'),linear-gradient(115deg,#093d82,#0874c0 60%,#55bce6)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-bottom:5px solid #c38b32!important}
+.london-gallery .london-welcome-art{height:clamp(150px,17vw,300px)!important;background-image:url('assets/london-adventure-banner.webp?v=london-art-12'),linear-gradient(115deg,#093d82,#0874c0 60%,#55bce6)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-bottom:5px solid #c38b32!important}
 .london-gallery .london-welcome-dashboard{padding:clamp(14px,2vw,24px)!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:12px 22px!important;align-items:center!important}
 .london-gallery .london-welcome-intro{grid-column:1/-1!important;margin:0!important;font-weight:800!important;font-size:clamp(13px,1.15vw,17px)!important}
 .london-gallery .london-welcome-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;min-width:0!important}

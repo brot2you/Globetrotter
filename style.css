@@ -495,3 +495,10 @@ body:has(.country-select-v2) .top .nav .pill:hover{filter:brightness(1.06);trans
 
 /* Oxford V49: clear vector icons without changing button artwork or layout */
 .oxford-local-nav .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;white-space:nowrap!important}.oxford-local-nav .oxford-nav-icon{width:23px;height:23px;flex:0 0 23px;display:block;stroke:currentColor;filter:none}.oxford-local-nav .btn span{display:inline-block;line-height:1.2}@media(max-width:600px){.oxford-local-nav .btn{gap:6px!important}.oxford-local-nav .oxford-nav-icon{width:19px;height:19px;flex-basis:19px}}
+
+/* Oxford V50 — stamps: preserve complete illustrations, no clipping or distortion */
+.global-oxford-stamps{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.global-oxford-stamps article.oxford-stamp-tile,.oxford-passport-grid .oxford-stamp-tile{min-width:0;overflow:visible!important;padding:18px 12px!important;box-sizing:border-box;align-items:center;justify-content:flex-start}
+.global-oxford-stamps .oxford-stamp-tile img,.oxford-passport-grid .oxford-stamp-tile img{display:block!important;width:100%!important;max-width:170px!important;height:auto!important;max-height:180px!important;aspect-ratio:1/1!important;object-fit:contain!important;object-position:center!important;clip-path:none!important;transform:none!important;border-radius:0!important;margin:0 auto 8px!important;flex-shrink:0!important}
+.global-oxford-stamps .oxford-stamp-tile strong,.oxford-passport-grid .oxford-stamp-tile strong{display:block;overflow-wrap:anywhere;line-height:1.3}
+@media(max-width:700px){.global-oxford-stamps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.global-oxford-stamps article.oxford-stamp-tile,.oxford-passport-grid .oxford-stamp-tile{padding:12px 8px!important}.global-oxford-stamps .oxford-stamp-tile img,.oxford-passport-grid .oxford-stamp-tile img{max-width:135px!important;max-height:145px!important}}

@@ -364,6 +364,8 @@ body:has(.country-select-v2) .top .nav .pill:nth-child(1){background-image:url('
 body:has(.country-select-v2) .top .nav .pill:nth-child(2){background-image:url('assets/city-ui/nav-adventure.png')}
 body:has(.country-select-v2) .top .nav .pill:nth-child(3){background-image:url('assets/city-ui/nav-arcade.png')}
 body:has(.country-select-v2) .top .nav .pill:nth-child(4){background-image:url('assets/city-ui/nav-passport.png')}
+body:has(.country-select-v2) .top .nav .pill:nth-child(5){background-image:url('assets/city-ui/nav-london.png?v=nav-fix-28')}
+body:has(.country-select-v2) .top .nav .pill:nth-child(n+6){background-image:none!important;color:#422619!important;font-size:12px!important;background-color:#ffd47b!important;border:2px solid #a56b2a!important}
 body:has(.country-select-v2) .top .nav .pill:hover{transform:translateY(-2px);filter:brightness(1.12)}
 .country-select-v2 .country-title h1{background:url('assets/city-ui/title-frame.png') center/100% 100% no-repeat!important;max-width:640px;min-height:105px;display:flex;align-items:center;justify-content:center;margin:8px auto 0!important;padding:14px 45px 20px;color:#fff3c9!important;text-shadow:2px 3px #071a32,0 0 10px #091b39;font-size:clamp(31px,4vw,52px)!important}
 .country-select-v2 .country-title p{background:url('assets/city-ui/subtitle-ribbon.png') center/100% 100% no-repeat;max-width:790px;min-height:62px;padding:17px 55px!important;color:#422611!important;font-weight:900}

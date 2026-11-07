@@ -1,0 +1,2918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#13203f">
+<meta name="description" content="Globetrotter: a travel adventure to discover England and the English-speaking world. By BROT2YOU APP.">
+<title>Globetrotter</title>
+<link rel="icon" href="assets/england_flag.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#13203f; --night2:#1b2c55; --night3:#24386a;
+  --gold:#f3c34e; --gold2:#c98b1c; --paper:#fbf1d9; --paper2:#f3e3bd;
+  --ink:#23304f; --ink2:#5a6582; --stamp:#c8372d; --thames:#2696b0;
+  --ok:#2e8f57; --ko:#c8372d; --radius:14px;
+  --head:'Lilita One','Trebuchet MS',sans-serif; --body:'Lexend','Trebuchet MS',Verdana,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--night);color:#fff;font-family:var(--body);font-size:16px;line-height:1.5;
+  background-image:radial-gradient(ellipse at 50% -10%,#2a4078 0,rgba(42,64,120,0) 60%);background-attachment:fixed;min-height:100vh;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;height:auto;display:block}
+button{font-family:inherit;font-size:inherit;cursor:pointer;color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--head);font-weight:400;letter-spacing:.01em;line-height:1.15;margin:0 0 .4em}
+h2{font-size:2rem} h3{font-size:1.35rem}
+p{margin:0 0 .8em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px 48px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;border:0;border-radius:999px;padding:.75em 1.4em;
+  font-family:var(--head);font-size:1.15rem;letter-spacing:.02em;background:var(--gold);color:var(--night);
+  box-shadow:0 4px 0 var(--gold2);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold2)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.ink{background:var(--night);color:#fff;box-shadow:0 4px 0 #0a1226}
+.btn.small{font-size:.95rem;padding:.5em 1em}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.speak{border:0;background:rgba(38,150,176,.15);color:var(--thames);border-radius:999px;width:2.2em;height:2.2em;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;font-size:1rem}
+.speak:hover{background:rgba(38,150,176,.3)}
+.frbtn{border:0;background:transparent;color:var(--ink2);font-size:.8rem;text-decoration:underline;padding:2px 4px}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(19,32,63,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(243,195,78,.25);margin-bottom:22px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--night);z-index:21}
+.top-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:8px 18px}
+.home-btn{border:0;background:none;padding:0;display:flex;align-items:center}
+.home-btn img{height:42px;width:auto}
+.top-title{font-family:var(--head);font-size:1.3rem;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--night2);border:1px solid rgba(255,255,255,.15);border-radius:999px;
+  padding:5px 12px;font-size:.9rem;font-weight:600;white-space:nowrap}
+.chip.tog{cursor:pointer}
+.chip.tog.on{background:var(--gold);color:var(--night);border-color:var(--gold)}
+@media (max-width:640px){.top-title{font-size:1.05rem}.chip.hide-s{display:none}.home-btn img{height:34px}}
+
+/* ---------- home ---------- */
+.home{min-height:100vh;display:flex;flex-direction:column}
+.hero{position:relative;max-width:1240px;width:calc(100% - 36px);margin:18px auto 0;border-radius:22px;overflow:hidden;
+  border:4px solid var(--gold);box-shadow:0 0 0 3px var(--night),0 0 0 6px rgba(243,195,78,.35);aspect-ratio:16/9;max-height:calc(100vh - 90px);min-height:520px;background:#4a7fbf}
+.hero-art{position:absolute;inset:0;background:url(assets/home/background.webp) center/cover no-repeat}
+.hero-logo{position:absolute;left:36%;top:4%;width:40%;transform:translateX(-50%)}
+.hero-menu{position:absolute;right:2%;top:4%;bottom:4%;width:23%;display:flex;flex-direction:column;justify-content:space-between}
+.menu-b{border:0;background:none;padding:0;transition:transform .12s;filter:drop-shadow(0 3px 0 rgba(0,0,0,.35))}
+.menu-b:hover{transform:translateX(-4px) scale(1.02)}
+.menu-b img{width:100%}
+.hero-cta{position:absolute;left:59%;bottom:6%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:90%}
+.hero-cta .btn{font-size:1.5rem;padding:.7em 1.8em}
+.hero-cta .next{background:rgba(19,32,63,.88);border-radius:999px;padding:4px 14px;font-size:.9rem}
+.explorer{position:absolute;left:2%;top:3.5%;display:flex;align-items:center;gap:10px;background:rgba(19,32,63,.88);
+  border:2px solid var(--gold);border-radius:999px;padding:4px 16px 4px 4px;font-weight:600;line-height:1.2}
+.explorer img{width:40px;height:40px;border-radius:50%;background:var(--paper);image-rendering:pixelated}
+.explorer small{display:block;font-weight:400;opacity:.8;font-size:.75rem}
+.foot{text-align:center;font-size:.8rem;opacity:.65;padding:16px}
+@media (max-width:860px){
+  .hero{aspect-ratio:auto;max-height:none;min-height:0;border-radius:18px;width:calc(100% - 24px);margin-top:12px}
+  .hero-art{position:relative;inset:auto;padding-top:138%;background-image:url(assets/home/background_mobile.webp);background-position:center 18%}
+  .hero-logo{left:50%;top:6.5%;width:84%}
+  .hero-cta{left:50%;bottom:5%;width:88%}
+  .hero-cta .btn{width:100%;font-size:1.35rem}
+  .explorer{left:3%;top:2%;padding:2px 12px 2px 2px;font-size:.85rem}
+  .explorer img{width:30px;height:30px}
+  .hero-menu{position:static;width:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 8px;background:var(--night)}
+  .menu-b:hover{transform:none}
+}
+/* ---------- paper panels ---------- */
+.paper{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--night),0 10px 30px rgba(0,0,0,.35)}
+.paper .muted{color:var(--ink2)}
+.head{margin-bottom:18px}
+.head p{opacity:.85;max-width:62ch}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.bar{height:10px;border-radius:999px;background:rgba(35,48,79,.15);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold2);border-radius:999px}
+.empty{padding:26px;text-align:center;border:2px dashed rgba(35,48,79,.25);border-radius:var(--radius);color:var(--ink2)}
+
+/* ---------- map ---------- */
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{border:2px solid var(--gold);background:transparent;color:#fff;border-radius:999px;padding:.45em 1.2em;font-family:var(--head);font-size:1.1rem}
+.tab.on{background:var(--gold);color:var(--night)}
+.tab[disabled]{opacity:.5;cursor:not-allowed}
+.mapbox{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--night)}
+.mapbox img{width:100%}
+.mapbox.pixel img{image-rendering:pixelated}
+.mapbox.tall{max-width:min(540px,calc((100vh - 170px) * .75));margin:0 auto}
+.pin{position:absolute;transform:translate(-50%,-50%);border:3px solid #fff;border-radius:50%;width:46px;height:46px;
+  background:var(--gold);color:var(--night);font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 0 rgba(0,0,0,.35);padding:0}
+.pin.open{animation:pulse 1.8s infinite}
+.pin.done{background:var(--stamp);color:#fff}
+.pin.gold{background:linear-gradient(135deg,#ffe48a,#d99a1e);color:var(--night)}
+.pin.lock{background:#7b8397;color:#fff;cursor:not-allowed}
+.pin .lbl{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:4px;background:rgba(19,32,63,.9);color:#fff;
+  font-size:.72rem;padding:2px 8px;border-radius:999px;white-space:nowrap;font-family:var(--body);font-weight:600}
+@keyframes pulse{0%,100%{box-shadow:0 3px 0 rgba(0,0,0,.35),0 0 0 0 rgba(243,195,78,.7)}50%{box-shadow:0 3px 0 rgba(0,0,0,.35),0 0 0 12px rgba(243,195,78,0)}}
+.layout-map{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.layout-map{grid-template-columns:1fr}}
+.plist{display:flex;flex-direction:column;gap:10px}
+.pitem{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:0;background:var(--paper);color:var(--ink);border-radius:12px;padding:8px;
+  box-shadow:0 3px 0 rgba(0,0,0,.3)}
+.pitem .th{width:64px;height:52px;border-radius:8px;background:#ccc center/cover;flex:none}
+.pitem .th.pixel{image-rendering:pixelated}
+.pitem b{font-family:var(--head);font-weight:400;font-size:1.1rem;display:block;line-height:1.1}
+.pitem small{color:var(--ink2)}
+.pitem .st{margin-left:auto;font-size:1.3rem;padding-right:6px}
+.pitem.lock{opacity:.55;cursor:not-allowed}
+.notice{background:rgba(243,195,78,.12);border:1px solid rgba(243,195,78,.5);border-radius:12px;padding:10px 14px;margin-bottom:14px}
+
+/* ---------- place ---------- */
+.place{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:start}
+.place.portrait{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}
+@media (max-width:860px){.place,.place.portrait{grid-template-columns:1fr}}
+.scene-col{position:sticky;top:84px}
+@media (max-width:860px){.scene-col{position:static}}
+.scene{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--night);background:#000}
+.scene img{width:100%;height:auto}
+.scene.pixel img{image-rendering:pixelated}
+.place.portrait .scene{max-width:380px;margin:0 auto}
+@media (max-width:860px){.place.portrait .scene{max-width:320px}}
+.hot{position:absolute;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;border:3px solid #fff;background:rgba(19,32,63,.75);
+  color:#fff;font-size:1.35rem;display:flex;align-items:center;justify-content:center;padding:0;animation:pulse 1.8s infinite}
+.hot.found{background:var(--ok);animation:none}
+.hot.sel{outline:4px solid var(--gold)}
+.steps{display:flex;gap:6px;margin-bottom:14px;padding:0;list-style:none;counter-reset:s}
+.steps li{flex:1;text-align:center;font-size:.8rem;font-weight:600;padding:6px 4px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.65)}
+.steps li.cur{background:var(--gold);color:var(--night)}
+.steps li.done{background:rgba(46,143,87,.35);color:#fff}
+.guide-tag{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.mono{width:44px;height:44px;border-radius:50%;color:#fff;font-family:var(--head);font-size:1.3rem;display:flex;align-items:center;justify-content:center;flex:none;border:3px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.mono.you{background:var(--paper2);overflow:hidden;padding:0}
+.mono.you img{width:100%;height:100%;image-rendering:pixelated}
+.talk{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+.line{display:flex;gap:10px;align-items:flex-end}
+.line.you{flex-direction:row-reverse}
+.bubble{background:#fff;border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:80%;box-shadow:0 2px 0 rgba(35,48,79,.15);position:relative}
+.line.you .bubble{border-radius:16px 16px 4px 16px;background:#e3f1f5}
+.bubble .who{font-size:.75rem;font-weight:700;color:var(--ink2);display:block}
+.bubble .tx{display:flex;gap:8px;align-items:flex-start}
+.bubble .tx span{flex:1}
+.fr{font-size:.88rem;color:var(--ink2);font-style:italic;margin-top:4px;display:block}
+.line.pop{animation:pop .25s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.opts{display:flex;flex-direction:column;gap:10px;margin:10px 0}
+.opt{text-align:left;border:2px solid rgba(35,48,79,.2);background:#fff;color:var(--ink);border-radius:12px;padding:12px 14px;font-weight:500}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt.ok{border-color:var(--ok);background:#e2f4e9}
+.opt.ko{border-color:var(--ko);background:#fbe5e3}
+.opt[disabled]{cursor:default}
+.fb{border-radius:12px;padding:10px 14px;margin:8px 0;font-weight:500}
+.fb.ok{background:#e2f4e9;color:#1d5e39}
+.fb.ko{background:#fbe5e3;color:#8a231c}
+.clue{background:#fff;border-radius:12px;padding:14px;margin:12px 0;border-left:6px solid var(--thames)}
+.clue h3{margin-bottom:.3em}
+.word{display:inline-flex;align-items:center;gap:8px;background:var(--paper2);border-radius:999px;padding:4px 6px 4px 14px;font-weight:600;margin-top:6px}
+.word em{font-style:normal;font-weight:400;color:var(--ink2)}
+.counter{font-weight:700;margin-bottom:8px}
+.qnum{font-size:.85rem;font-weight:700;color:var(--ink2);margin-bottom:4px}
+.listen-big{display:flex;align-items:center;gap:12px;background:#e3f1f5;border-radius:12px;padding:12px;margin:8px 0}
+.listen-big .speak{width:3.2em;height:3.2em;font-size:1.4rem;background:var(--thames);color:#fff}
+.transcript{font-style:italic;color:var(--ink2)}
+
+/* ---------- reward ---------- */
+.reward{text-align:center}
+.stamp{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:170px;height:170px;border-radius:50%;
+  border:5px double var(--stamp);color:var(--stamp);font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;
+  transform:rotate(-8deg);margin:6px auto 14px;padding:12px;text-align:center;line-height:1.05;
+  background:radial-gradient(circle,rgba(200,55,45,.06),rgba(200,55,45,0) 70%)}
+.stamp .s1{font-size:.75rem}
+.stamp .s2{font-size:1.3rem;margin:4px 0}
+.stamp .s3{font-size:.7rem;font-family:var(--body);font-weight:700}
+.stamp.thud{animation:thud .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes thud{0%{transform:rotate(-8deg) scale(2.2);opacity:0}60%{opacity:1}100%{transform:rotate(-8deg) scale(1)}}
+.score{font-size:1.1rem;margin-bottom:10px}
+.miles-sum{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:4px 0 16px}
+.miles-sum span{background:var(--paper2);border-radius:999px;padding:3px 12px;font-size:.88rem;font-weight:600}
+.miles-sum span.tot{background:var(--night);color:#fff}
+.done-chip{background:var(--ok);color:#fff;border-radius:999px;padding:4px 12px;font-weight:700;font-size:.85rem;white-space:nowrap}
+
+/* ---------- cards ---------- */
+.card{position:relative;border:0;padding:8px;background:var(--night);border-radius:14px;box-shadow:0 0 0 3px #b9c0cf;color:#fff;text-align:center;width:100%}
+.card.silver{box-shadow:0 0 0 3px #d9dee8,0 6px 0 rgba(0,0,0,.3)}
+.card.gold{box-shadow:0 0 0 3px var(--gold),0 6px 0 rgba(0,0,0,.3)}
+.card.gold::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,240,180,.35) 50%,rgba(255,255,255,0) 65%);background-size:250% 100%;animation:shine 3.5s infinite}
+@keyframes shine{0%{background-position:120% 0}100%{background-position:-120% 0}}
+.card .art{aspect-ratio:3/4;border-radius:8px;background:#2c3a5e center/cover no-repeat}
+.card .art.pixel{image-rendering:pixelated}
+.card b{display:block;font-family:var(--head);font-weight:400;font-size:1.05rem;margin-top:6px;line-height:1.1}
+.card small{opacity:.75;font-size:.75rem}
+.card .rar{position:absolute;top:14px;left:14px;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;background:#d9dee8;color:var(--night)}
+.card.gold .rar{background:var(--gold)}
+.card.locked .art{background:repeating-linear-gradient(45deg,#24386a 0 12px,#1b2c55 12px 24px);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.badge{display:flex;gap:12px;align-items:center;background:var(--paper);color:var(--ink);border-radius:12px;padding:12px}
+.badge .bi{width:52px;height:52px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex:none;border:3px solid var(--gold2)}
+.badge.off{opacity:.55}
+.badge.off .bi{background:#c8ccd6;border-color:#9aa1b2;filter:grayscale(1)}
+.badge b{font-family:var(--head);font-weight:400;font-size:1.1rem;display:block}
+.badge small{color:var(--ink2)}
+
+/* ---------- passport ---------- */
+.passport{display:grid;grid-template-columns:1fr 1.4fr;gap:0;border-radius:18px;overflow:hidden;box-shadow:0 0 0 6px #7a1f2b,0 0 0 9px var(--gold),0 14px 40px rgba(0,0,0,.4)}
+@media (max-width:820px){.passport{grid-template-columns:1fr}}
+.pp-page{background:var(--paper);color:var(--ink);padding:24px;position:relative;
+  background-image:repeating-linear-gradient(0deg,rgba(35,48,79,.04) 0 2px,transparent 2px 22px)}
+.pp-page+.pp-page{border-left:2px dashed rgba(35,48,79,.2)}
+@media (max-width:820px){.pp-page+.pp-page{border-left:0;border-top:2px dashed rgba(35,48,79,.2)}}
+.pp-id{display:flex;gap:16px;align-items:center;margin:12px 0 16px}
+.pp-photo{width:110px;height:130px;background:#dfe7ef;border:2px solid var(--ink);border-radius:6px;overflow:hidden;flex:none}
+.pp-photo img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
+.pp-field small{display:block;font-size:.7rem;color:var(--ink2);font-weight:700;letter-spacing:.04em}
+.pp-field{margin-bottom:8px}
+.pp-field b{font-size:1.05rem}
+.mrz{font-family:'Courier New',monospace;font-size:.82rem;letter-spacing:.12em;word-break:break-all;color:var(--ink2);margin-top:14px;border-top:1px solid rgba(35,48,79,.2);padding-top:10px}
+.stamps{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:12px}
+.pst{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.pst .st{width:100%;height:100%;border-radius:50%;border:4px double;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;font-family:var(--head);text-transform:uppercase;line-height:1.05;padding:8px;font-size:.85rem}
+.pst .st small{font-family:var(--body);font-size:.6rem;font-weight:700;margin-top:3px}
+.pst .st.rect{border-radius:8px}
+.pst.empty .st{border:2px dashed rgba(35,48,79,.25);color:rgba(35,48,79,.35);font-family:var(--body);font-size:.7rem;text-transform:none}
+
+/* ---------- guide / words ---------- */
+.fact{background:#fff;border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.fact.lock{background:transparent;border:2px dashed rgba(35,48,79,.25);color:var(--ink2)}
+.fact .ic{font-size:1.4rem;line-height:1}
+.fact b{display:block}
+.sect{margin-bottom:22px}
+.sect h3{display:flex;align-items:center;gap:8px}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.wcard{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:10px 12px}
+.wcard b{display:block;font-size:1.05rem}
+.wcard small{color:var(--ink2)}
+.wcard .speak{margin-left:auto}
+.wcard.lock{background:transparent;border:2px dashed rgba(35,48,79,.25);color:var(--ink2)}
+
+/* ---------- travels ---------- */
+.world{border-radius:var(--radius);overflow:hidden;box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--night);margin-bottom:22px}
+.world img{width:100%;image-rendering:pixelated}
+.dest{position:relative;border:0;background:none;padding:0}
+.dest img{width:100%;filter:drop-shadow(0 3px 0 rgba(0,0,0,.35))}
+.dest.soon img{filter:grayscale(.75) brightness(.8)}
+.dest .soon-t{position:absolute;right:6%;top:4%;background:var(--night);border:2px solid var(--gold);color:var(--gold);font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
+.dest .play-t{position:absolute;right:6%;top:4%;background:var(--ok);border:2px solid #fff;color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
+
+/* ---------- missions ---------- */
+.mission{display:flex;gap:16px;align-items:center}
+.mission .mi{font-size:2rem;width:64px;height:64px;border-radius:16px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex:none}
+.mission .mb{flex:1;min-width:0}
+.mission.off{opacity:.6}
+
+/* ---------- forms / settings ---------- */
+label.f{display:block;font-weight:700;margin:12px 0 6px}
+input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radius:10px;border:2px solid rgba(35,48,79,.3);background:#fff;color:var(--ink)}
+.avs{display:flex;gap:10px;flex-wrap:wrap}
+.av{border:3px solid transparent;border-radius:14px;padding:4px;background:#fff;width:78px;height:78px}
+.av img{width:100%;height:100%;image-rendering:pixelated}
+.av.on{border-color:var(--gold2);box-shadow:0 0 0 3px var(--gold)}
+.set{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(35,48,79,.15);flex-wrap:wrap}
+.set:last-child{border-bottom:0}
+.seg{display:inline-flex;border-radius:999px;overflow:hidden;border:2px solid var(--ink)}
+.seg button{border:0;background:transparent;padding:6px 14px;font-weight:600;color:var(--ink)}
+.seg button.on{background:var(--ink);color:#fff}
+
+/* ---------- modal / toast ---------- */
+.shade{position:fixed;inset:0;background:rgba(10,18,38,.72);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.modal{max-width:460px;width:100%;max-height:90vh;overflow:auto}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--night);border:2px solid var(--gold);color:#fff;
+  padding:10px 18px;border-radius:999px;z-index:60;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.4);max-width:92vw;text-align:center;animation:pop .2s}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:20px">Globetrotter needs JavaScript to run.</p></noscript>
+<script type="application/json" id="data-globetrotter">
+{
+"countries": {
+"england": {
+"id": "england",
+"name": "England",
+"nameFr": "Angleterre",
+"flag": "assets/england_flag.png",
+"maps": {
+"london": {
+"img": "assets/london/map.webp",
+"w": 1150,
+"h": 719,
+"title": "London"
+},
+"england": {
+"img": "assets/england/map.webp",
+"w": 1086,
+"h": 1448,
+"title": "England",
+"pixel": true,
+"londonPin": [
+74,
+65.6
+]
+}
+},
+"unlockBeyond": 3,
+"unlockExam": 10,
+"places": [
+{
+"id": "arrival",
+"area": "arrival",
+"name": "Welcome to England",
+"short": "Border control",
+"art": "assets/england/map.webp",
+"w": 1086,
+"h": 1448,
+"pixel": true,
+"guide": {
+"name": "Officer Patel",
+"role": "Border Force officer",
+"color": "#2a6f97"
+},
+"talk": [
+[
+"guide",
+"Good morning! Welcome to the United Kingdom. Can I see your passport, please?",
+"Bonjour ! Bienvenue au Royaume-Uni. Puis-je voir votre passeport, s’il vous plaît ?"
+],
+[
+"you",
+"Here you are.",
+"Le voici."
+],
+[
+"guide",
+"Thank you. What is the purpose of your visit?",
+"Merci. Quel est le motif de votre voyage ?"
+]
+],
+"reply": {
+"prompt": "Answer the officer.",
+"o": [
+[
+"I’m here on holiday. I want to explore England.",
+true,
+"Perfect! You explain why you are here."
+],
+[
+"I’m fine, thank you.",
+false,
+"That answers “How are you?”. The officer asks WHY you are here."
+],
+[
+"My passport is blue.",
+false,
+"True maybe, but the officer asks about the purpose of your visit."
+]
+]
+},
+"outro": "Enjoy your trip! Look at this map: it shows where you are.",
+"outroFr": "Bon voyage ! Regarde cette carte : elle montre où tu es.",
+"clues": [
+{
+"x": 55,
+"y": 50,
+"icon": "🏰",
+"title": "England",
+"fact": "England is one of the four countries of the United Kingdom. Its capital is London. Its flag is a red cross on white: the Cross of St George.",
+"fr": "L’Angleterre est l’un des quatre pays du Royaume-Uni. Sa capitale est Londres. Son drapeau est une croix rouge sur fond blanc : la croix de saint Georges.",
+"word": [
+"country",
+"pays"
+]
+},
+{
+"x": 30,
+"y": 8,
+"icon": "🏝️",
+"title": "Great Britain",
+"fact": "Great Britain is an island. Three countries share it: England, Scotland and Wales.",
+"fr": "La Grande-Bretagne est une île. Trois pays la partagent : l’Angleterre, l’Écosse et le pays de Galles.",
+"word": [
+"island",
+"île"
+]
+},
+{
+"x": 11,
+"y": 40,
+"icon": "🧭",
+"title": "The United Kingdom",
+"fact": "The United Kingdom is England, Scotland, Wales and Northern Ireland. The Republic of Ireland is a different, independent country.",
+"fr": "Le Royaume-Uni, c’est l’Angleterre, l’Écosse, le pays de Galles et l’Irlande du Nord. La République d’Irlande est un autre pays, indépendant.",
+"word": [
+"border",
+"frontière"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Which countries make up the United Kingdom?",
+"o": [
+"England, Scotland, Wales and Northern Ireland",
+"England, Scotland and Wales",
+"England, Wales and the Republic of Ireland"
+],
+"why": "The UK has four countries. England, Scotland and Wales alone form the island of Great Britain."
+},
+{
+"t": "mcq",
+"q": "What does the flag of England look like?",
+"o": [
+"A red cross on a white background",
+"A white diagonal cross on a blue background",
+"A red dragon on green and white"
+],
+"why": "The red cross is the Cross of St George. The white cross on blue is Scotland’s flag, and the red dragon is the Welsh flag."
+},
+{
+"t": "listen",
+"say": "Good morning. Can I see your passport, please?",
+"q": "What does the officer want to see?",
+"o": [
+"Your passport",
+"Your ticket",
+"Your suitcase"
+],
+"why": "“Can I see your passport, please?” — a polite request you will hear at every border."
+}
+]
+},
+{
+"id": "westminster",
+"area": "london",
+"name": "Westminster",
+"short": "Big Ben and Parliament",
+"art": "assets/london/cover.webp",
+"w": 1150,
+"h": 719,
+"pin": [
+47.4,
+66
+],
+"guide": {
+"name": "Ava",
+"role": "London walking guide",
+"color": "#b5446e"
+},
+"talk": [
+[
+"guide",
+"Hi, I’m Ava! Welcome to Westminster, on the River Thames.",
+"Salut, moi c’est Ava ! Bienvenue à Westminster, au bord de la Tamise."
+],
+[
+"you",
+"Wow! Is that tall tower Big Ben?",
+"Waouh ! Cette grande tour, c’est Big Ben ?"
+],
+[
+"guide",
+"Good question! Many people say that, but Big Ben is the name of the big bell inside the tower.",
+"Bonne question ! Beaucoup de gens le disent, mais Big Ben est le nom de la grosse cloche à l’intérieur de la tour."
+]
+],
+"reply": {
+"prompt": "React to Ava.",
+"o": [
+[
+"Really? I didn’t know that!",
+true,
+"Great reaction: you show surprise and interest."
+],
+[
+"Yes, I’m a tower.",
+false,
+"Oops! You are not a tower. Show that you are surprised."
+],
+[
+"See you yesterday!",
+false,
+"“Yesterday” is in the past, and Ava is not leaving!"
+]
+]
+},
+"outro": "Now look around. Westminster is full of clues!",
+"outroFr": "Maintenant, observe bien. Westminster est plein d’indices !",
+"clues": [
+{
+"x": 88,
+"y": 22,
+"icon": "🕰️",
+"title": "Elizabeth Tower",
+"fact": "The clock tower is called the Elizabeth Tower. Big Ben is the Great Bell inside it.",
+"fr": "La tour de l’horloge s’appelle Elizabeth Tower. Big Ben est la grande cloche à l’intérieur.",
+"word": [
+"bell",
+"cloche"
+]
+},
+{
+"x": 55,
+"y": 38,
+"icon": "🏛️",
+"title": "The Houses of Parliament",
+"fact": "The Palace of Westminster is home to the UK Parliament. MPs meet in the House of Commons.",
+"fr": "Le palais de Westminster abrite le Parlement britannique. Les députés se réunissent à la Chambre des communes.",
+"word": [
+"Parliament",
+"Parlement"
+]
+},
+{
+"x": 27,
+"y": 28,
+"icon": "🎡",
+"title": "The London Eye",
+"fact": "The London Eye is a giant observation wheel on the South Bank of the Thames.",
+"fr": "Le London Eye est une immense grande roue sur la rive sud de la Tamise.",
+"word": [
+"wheel",
+"roue"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is Big Ben?",
+"o": [
+"The Great Bell inside the clock tower",
+"The name of the whole palace",
+"A famous red bus"
+],
+"why": "Big Ben is the bell. The tower is the Elizabeth Tower."
+},
+{
+"t": "mcq",
+"q": "Where does the UK Parliament meet?",
+"o": [
+"In the Palace of Westminster",
+"In Buckingham Palace",
+"In the Tower of London"
+],
+"why": "Buckingham Palace is a royal residence and the Tower of London is a historic fortress."
+},
+{
+"t": "listen",
+"say": "The London Eye is on the South Bank of the River Thames.",
+"q": "Where is the London Eye?",
+"o": [
+"On the South Bank of the Thames",
+"Next to Camden Market",
+"Inside the Palace of Westminster"
+],
+"why": "South Bank = the south side of the river."
+}
+]
+},
+{
+"id": "towerbridge",
+"area": "london",
+"name": "Tower Bridge",
+"short": "A bridge that opens",
+"art": "assets/london/bridge.webp",
+"w": 1150,
+"h": 719,
+"pin": [
+78.7,
+71.6
+],
+"guide": {
+"name": "Riley",
+"role": "Bridge engineer",
+"color": "#3d7a4f"
+},
+"talk": [
+[
+"guide",
+"Hello! I’m Riley. I take care of Tower Bridge.",
+"Bonjour ! Je suis Riley. Je m’occupe de Tower Bridge."
+],
+[
+"you",
+"Is this London Bridge?",
+"C’est London Bridge ?"
+],
+[
+"guide",
+"No, it isn’t! London Bridge is a different bridge. This is Tower Bridge. It opened in 1894.",
+"Non ! London Bridge est un autre pont. Ici, c’est Tower Bridge. Il a ouvert en 1894."
+]
+],
+"reply": {
+"prompt": "Ask Riley a question.",
+"o": [
+[
+"Can the bridge open for big boats?",
+true,
+"Good question! You use “can” to ask about ability."
+],
+[
+"Where is my bridge yesterday?",
+false,
+"This question doesn’t make sense: “is” is present, “yesterday” is past."
+],
+[
+"I am a big boat.",
+false,
+"You are not a boat! Ask Riley something about the bridge."
+]
+]
+},
+"outro": "Yes, it can! Look closely and you’ll see how.",
+"outroFr": "Oui, il peut ! Regarde bien et tu verras comment.",
+"clues": [
+{
+"x": 52,
+"y": 24,
+"icon": "🚶",
+"title": "The high walkways",
+"fact": "Two high walkways connect the towers. Today visitors can walk across them, and some parts have a glass floor.",
+"fr": "Deux passerelles en hauteur relient les tours. Aujourd’hui, les visiteurs peuvent les traverser, et certaines parties ont un sol en verre.",
+"word": [
+"walkway",
+"passerelle"
+]
+},
+{
+"x": 52,
+"y": 49,
+"icon": "⚙️",
+"title": "The roadway",
+"fact": "The road in the middle is in two parts called bascules. They lift up to let tall ships pass.",
+"fr": "La route au milieu est en deux parties appelées « bascules ». Elles se lèvent pour laisser passer les grands bateaux.",
+"word": [
+"to lift",
+"lever"
+]
+},
+{
+"x": 88,
+"y": 64,
+"icon": "🚢",
+"title": "The River Thames",
+"fact": "The River Thames flows through London to the North Sea. Boats still carry visitors along the river.",
+"fr": "La Tamise traverse Londres jusqu’à la mer du Nord. Des bateaux transportent toujours des visiteurs sur le fleuve.",
+"word": [
+"river",
+"fleuve, rivière"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Why does Tower Bridge open?",
+"o": [
+"To let tall ships pass",
+"To let trains go under it",
+"Because it is broken"
+],
+"why": "The two bascules lift so that tall ships can go through."
+},
+{
+"t": "mcq",
+"q": "Which sentence is true?",
+"o": [
+"Tower Bridge and London Bridge are two different bridges",
+"Tower Bridge is the old name of London Bridge",
+"Tower Bridge is in Liverpool"
+],
+"why": "They are two different bridges, both in London."
+},
+{
+"t": "listen",
+"say": "Tower Bridge opened in eighteen ninety-four.",
+"q": "When did Tower Bridge open?",
+"o": [
+"1894",
+"1984",
+"1849"
+],
+"why": "Eighteen ninety-four = 1894. In English, we often read years in two parts: 18 / 94."
+}
+]
+},
+{
+"id": "museum",
+"area": "london",
+"name": "The British Museum",
+"short": "Objects from the world",
+"art": "assets/london/museum.webp",
+"w": 306,
+"h": 506,
+"pin": [
+58,
+8
+],
+"guide": {
+"name": "Nia",
+"role": "Museum educator",
+"color": "#7a4fa3"
+},
+"talk": [
+[
+"guide",
+"Welcome to the British Museum! It opened in 1759, and it’s free to visit.",
+"Bienvenue au British Museum ! Il a ouvert en 1759 et l’entrée est gratuite."
+],
+[
+"you",
+"Free? Brilliant! What can we see here?",
+"Gratuit ? Génial ! Qu’est-ce qu’on peut voir ici ?"
+],
+[
+"guide",
+"Objects from all over the world: statues, mummies, the Rosetta Stone…",
+"Des objets du monde entier : des statues, des momies, la pierre de Rosette…"
+]
+],
+"reply": {
+"prompt": "Ask Nia politely.",
+"o": [
+[
+"Thank you! Where is the Rosetta Stone, please?",
+true,
+"Polite and clear: “thank you” + “please”."
+],
+[
+"Give me the Rosetta Stone!",
+false,
+"Too direct, and you can’t take objects from a museum!"
+],
+[
+"I’m twelve years ago.",
+false,
+"For your age, say “I’m twelve” or “I’m twelve years old”."
+]
+]
+},
+"outro": "It’s in Room 4. But first, look around the Great Court.",
+"outroFr": "Elle est dans la salle 4. Mais d’abord, observe la Grande Cour.",
+"clues": [
+{
+"x": 65,
+"y": 10,
+"icon": "🔷",
+"title": "The glass roof",
+"fact": "The Great Court has a huge glass roof. It is one of the largest covered squares in Europe.",
+"fr": "La Grande Cour a un immense toit en verre. C’est l’une des plus grandes places couvertes d’Europe.",
+"word": [
+"roof",
+"toit"
+]
+},
+{
+"x": 22,
+"y": 52,
+"icon": "🦁",
+"title": "Ancient Egypt",
+"fact": "The museum has many objects from ancient Egypt. The Rosetta Stone helped experts understand hieroglyphs.",
+"fr": "Le musée possède beaucoup d’objets de l’Égypte antique. La pierre de Rosette a aidé les experts à comprendre les hiéroglyphes.",
+"word": [
+"ancient",
+"antique, ancien"
+]
+},
+{
+"x": 75,
+"y": 42,
+"icon": "❓",
+"title": "A big question",
+"fact": "Some objects came to London during the British Empire. Today some countries ask for them back. People debate where these objects belong.",
+"fr": "Certains objets sont arrivés à Londres à l’époque de l’Empire britannique. Aujourd’hui, des pays demandent à les récupérer. On débat de l’endroit où ils devraient être.",
+"word": [
+"to belong",
+"appartenir"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "How much does it cost to visit the main collection?",
+"o": [
+"Nothing: it’s free",
+"£50",
+"£5 for adults only"
+],
+"why": "Entry to the British Museum’s main collection is free."
+},
+{
+"t": "mcq",
+"q": "What did the Rosetta Stone help experts do?",
+"o": [
+"Understand Egyptian hieroglyphs",
+"Build the Great Court",
+"Find the source of the Thames"
+],
+"why": "The same text is written in three scripts on the stone, so experts could compare them."
+},
+{
+"t": "listen",
+"say": "Some countries want these objects back. People debate where they belong.",
+"q": "What do people debate?",
+"o": [
+"Where some objects belong",
+"The price of the tickets",
+"The colour of the roof"
+],
+"why": "“Where they belong” = where they should be."
+}
+]
+},
+{
+"id": "underground",
+"area": "london",
+"name": "The Underground",
+"short": "London’s Tube",
+"art": "assets/london/underground.webp",
+"w": 301,
+"h": 477,
+"pin": [
+23.3,
+86.5
+],
+"guide": {
+"name": "Charlie",
+"role": "Station assistant",
+"color": "#c0392b"
+},
+"talk": [
+[
+"guide",
+"Hello there! Welcome to the London Underground. Most people call it the Tube.",
+"Bonjour ! Bienvenue dans le métro de Londres. La plupart des gens l’appellent « the Tube »."
+],
+[
+"you",
+"Excuse me, how do I get to Camden Town?",
+"Excusez-moi, comment je vais à Camden Town ?"
+],
+[
+"guide",
+"Take the Northern line. It’s the black line on the map.",
+"Prends la Northern line. C’est la ligne noire sur le plan."
+]
+],
+"reply": {
+"prompt": "What do you say to Charlie?",
+"o": [
+[
+"Thanks a lot for your help!",
+true,
+"Always thank people who help you."
+],
+[
+"The Northern line is a colour.",
+false,
+"No: the Northern line is a Tube line. Its colour is black."
+],
+[
+"How old are you, Tube?",
+false,
+"You can’t talk to the Tube! Thank Charlie instead."
+]
+]
+},
+"outro": "You’re welcome! And don’t forget: mind the gap!",
+"outroFr": "Avec plaisir ! Et n’oublie pas : attention à la marche !",
+"clues": [
+{
+"x": 57,
+"y": 22,
+"icon": "⭕",
+"title": "The roundel",
+"fact": "This red circle with a blue bar is the Underground logo. It’s called the roundel.",
+"fr": "Ce cercle rouge avec une barre bleue est le logo du métro. On l’appelle le « roundel ».",
+"word": [
+"sign",
+"panneau"
+]
+},
+{
+"x": 10,
+"y": 58,
+"icon": "🗺️",
+"title": "The Tube map",
+"fact": "Each Tube line has a name and a colour: the Central line is red, the Northern line is black.",
+"fr": "Chaque ligne a un nom et une couleur : la Central line est rouge, la Northern line est noire.",
+"word": [
+"line",
+"ligne"
+]
+},
+{
+"x": 85,
+"y": 62,
+"icon": "🚇",
+"title": "The train",
+"fact": "The Underground opened in 1863. It was the first underground railway in the world.",
+"fr": "Le métro de Londres a ouvert en 1863. C’était le premier chemin de fer souterrain du monde.",
+"word": [
+"railway",
+"chemin de fer"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is the nickname of the London Underground?",
+"o": [
+"The Tube",
+"The Pipe",
+"The Metro"
+],
+"why": "Londoners say “the Tube”."
+},
+{
+"t": "mcq",
+"q": "On the Tube map, the Northern line is…",
+"o": [
+"black",
+"red",
+"yellow"
+],
+"why": "The Northern line is black. The Central line is red."
+},
+{
+"t": "listen",
+"say": "Please mind the gap between the train and the platform.",
+"q": "What must passengers be careful of?",
+"o": [
+"The gap between the train and the platform",
+"The doors of the shops",
+"The price of their ticket"
+],
+"why": "“Mind the gap” = be careful of the space between the train and the platform."
+}
+]
+},
+{
+"id": "camden",
+"area": "london",
+"name": "Camden Market",
+"short": "Stalls and street food",
+"art": "assets/london/market.webp",
+"w": 306,
+"h": 477,
+"pin": [
+21.4,
+7.5
+],
+"guide": {
+"name": "Sam",
+"role": "Market trader",
+"color": "#d35400"
+},
+"talk": [
+[
+"guide",
+"Hiya! Welcome to Camden Market, in north London. Can I help you?",
+"Salut ! Bienvenue à Camden Market, dans le nord de Londres. Je peux t’aider ?"
+],
+[
+"you",
+"Yes, please. How much is this T-shirt?",
+"Oui, s’il vous plaît. Combien coûte ce T-shirt ?"
+],
+[
+"guide",
+"It’s twelve pounds fifty.",
+"Il coûte douze livres cinquante."
+]
+],
+"reply": {
+"prompt": "You give Sam a twenty-pound note. What do you say?",
+"o": [
+[
+"Here you are. Can I have my change, please?",
+true,
+"Perfect: you ask for your change politely."
+],
+[
+"Here you are. Can I have my euros, please?",
+false,
+"In the UK, people pay in pounds and pence, not euros."
+],
+[
+"Here you are. Goodbye forever!",
+false,
+"Too dramatic! Wait for your change."
+]
+]
+},
+"outro": "Of course! Here’s your change: seven pounds fifty. Cheers!",
+"outroFr": "Bien sûr ! Voici ta monnaie : sept livres cinquante. Merci !",
+"clues": [
+{
+"x": 55,
+"y": 30,
+"icon": "🌉",
+"title": "Camden Lock",
+"fact": "Camden Lock is on Regent’s Canal. A lock is a system of gates that raises or lowers boats.",
+"fr": "Camden Lock se trouve sur Regent’s Canal. Une écluse est un système de portes qui fait monter ou descendre les bateaux.",
+"word": [
+"lock",
+"écluse"
+]
+},
+{
+"x": 12,
+"y": 50,
+"icon": "👕",
+"title": "The stalls",
+"fact": "Camden has hundreds of stalls. Prices are in pounds (£) and pence: £1 = 100p.",
+"fr": "Camden compte des centaines de stands. Les prix sont en livres (£) et en pence : 1 £ = 100 p.",
+"word": [
+"stall",
+"stand, étal"
+]
+},
+{
+"x": 70,
+"y": 65,
+"icon": "🍜",
+"title": "Street food",
+"fact": "You can find street food from all over the world here. Camden reflects London’s many cultures.",
+"fr": "On trouve ici de la cuisine de rue du monde entier. Camden reflète les nombreuses cultures de Londres.",
+"word": [
+"street food",
+"cuisine de rue"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "How many pence are there in one pound?",
+"o": [
+"100",
+"10",
+"1,000"
+],
+"why": "£1 = 100 pence (100p)."
+},
+{
+"t": "mcq",
+"q": "What is a lock on a canal?",
+"o": [
+"Gates that raise or lower boats",
+"A kind of market stall",
+"A small bridge for walkers"
+],
+"why": "A lock helps boats go up or down on a canal."
+},
+{
+"t": "listen",
+"say": "That’s twelve pounds fifty, please.",
+"q": "How much is the T-shirt?",
+"o": [
+"£12.50",
+"£15.20",
+"£20.50"
+],
+"why": "Twelve pounds fifty = £12.50."
+}
+]
+},
+{
+"id": "tearoom",
+"area": "london",
+"name": "A Tea Room",
+"short": "Afternoon tea in Covent Garden",
+"art": "assets/london/cafe.webp",
+"w": 301,
+"h": 506,
+"pin": [
+61.6,
+26.7
+],
+"guide": {
+"name": "Poppy",
+"role": "Tea room owner",
+"color": "#8e5b3a"
+},
+"talk": [
+[
+"guide",
+"Good afternoon! Welcome to my tea room. Would you like a cup of tea?",
+"Bon après-midi ! Bienvenue dans mon salon de thé. Veux-tu une tasse de thé ?"
+],
+[
+"you",
+"Yes, please! With milk, please.",
+"Oui, s’il vous plaît ! Avec du lait."
+],
+[
+"guide",
+"Lovely. And would you like a scone with it?",
+"Très bien. Et veux-tu un scone avec ?"
+]
+],
+"reply": {
+"prompt": "Answer Poppy politely.",
+"o": [
+[
+"Yes, please. That would be lovely!",
+true,
+"Very British and very polite!"
+],
+[
+"I want scone. Now.",
+false,
+"Too direct: say “I’d like a scone, please”."
+],
+[
+"No, I’m a teapot.",
+false,
+"Funny, but you are not a teapot!"
+]
+]
+},
+"outro": "Here you are: a scone with jam and clotted cream. Enjoy!",
+"outroFr": "Voilà : un scone avec de la confiture et de la crème épaisse. Régale-toi !",
+"clues": [
+{
+"x": 60,
+"y": 62,
+"icon": "🧁",
+"title": "The cake stand",
+"fact": "Afternoon tea is a light meal: small sandwiches, scones and cakes on a cake stand.",
+"fr": "Le « afternoon tea » est un repas léger : petits sandwichs, scones et gâteaux sur un présentoir.",
+"word": [
+"cake stand",
+"présentoir à gâteaux"
+]
+},
+{
+"x": 57,
+"y": 74,
+"icon": "🫖",
+"title": "The teapot",
+"fact": "Tea is very popular in Britain. Many people drink it with a little milk.",
+"fr": "Le thé est très populaire en Grande-Bretagne. Beaucoup de gens le boivent avec un peu de lait.",
+"word": [
+"teapot",
+"théière"
+]
+},
+{
+"x": 90,
+"y": 33,
+"icon": "🪟",
+"title": "A bit of history",
+"fact": "Afternoon tea became fashionable in the 1840s, thanks to Anna, Duchess of Bedford.",
+"fr": "Le « afternoon tea » est devenu à la mode dans les années 1840, grâce à Anna, duchesse de Bedford.",
+"word": [
+"fashionable",
+"à la mode"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is afternoon tea?",
+"o": [
+"A light meal with tea, sandwiches, scones and cakes",
+"A big hot dinner at 9 pm",
+"A tea-drinking competition"
+],
+"why": "It’s a light meal, usually in the afternoon."
+},
+{
+"t": "mcq",
+"q": "Which sentence is the most polite?",
+"o": [
+"I’d like a scone, please.",
+"Give me a scone.",
+"Scone. Now."
+],
+"why": "“I’d like… please” is the polite way to order."
+},
+{
+"t": "listen",
+"say": "Would you like milk in your tea?",
+"q": "What does Poppy ask?",
+"o": [
+"If you want milk in your tea",
+"If you want sugar in your coffee",
+"If you want a sandwich"
+],
+"why": "“Would you like…?” = Do you want…? (polite)"
+}
+]
+},
+{
+"id": "york",
+"area": "england",
+"name": "York",
+"short": "Romans and Vikings",
+"art": "assets/england/york.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+66,
+31.7
+],
+"guide": {
+"name": "Ellie",
+"role": "History student",
+"color": "#5d6d7e"
+},
+"talk": [
+[
+"guide",
+"Welcome to York, in the north of England! The city is almost 2,000 years old.",
+"Bienvenue à York, dans le nord de l’Angleterre ! La ville a presque 2 000 ans."
+],
+[
+"you",
+"Who lived here a long time ago?",
+"Qui vivait ici il y a longtemps ?"
+],
+[
+"guide",
+"The Romans, then the Vikings! The Vikings called the city Jorvik.",
+"Les Romains, puis les Vikings ! Les Vikings appelaient la ville Jorvik."
+]
+],
+"reply": {
+"prompt": "Ellie asks: “Shall we walk on the old city walls?”",
+"o": [
+[
+"Good idea! Let’s go.",
+true,
+"“Let’s go” is perfect to accept a suggestion."
+],
+[
+"Yes, I walked tomorrow.",
+false,
+"“Walked” is past and “tomorrow” is future: they don’t go together."
+],
+[
+"The walls are a Viking.",
+false,
+"That doesn’t answer Ellie’s suggestion."
+]
+]
+},
+"outro": "Great! From the walls, you can see the Minster.",
+"outroFr": "Super ! Depuis les remparts, on voit la cathédrale.",
+"clues": [
+{
+"x": 48,
+"y": 40,
+"icon": "⛪",
+"title": "York Minster",
+"fact": "York Minster is one of the largest Gothic cathedrals in northern Europe.",
+"fr": "York Minster est l’une des plus grandes cathédrales gothiques d’Europe du Nord.",
+"word": [
+"cathedral",
+"cathédrale"
+]
+},
+{
+"x": 62,
+"y": 80,
+"icon": "🌊",
+"title": "The River Ouse",
+"fact": "The River Ouse flows through York. Viking boats came up this river.",
+"fr": "La rivière Ouse traverse York. Les bateaux vikings remontaient cette rivière.",
+"word": [
+"boat",
+"bateau"
+]
+},
+{
+"x": 88,
+"y": 58,
+"icon": "⚔️",
+"title": "The Vikings",
+"fact": "Vikings from Scandinavia settled here in the 9th century and called the city Jorvik.",
+"fr": "Des Vikings venus de Scandinavie se sont installés ici au IXe siècle et ont appelé la ville Jorvik.",
+"word": [
+"to settle",
+"s’installer"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What did the Vikings call York?",
+"o": [
+"Jorvik",
+"Londinium",
+"Lindisfarne"
+],
+"why": "Londinium was the Roman name of London. Lindisfarne is an island."
+},
+{
+"t": "mcq",
+"q": "What is York Minster?",
+"o": [
+"A huge Gothic cathedral",
+"A football stadium",
+"A Roman bath"
+],
+"why": "York Minster is a Gothic cathedral."
+},
+{
+"t": "listen",
+"say": "York is in the north of England, between London and Edinburgh.",
+"q": "Where is York?",
+"o": [
+"In the north of England",
+"In the south-west of England",
+"Near Brighton"
+],
+"why": "York is in the north, about halfway between London and Edinburgh."
+}
+]
+},
+{
+"id": "lakes",
+"area": "england",
+"name": "The Lake District",
+"short": "Lakes and mountains",
+"art": "assets/england/lakes.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+48.9,
+25.6
+],
+"guide": {
+"name": "Tom",
+"role": "Park ranger",
+"color": "#2e7d5b"
+},
+"talk": [
+[
+"guide",
+"Hi! I’m a ranger in the Lake District National Park, in north-west England.",
+"Salut ! Je suis garde du parc national du Lake District, dans le nord-ouest de l’Angleterre."
+],
+[
+"you",
+"It’s beautiful! What can we do here?",
+"C’est magnifique ! Qu’est-ce qu’on peut faire ici ?"
+],
+[
+"guide",
+"You can walk, climb and go on boat trips. Scafell Pike is the highest mountain in England.",
+"On peut marcher, grimper et faire des balades en bateau. Le Scafell Pike est la plus haute montagne d’Angleterre."
+]
+],
+"reply": {
+"prompt": "Tom says: “It might rain later.” What do you answer?",
+"o": [
+[
+"OK, I’ll take my raincoat.",
+true,
+"Good: “I’ll…” for a decision you make now."
+],
+[
+"OK, I’ll take only my sunglasses.",
+false,
+"Sunglasses won’t help if it rains!"
+],
+[
+"Rain is my brother.",
+false,
+"That doesn’t answer Tom at all."
+]
+]
+},
+"outro": "Smart! Here, the weather changes fast.",
+"outroFr": "Malin ! Ici, la météo change vite.",
+"clues": [
+{
+"x": 50,
+"y": 40,
+"icon": "⛰️",
+"title": "Scafell Pike",
+"fact": "Scafell Pike is the highest mountain in England: 978 metres.",
+"fr": "Le Scafell Pike est la plus haute montagne d’Angleterre : 978 mètres.",
+"word": [
+"mountain",
+"montagne"
+]
+},
+{
+"x": 38,
+"y": 64,
+"icon": "💧",
+"title": "Windermere",
+"fact": "Windermere is the largest natural lake in England.",
+"fr": "Windermere est le plus grand lac naturel d’Angleterre.",
+"word": [
+"lake",
+"lac"
+]
+},
+{
+"x": 12,
+"y": 42,
+"icon": "🐰",
+"title": "Writers and stories",
+"fact": "The Lake District inspired writers like William Wordsworth and Beatrix Potter, who created Peter Rabbit.",
+"fr": "Le Lake District a inspiré des écrivains comme William Wordsworth et Beatrix Potter, qui a créé Pierre Lapin.",
+"word": [
+"writer",
+"écrivain"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is the highest mountain in England?",
+"o": [
+"Scafell Pike",
+"Ben Nevis",
+"Snowdon"
+],
+"why": "Ben Nevis is in Scotland and Snowdon is in Wales."
+},
+{
+"t": "mcq",
+"q": "Which famous character did Beatrix Potter create?",
+"o": [
+"Peter Rabbit",
+"Paddington Bear",
+"Winnie-the-Pooh"
+],
+"why": "Peter Rabbit was created by Beatrix Potter."
+},
+{
+"t": "listen",
+"say": "Windermere is the largest natural lake in England.",
+"q": "What is Windermere?",
+"o": [
+"The largest natural lake in England",
+"The highest mountain in England",
+"A town in Scotland"
+],
+"why": "Lake = lac. Windermere is a lake."
+}
+]
+},
+{
+"id": "liverpool",
+"area": "england",
+"name": "Liverpool",
+"short": "Port city of music",
+"art": "assets/england/liverpool.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+27.4,
+39.4
+],
+"guide": {
+"name": "Jade",
+"role": "Music guide",
+"color": "#a93226"
+},
+"talk": [
+[
+"guide",
+"Welcome to Liverpool, a big port city in north-west England!",
+"Bienvenue à Liverpool, une grande ville portuaire du nord-ouest de l’Angleterre !"
+],
+[
+"you",
+"Is it true that the Beatles come from here?",
+"C’est vrai que les Beatles viennent d’ici ?"
+],
+[
+"guide",
+"Yes! John, Paul, George and Ringo started the band here in the 1960s.",
+"Oui ! John, Paul, George et Ringo ont lancé le groupe ici dans les années 1960."
+]
+],
+"reply": {
+"prompt": "Jade asks: “Do you like music?”",
+"o": [
+[
+"Yes, I love it! I listen to music every day.",
+true,
+"Present simple + “every day”: perfect for a habit."
+],
+[
+"Yes, I am listening music every day.",
+false,
+"Say “listen TO music”, and use the present simple for a habit."
+],
+[
+"No, music likes me.",
+false,
+"That doesn’t make sense!"
+]
+]
+},
+"outro": "Me too! Let’s explore the waterfront.",
+"outroFr": "Moi aussi ! Allons explorer les quais.",
+"clues": [
+{
+"x": 75,
+"y": 55,
+"icon": "⚓",
+"title": "Royal Albert Dock",
+"fact": "The Royal Albert Dock opened in 1846. Today its old warehouses are museums, shops and cafés.",
+"fr": "Le Royal Albert Dock a ouvert en 1846. Aujourd’hui, ses anciens entrepôts accueillent des musées, des boutiques et des cafés.",
+"word": [
+"dock",
+"quai, bassin"
+]
+},
+{
+"x": 22,
+"y": 35,
+"icon": "🚢",
+"title": "A great port",
+"fact": "For centuries, ships sailed from Liverpool across the Atlantic. The port also played a major role in the slave trade.",
+"fr": "Pendant des siècles, des navires sont partis de Liverpool pour traverser l’Atlantique. Le port a aussi joué un rôle majeur dans la traite des esclaves.",
+"word": [
+"port",
+"port"
+]
+},
+{
+"x": 55,
+"y": 48,
+"icon": "🎸",
+"title": "City of Music",
+"fact": "The Beatles became famous at the Cavern Club. Liverpool is a UNESCO City of Music.",
+"fr": "Les Beatles sont devenus célèbres au Cavern Club. Liverpool est une « Ville de la musique » de l’UNESCO.",
+"word": [
+"band",
+"groupe (de musique)"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Which band started in Liverpool?",
+"o": [
+"The Beatles",
+"The Rolling Stones",
+"Queen"
+],
+"why": "The Beatles are from Liverpool."
+},
+{
+"t": "mcq",
+"q": "Why was Liverpool important in history?",
+"o": [
+"It was a major port",
+"It was the capital of England",
+"It was a Roman bath town"
+],
+"why": "Ships from Liverpool sailed all over the world."
+},
+{
+"t": "listen",
+"say": "The Royal Albert Dock opened in eighteen forty-six.",
+"q": "When did the dock open?",
+"o": [
+"1846",
+"1864",
+"1946"
+],
+"why": "Eighteen forty-six = 1846."
+}
+]
+},
+{
+"id": "stonehenge",
+"area": "england",
+"name": "Stonehenge",
+"short": "A prehistoric mystery",
+"art": "assets/england/stonehenge.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+46,
+73.9
+],
+"guide": {
+"name": "Dr Rao",
+"role": "Archaeologist",
+"color": "#6c5b7b"
+},
+"talk": [
+[
+"guide",
+"Welcome to Stonehenge, in Wiltshire! These stones are about 5,000 years old.",
+"Bienvenue à Stonehenge, dans le Wiltshire ! Ces pierres ont environ 5 000 ans."
+],
+[
+"you",
+"Who built it, and why?",
+"Qui l’a construit, et pourquoi ?"
+],
+[
+"guide",
+"Prehistoric people built it. Nobody knows exactly why. That’s the mystery!",
+"Des hommes préhistoriques l’ont construit. Personne ne sait exactement pourquoi. C’est tout le mystère !"
+]
+],
+"reply": {
+"prompt": "Dr Rao asks: “What do you think it was for?”",
+"o": [
+[
+"Maybe it was a calendar or a temple.",
+true,
+"“Maybe” is perfect to make a hypothesis."
+],
+[
+"It was definitely a car park.",
+false,
+"There were no cars 5,000 years ago!"
+],
+[
+"Stonehenge is five thousand.",
+false,
+"That doesn’t answer the question."
+]
+]
+},
+"outro": "Good thinking! Archaeologists have similar ideas.",
+"outroFr": "Bien vu ! Les archéologues ont des idées semblables.",
+"clues": [
+{
+"x": 50,
+"y": 57,
+"icon": "🪨",
+"title": "The sarsens",
+"fact": "The biggest stones, called sarsens, weigh about 25 tonnes each.",
+"fr": "Les plus grosses pierres, appelées « sarsens », pèsent environ 25 tonnes chacune.",
+"word": [
+"stone",
+"pierre"
+]
+},
+{
+"x": 70,
+"y": 58,
+"icon": "🔵",
+"title": "The bluestones",
+"fact": "The smaller bluestones came from Wales. People carried them more than 200 kilometres.",
+"fr": "Les pierres plus petites, les « bluestones », viennent du pays de Galles. Elles ont été transportées sur plus de 200 kilomètres.",
+"word": [
+"to carry",
+"transporter"
+]
+},
+{
+"x": 15,
+"y": 30,
+"icon": "🌅",
+"title": "The solstice",
+"fact": "At the summer solstice, the sun rises in line with the stones. Thousands of people come to watch.",
+"fr": "Au solstice d’été, le soleil se lève dans l’alignement des pierres. Des milliers de personnes viennent l’observer.",
+"word": [
+"sunrise",
+"lever du soleil"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "How old is Stonehenge?",
+"o": [
+"About 5,000 years old",
+"About 500 years old",
+"About 50,000 years old"
+],
+"why": "People started building Stonehenge about 5,000 years ago."
+},
+{
+"t": "mcq",
+"q": "Where did the bluestones come from?",
+"o": [
+"Wales",
+"Scotland",
+"France"
+],
+"why": "The bluestones came from the Preseli Hills in Wales."
+},
+{
+"t": "listen",
+"say": "At the summer solstice, the sun rises in line with the stones.",
+"q": "What happens at the summer solstice?",
+"o": [
+"The sun rises in line with the stones",
+"The stones move",
+"The site closes for the summer"
+],
+"why": "Sunrise = lever du soleil."
+}
+]
+},
+{
+"id": "bath",
+"area": "england",
+"name": "Bath",
+"short": "Roman baths",
+"art": "assets/england/bath.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+26.7,
+78.3
+],
+"guide": {
+"name": "Lucia",
+"role": "Tour guide",
+"color": "#1f7a8c"
+},
+"talk": [
+[
+"guide",
+"Welcome to Bath, in south-west England! The Romans called it Aquae Sulis.",
+"Bienvenue à Bath, dans le sud-ouest de l’Angleterre ! Les Romains l’appelaient Aquae Sulis."
+],
+[
+"you",
+"Why did the Romans come here?",
+"Pourquoi les Romains sont-ils venus ici ?"
+],
+[
+"guide",
+"For the hot springs! The water comes out of the ground at about 46 degrees.",
+"Pour les sources chaudes ! L’eau sort du sol à environ 46 degrés."
+]
+],
+"reply": {
+"prompt": "Lucia says: “You can’t swim in the Roman Baths.” What do you answer?",
+"o": [
+[
+"Oh, OK. Can I take a photo, then?",
+true,
+"Nice: you accept the rule and ask permission with “Can I…?”."
+],
+[
+"OK, I’m swimming now.",
+false,
+"That’s the opposite of what Lucia said!"
+],
+[
+"Can I drink the bath?",
+false,
+"Not a good idea!"
+]
+]
+},
+"outro": "Of course! And later, you can visit the modern spa.",
+"outroFr": "Bien sûr ! Et plus tard, tu pourras aller au spa moderne.",
+"clues": [
+{
+"x": 33,
+"y": 62,
+"icon": "♨️",
+"title": "The Great Bath",
+"fact": "The Great Bath is a Roman pool. It is almost 2,000 years old.",
+"fr": "Le Grand Bain est une piscine romaine. Il a presque 2 000 ans.",
+"word": [
+"hot spring",
+"source chaude"
+]
+},
+{
+"x": 45,
+"y": 38,
+"icon": "🏛️",
+"title": "Georgian Bath",
+"fact": "Bath is also famous for its elegant Georgian buildings, like the Royal Crescent.",
+"fr": "Bath est aussi célèbre pour ses élégants bâtiments géorgiens, comme le Royal Crescent.",
+"word": [
+"building",
+"bâtiment"
+]
+},
+{
+"x": 75,
+"y": 82,
+"icon": "📖",
+"title": "Jane Austen",
+"fact": "The writer Jane Austen lived in Bath and set two of her novels here.",
+"fr": "L’écrivaine Jane Austen a vécu à Bath et y a situé deux de ses romans.",
+"word": [
+"novel",
+"roman"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Why did the Romans build baths here?",
+"o": [
+"Because of the natural hot springs",
+"Because it was near the sea",
+"Because it was the capital"
+],
+"why": "Hot water comes out of the ground naturally in Bath."
+},
+{
+"t": "mcq",
+"q": "Which writer lived in Bath?",
+"o": [
+"Jane Austen",
+"William Shakespeare",
+"J.K. Rowling"
+],
+"why": "Jane Austen lived in Bath from 1801 to 1806."
+},
+{
+"t": "listen",
+"say": "The water comes out of the ground at forty-six degrees.",
+"q": "How hot is the water?",
+"o": [
+"46 °C",
+"16 °C",
+"64 °C"
+],
+"why": "Forty-six = 46. Careful: sixteen (16) and sixty-four (64) sound different."
+}
+]
+},
+{
+"id": "brighton",
+"area": "england",
+"name": "Brighton",
+"short": "By the seaside",
+"art": "assets/england/brighton.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"pin": [
+71,
+78.3
+],
+"guide": {
+"name": "Kai",
+"role": "Seaside café owner",
+"color": "#117a65"
+},
+"talk": [
+[
+"guide",
+"Welcome to Brighton, on the south coast! Fancy a walk on the pier?",
+"Bienvenue à Brighton, sur la côte sud ! Ça te dit une balade sur la jetée ?"
+],
+[
+"you",
+"Yes! What is a pier?",
+"Oui ! C’est quoi, un « pier » ?"
+],
+[
+"guide",
+"It’s a long platform that goes out over the sea. Brighton Palace Pier opened in 1899.",
+"C’est une longue plateforme qui avance au-dessus de la mer. Le Brighton Palace Pier a ouvert en 1899."
+]
+],
+"reply": {
+"prompt": "Kai asks: “Would you like fish and chips?”",
+"o": [
+[
+"Yes, please! I’m starving.",
+true,
+"“Starving” = very, very hungry. Great word!"
+],
+[
+"Yes, please! I’m a fish.",
+false,
+"You are not a fish!"
+],
+[
+"No, thank you, I’m sea.",
+false,
+"That doesn’t make sense."
+]
+]
+},
+"outro": "Here you are! Watch out for the seagulls: they love chips!",
+"outroFr": "Voilà ! Attention aux mouettes : elles adorent les frites !",
+"clues": [
+{
+"x": 50,
+"y": 64,
+"icon": "🎢",
+"title": "Brighton Palace Pier",
+"fact": "Brighton Palace Pier has rides, games and cafés. It opened in 1899.",
+"fr": "Le Brighton Palace Pier a des manèges, des jeux et des cafés. Il a ouvert en 1899.",
+"word": [
+"pier",
+"jetée"
+]
+},
+{
+"x": 22,
+"y": 70,
+"icon": "🪨",
+"title": "The beach",
+"fact": "The beach in Brighton is made of pebbles, not sand.",
+"fr": "La plage de Brighton est faite de galets, pas de sable.",
+"word": [
+"pebble",
+"galet"
+]
+},
+{
+"x": 90,
+"y": 52,
+"icon": "🏳️",
+"title": "White cliffs",
+"fact": "Near Brighton, the white chalk cliffs of the Seven Sisters face the English Channel.",
+"fr": "Près de Brighton, les falaises de craie blanche des Seven Sisters font face à la Manche.",
+"word": [
+"cliff",
+"falaise"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is the beach in Brighton made of?",
+"o": [
+"Pebbles",
+"White sand",
+"Black volcanic sand"
+],
+"why": "Brighton beach is a pebble beach."
+},
+{
+"t": "mcq",
+"q": "Which sea is on the south coast of England?",
+"o": [
+"The English Channel",
+"The North Sea",
+"The Irish Sea"
+],
+"why": "The English Channel separates England from France."
+},
+{
+"t": "listen",
+"say": "Watch out for the seagulls. They love chips!",
+"q": "What does Kai warn you about?",
+"o": [
+"The seagulls",
+"The waves",
+"The rides"
+],
+"why": "“Watch out for…” = be careful of…"
+}
+]
+}
+]
+}
+},
+"destinations": [
+{
+"id": "england",
+"name": "England",
+"img": 0,
+"status": "playable"
+},
+{
+"id": "usa",
+"name": "United States",
+"img": 1
+},
+{
+"id": "canada",
+"name": "Canada",
+"img": 2
+},
+{
+"id": "australia",
+"name": "Australia",
+"img": 3
+},
+{
+"id": "nz",
+"name": "New Zealand",
+"img": 4
+},
+{
+"id": "ireland",
+"name": "Ireland",
+"img": 5
+},
+{
+"id": "scotland",
+"name": "Scotland",
+"img": 6
+},
+{
+"id": "wales",
+"name": "Wales",
+"img": 7
+},
+{
+"id": "ni",
+"name": "Northern Ireland",
+"img": 8
+},
+{
+"id": "southafrica",
+"name": "South Africa",
+"img": 9
+},
+{
+"id": "jamaica",
+"name": "Jamaica",
+"img": 10
+},
+{
+"id": "barbados",
+"name": "Barbados",
+"img": 11
+},
+{
+"id": "trinidad",
+"name": "Trinidad and Tobago",
+"img": 12
+},
+{
+"id": "bahamas",
+"name": "The Bahamas",
+"img": 13
+},
+{
+"id": "singapore",
+"name": "Singapore",
+"img": 14
+},
+{
+"id": "india",
+"name": "India",
+"img": 15
+}
+]
+}
+</script>
+<script>
+/* GLOBETROTTER v2 — by BROT2YOU APP
+   Une seule boucle de jeu : RENCONTRER > EXPLORER > RELEVER LE DÉFI > TAMPON.
+   Une seule sauvegarde (GLOBETROTTER_SAVE_V2). ES5 uniquement (iOS Safari). */
+(function () {
+  'use strict';
+
+  var DATA = JSON.parse(document.getElementById('data-globetrotter').textContent);
+  var C = DATA.countries.england;
+  var SAVE_KEY = 'GLOBETROTTER_SAVE_V2';
+  var LEGACY_KEYS = ['ATLAS_QUEST_V2', 'ATLAS_QUEST_ENGLAND_V1', 'WORLDHOP_LONDON_MISSION_1', 'GLOBETROTTER_ENGLAND_CASE_V1',
+    'GLOBETROTTER_V07_ENGLAND', 'GLOBETROTTER_V08_ARCADE', 'GLOBETROTTER_V09_COLLECTION', 'GLOBETROTTER_V1_REWARDS'];
+  var MENU = [
+    { img: 0, go: 'map', label: 'Explore' }, { img: 1, go: 'passport', label: 'Pixel Passport' },
+    { img: 2, go: 'missions', label: 'Missions' }, { img: 3, go: 'cards', label: 'Badges and cards' },
+    { img: 4, go: 'guide', label: 'Field Guide' }, { img: 5, go: 'travels', label: 'My Travels' },
+    { img: 6, go: 'words', label: 'My words' }, { img: 7, go: 'settings', label: 'Settings' }
+  ];
+  var RANKS = [[0, 'Tourist'], [60, 'Traveller'], [180, 'Explorer'], [360, 'Adventurer'], [540, 'Globetrotter']];
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var INKS = ['#c8372d', '#2a5d9f', '#2e7d5b', '#7a4fa3', '#b35a1f', '#1f7a8c'];
+  var AVATARS = ['assets/avatars/avatar1.png', 'assets/avatars/avatar2.png', 'assets/avatars/avatar3.png', 'assets/avatars/avatar4.png'];
+
+  var app = document.getElementById('app');
+  var S = load();
+  var V = { name: 'home', tab: 'london' };
+  var P = null;   // session de lieu
+  var EX = null;  // examen final
+  var RV = null;  // entraînement vocabulaire
+  var modal = null;
+  var draft = { name: '', avatar: 0 };
+  var toastTimer = null;
+
+  /* ---------------- utilitaires ---------------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function has(a, x) { return a.indexOf(x) !== -1; }
+  function extend(a, b) { for (var k in b) { if (b.hasOwnProperty(k)) { a[k] = b[k]; } } return a; }
+  function shuffle(a) {
+    var r = a.slice(), i, j, t;
+    for (i = r.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); t = r[i]; r[i] = r[j]; r[j] = t; }
+    return r;
+  }
+  function range(n) { var r = [], i; for (i = 0; i < n; i++) { r.push(i); } return r; }
+  function today() { var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  function prettyDate(iso) {
+    if (!iso) { return ''; }
+    var p = iso.split('-');
+    return p[2] + ' ' + MONTHS[Number(p[1]) - 1] + ' ' + p[0];
+  }
+  function closest(el, sel) {
+    while (el && el.nodeType === 1) {
+      if (el.matches ? el.matches(sel) : el.msMatchesSelector(sel)) { return el; }
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  /* ---------------- sauvegarde ---------------- */
+  function fresh() {
+    return { v: 2, explorer: null, miles: 0, settings: { fr: false, rate: 'normal', sfx: true }, countries: {}, review: { day: '', count: 0, total: 0 } };
+  }
+  function load() {
+    var base = fresh(), raw;
+    try { raw = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); } catch (e) { raw = null; }
+    if (raw && raw.v === 2) {
+      base.explorer = raw.explorer || null;
+      base.miles = Number(raw.miles) || 0;
+      base.settings = extend(base.settings, raw.settings || {});
+      base.countries = raw.countries || {};
+      base.review = extend(base.review, raw.review || {});
+    }
+    return base;
+  }
+  function persist() {
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) { toast('Saving failed: your browser storage may be full or blocked.'); }
+  }
+  function legacyFound() {
+    var i;
+    try { for (i = 0; i < LEGACY_KEYS.length; i++) { if (localStorage.getItem(LEGACY_KEYS[i]) !== null) { return true; } } } catch (e) { }
+    return false;
+  }
+  function country() {
+    if (!S.countries[C.id]) { S.countries[C.id] = { places: {}, exam: { best: 0, passed: false } }; }
+    return S.countries[C.id];
+  }
+  function ps(id) {
+    var c = country();
+    if (!c.places[id]) { c.places[id] = { clues: [], reply: false, correct: [], best: -1, stamp: false, date: '' }; }
+    return c.places[id];
+  }
+
+  /* ---------------- état du jeu ---------------- */
+  function place(id) { var i; for (i = 0; i < C.places.length; i++) { if (C.places[i].id === id) { return C.places[i]; } } return null; }
+  function areaPlaces(area) { var r = [], i; for (i = 0; i < C.places.length; i++) { if (C.places[i].area === area) { r.push(C.places[i]); } } return r; }
+  function stamped(id) { var c = country().places[id]; return !!(c && c.stamp); }
+  function gold(id) { var c = country().places[id]; return !!(c && c.best === 3); }
+  function countStamps(area) {
+    var n = 0, i;
+    for (i = 0; i < C.places.length; i++) { if ((!area || C.places[i].area === area) && stamped(C.places[i].id)) { n++; } }
+    return n;
+  }
+  function countGold() { var n = 0, i; for (i = 0; i < C.places.length; i++) { if (gold(C.places[i].id)) { n++; } } return n; }
+  function beyondOpen() { return stamped('arrival') && countStamps('london') >= C.unlockBeyond; }
+  function examOpen() { return countStamps() >= C.unlockExam; }
+  function unlocked(p) {
+    if (p.area === 'arrival') { return true; }
+    if (!stamped('arrival')) { return false; }
+    if (p.area === 'england') { return beyondOpen(); }
+    return true;
+  }
+  function allWords() {
+    var r = [], i, j, p;
+    for (i = 0; i < C.places.length; i++) {
+      p = C.places[i];
+      for (j = 0; j < p.clues.length; j++) {
+        r.push({ en: p.clues[j].word[0], fr: p.clues[j].word[1], place: p, found: has(ps(p.id).clues, j) });
+      }
+    }
+    return r;
+  }
+  function foundWords() { var a = allWords(), r = [], i; for (i = 0; i < a.length; i++) { if (a[i].found) { r.push(a[i]); } } return r; }
+  function rank() { var r = RANKS[0], i; for (i = 0; i < RANKS.length; i++) { if (S.miles >= RANKS[i][0]) { r = RANKS[i]; } } return r; }
+  function nextRank() { var i; for (i = 0; i < RANKS.length; i++) { if (S.miles < RANKS[i][0]) { return RANKS[i]; } } return null; }
+  function nextStep() {
+    var i, p;
+    for (i = 0; i < C.places.length; i++) { p = C.places[i]; if (unlocked(p) && !stamped(p.id)) { return { kind: 'place', place: p }; } }
+    if (examOpen() && !country().exam.passed) { return { kind: 'exam' }; }
+    return { kind: 'map' };
+  }
+  function badges() {
+    return [
+      { icon: '🛂', name: 'Ready to explore', desc: 'Get your first stamp at border control.', ok: stamped('arrival') },
+      { icon: '🏙️', name: 'London Explorer', desc: 'Collect all 6 London stamps.', ok: countStamps('london') === areaPlaces('london').length },
+      { icon: '🚂', name: 'Beyond London', desc: 'Collect all 6 stamps outside London.', ok: countStamps('england') === areaPlaces('england').length },
+      { icon: '⭐', name: 'Sharp Eye', desc: 'Win 5 gold cards (3/3 in a challenge).', ok: countGold() >= 5 },
+      { icon: '📚', name: 'Word Master', desc: 'Get 30 right answers in word practice.', ok: S.review.total >= 30 },
+      { icon: '🏅', name: 'England Explorer', desc: 'Pass the England exam (8/10 or more).', ok: country().exam.passed }
+    ];
+  }
+  function addMiles(n, why, list) {
+    S.miles += n;
+    if (list) { list.push([n, why]); }
+  }
+  var LABELS = { clue: 'Clues', answer: 'Right answers', reply: 'Conversation', stamp: 'New stamp', gold: 'Gold card' };
+
+  /* ---------------- voix et sons ---------------- */
+  var voices = [];
+  function loadVoices() { try { voices = window.speechSynthesis.getVoices() || []; } catch (e) { voices = []; } }
+  if (window.speechSynthesis) { loadVoices(); window.speechSynthesis.onvoiceschanged = loadVoices; }
+  function pickVoice() {
+    var i;
+    for (i = 0; i < voices.length; i++) { if (/en[-_]GB/i.test(voices[i].lang)) { return voices[i]; } }
+    for (i = 0; i < voices.length; i++) { if (/^en/i.test(voices[i].lang)) { return voices[i]; } }
+    return null;
+  }
+  function speak(text) {
+    if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) { toast('Audio is not available on this device.'); return; }
+    window.speechSynthesis.cancel();
+    var u = new window.SpeechSynthesisUtterance(text), v = pickVoice();
+    u.lang = 'en-GB';
+    if (v) { u.voice = v; }
+    u.rate = S.settings.rate === 'slow' ? 0.72 : 0.95;
+    window.speechSynthesis.speak(u);
+  }
+  var actx = null;
+  function sfx(kind) {
+    if (!S.settings.sfx) { return; }
+    try {
+      if (!actx) { actx = new (window.AudioContext || window.webkitAudioContext)(); }
+      var notes = kind === 'ok' ? [660, 880] : kind === 'ko' ? [220, 180] : kind === 'stamp' ? [140, 90] : [523, 659, 784, 1047];
+      var t = actx.currentTime, i, o, g;
+      for (i = 0; i < notes.length; i++) {
+        o = actx.createOscillator(); g = actx.createGain();
+        o.type = kind === 'stamp' ? 'triangle' : 'sine';
+        o.frequency.value = notes[i];
+        g.gain.setValueAtTime(0.0001, t + i * 0.09);
+        g.gain.exponentialRampToValueAtTime(kind === 'stamp' ? 0.5 : 0.18, t + i * 0.09 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + i * 0.09 + 0.22);
+        o.connect(g); g.connect(actx.destination);
+        o.start(t + i * 0.09); o.stop(t + i * 0.09 + 0.25);
+      }
+    } catch (e) { }
+  }
+
+  /* ---------------- briques d'interface ---------------- */
+  function speakBtn(text, label) {
+    return '<button class="speak" data-act="say" data-say="' + esc(text) + '" aria-label="' + esc(label || 'Listen') + '">🔊</button>';
+  }
+  function frLine(text) { return S.settings.fr && text ? '<span class="fr" lang="fr">' + esc(text) + '</span>' : ''; }
+  function avatarSrc() { return AVATARS[(S.explorer && S.explorer.avatar) || 0]; }
+  function top(title) {
+    return '<header class="top"><div class="top-in">' +
+      '<button class="home-btn" data-act="go" data-v="home" aria-label="Home"><img src="assets/home/logo.webp" alt="Globetrotter"></button>' +
+      '<div class="top-title">' + esc(title) + '</div>' +
+      '<span class="chip" title="Miles">✈ ' + S.miles + '<span class="sr"> miles</span></span>' +
+      '<span class="chip hide-s" title="Stamps">🛂 ' + countStamps() + '/' + C.places.length + '</span>' +
+      '<button class="chip tog' + (S.settings.fr ? ' on' : '') + '" data-act="fr" aria-pressed="' + (S.settings.fr ? 'true' : 'false') + '" title="French help">FR</button>' +
+      '</div></header>';
+  }
+  function thumbStyle(p) { return 'background-image:url(' + p.art + ')'; }
+  function stepsBar(cur, max) {
+    var names = ['Meet', 'Explore', 'Challenge', 'Stamp'], h = '<ol class="steps">', i;
+    for (i = 0; i < 4; i++) {
+      h += '<li class="' + (i === cur ? 'cur' : i < max || i < cur ? 'done' : '') + '"' + (i === cur ? ' aria-current="step"' : '') + '>' + names[i] + '</li>';
+    }
+    return h + '</ol>';
+  }
+  function cardHTML(p, opts) {
+    var st = stamped(p.id), g = gold(p.id);
+    if (!st) {
+      return '<button class="card locked" data-act="card" data-id="' + p.id + '" aria-label="Locked card: ' + esc(p.name) + '"><div class="art">?</div><b>' + esc(p.name) + '</b><small>Not yet</small></button>';
+    }
+    return '<button class="card ' + (g ? 'gold' : 'silver') + '" data-act="card" data-id="' + p.id + '"' + (opts && opts.big ? ' style="max-width:280px;margin:0 auto"' : '') + '>' +
+      '<div class="art' + (p.pixel ? ' pixel' : '') + '" style="' + thumbStyle(p) + '"></div>' +
+      '<span class="rar">' + (g ? 'GOLD' : 'SILVER') + '</span>' +
+      '<b>' + esc(p.name) + '</b><small>' + esc(p.short) + '</small></button>';
+  }
+
+  /* ---------------- vues ---------------- */
+  function vHome() {
+    var n = nextStep(), cta, sub = '', i, menu = '';
+    if (!S.explorer) {
+      cta = '<button class="btn" data-act="go" data-v="create">✈ Start your journey</button>';
+    } else {
+      cta = '<button class="btn" data-act="continue">✈ Continue</button>';
+      sub = n.kind === 'place' ? 'Next stop: ' + n.place.name : n.kind === 'exam' ? 'Next: the England exam' : 'Explore England again';
+      sub = '<span class="next">' + esc(sub) + '</span>';
+    }
+    for (i = 0; i < MENU.length; i++) {
+      menu += '<button class="menu-b" data-act="go" data-v="' + MENU[i].go + '"><img src="assets/menu/menu_' + MENU[i].img + '.webp" alt="' + esc(MENU[i].label) + '"></button>';
+    }
+    var who = S.explorer ? '<div class="explorer"><img src="' + avatarSrc() + '" alt=""><div>' + esc(S.explorer.name) + '<small>' + rank()[1] + ' · ' + S.miles + ' miles</small></div></div>' : '';
+    return '<main class="home"><div class="hero"><div class="hero-art">' +
+      '<h1 class="sr">Globetrotter</h1><img class="hero-logo" src="assets/home/logo.webp" alt="">' + who +
+      '<div class="hero-cta">' + cta + sub + '</div></div>' +
+      '<nav class="hero-menu" aria-label="Main menu">' + menu + '</nav></div>' +
+      '<p class="foot">Globetrotter · explore the English-speaking world · by BROT2YOU APP</p></main>';
+  }
+
+  function vCreate() {
+    var i, av = '';
+    for (i = 0; i < AVATARS.length; i++) {
+      av += '<button class="av' + (draft.avatar === i ? ' on' : '') + '" data-act="avatar" data-i="' + i + '" aria-label="Avatar ' + (i + 1) + '" aria-pressed="' + (draft.avatar === i) + '"><img src="' + AVATARS[i] + '" alt=""></button>';
+    }
+    return top('Create your passport') + '<main class="wrap"><div class="paper" style="max-width:640px;margin:0 auto">' +
+      '<h2>Your Pixel Passport</h2><p class="muted">Every explorer needs a passport. You will collect a stamp in it at each place you visit.</p>' +
+      '<label class="f" for="pname">First name</label><input id="pname" class="tx" maxlength="20" autocomplete="off" value="' + esc(draft.name) + '" placeholder="Your first name">' +
+      '<label class="f">Choose your photo</label><div class="avs">' + av + '</div>' +
+      '<p style="margin-top:20px"><button class="btn" data-act="create">Get my passport</button></p>' +
+      '<p class="muted" style="font-size:.85rem">Your progress stays on this device only. No account, no data sent anywhere.</p></div></main>';
+  }
+
+  function vMap() {
+    var tab = V.tab, m = C.maps[tab], list = areaPlaces(tab), arr = place('arrival'), pins = '', items = '', i, p, cls, ic, note = '';
+    if (tab === 'england' && !beyondOpen()) {
+      note = '<div class="notice">🔒 Collect <b>' + C.unlockBeyond + ' London stamps</b> to travel beyond London (' + countStamps('london') + '/' + C.unlockBeyond + ').</div>';
+    }
+    if (!stamped('arrival')) {
+      note = '<div class="notice row" style="justify-content:space-between">🛂 Your journey starts at border control.<button class="btn small" data-act="place" data-id="arrival">Go to border control</button></div>';
+    }
+    for (i = 0; i < list.length; i++) {
+      p = list[i];
+      if (!unlocked(p)) { cls = 'lock'; ic = '🔒'; } else if (gold(p.id)) { cls = 'gold'; ic = '★'; } else if (stamped(p.id)) { cls = 'done'; ic = '✓'; } else { cls = 'open'; ic = '🔍'; }
+      pins += '<button class="pin ' + cls + '" style="left:' + p.pin[0] + '%;top:' + p.pin[1] + '%" data-act="place" data-id="' + p.id + '" aria-label="' + esc(p.name) + '">' + ic + '<span class="lbl">' + esc(p.name) + '</span></button>';
+      items += '<button class="pitem' + (cls === 'lock' ? ' lock' : '') + '" data-act="place" data-id="' + p.id + '">' +
+        '<span class="th' + (p.pixel ? ' pixel' : '') + '" style="' + thumbStyle(p) + '"></span><span><b>' + esc(p.name) + '</b><small>' + esc(p.short) + '</small></span>' +
+        '<span class="st" aria-hidden="true">' + (cls === 'lock' ? '🔒' : gold(p.id) ? '⭐' : stamped(p.id) ? '🛂' : '›') + '</span></button>';
+    }
+    if (tab === 'london') {
+      items = '<button class="pitem" data-act="place" data-id="arrival"><span class="th pixel" style="' + thumbStyle(arr) + '"></span><span><b>' + esc(arr.name) + '</b><small>' + esc(arr.short) + '</small></span>' +
+        '<span class="st" aria-hidden="true">' + (gold('arrival') ? '⭐' : stamped('arrival') ? '🛂' : '›') + '</span></button>' + items;
+    }
+    if (tab === 'england') {
+      pins += '<button class="pin done" style="left:' + m.londonPin[0] + '%;top:' + m.londonPin[1] + '%" data-act="tab" data-t="london" aria-label="Open the London map">🏙️<span class="lbl">London</span></button>';
+    }
+    return top('Explore England') + '<main class="wrap">' +
+      '<div class="tabs" role="tablist"><button class="tab' + (tab === 'london' ? ' on' : '') + '" data-act="tab" data-t="london" role="tab" aria-selected="' + (tab === 'london') + '">London ' + countStamps('london') + '/6</button>' +
+      '<button class="tab' + (tab === 'england' ? ' on' : '') + '" data-act="tab" data-t="england" role="tab" aria-selected="' + (tab === 'england') + '">Beyond London ' + countStamps('england') + '/6</button></div>' + note +
+      '<div class="layout-map"><div class="mapbox' + (m.pixel ? ' pixel tall' : '') + '"><img src="' + m.img + '" alt="Illustrated map of ' + esc(m.title) + '" width="' + m.w + '" height="' + m.h + '">' + pins + '</div>' +
+      '<div class="plist">' + items + '</div></div></main>';
+  }
+
+  /* ----- lieu ----- */
+  function openPlace(id) {
+    var p = place(id);
+    if (!p) { return; }
+    if (!unlocked(p)) {
+      toast(p.area === 'england' ? 'Collect ' + C.unlockBeyond + ' London stamps to unlock this place.' : 'Start at border control first.');
+      return;
+    }
+    var st = ps(id);
+    P = { id: id, step: 0, max: st.stamp ? 3 : 0, line: st.reply ? p.talk.length : 1, replyOk: st.reply, tried: [], clue: -1, run: null, gained: [], result: null };
+    V = { name: 'place', tab: V.tab };
+    window.scrollTo(0, 0);
+    render();
+  }
+  function sceneHTML(p) {
+    var st = ps(p.id), h = '', i, c, f;
+    if (P.step === 1 || P.step === 3) {
+      for (i = 0; i < p.clues.length; i++) {
+        c = p.clues[i]; f = has(st.clues, i);
+        h += '<button class="hot' + (f ? ' found' : '') + (P.clue === i ? ' sel' : '') + '" style="left:' + c.x + '%;top:' + c.y + '%" data-act="clue" data-i="' + i + '" aria-label="' + (f ? 'Clue: ' + esc(c.title) : 'Look here') + '">' + (f ? c.icon : '🔍') + '</button>';
+      }
+    }
+    return '<div class="scene' + (p.pixel ? ' pixel' : '') + '"><img src="' + p.art + '" alt="' + esc(p.name) + '" width="' + p.w + '" height="' + p.h + '">' + h + '</div>';
+  }
+  function talkLine(who, text, fr, p, anim) {
+    var you = who === 'you';
+    var mono = you ? '<span class="mono you"><img src="' + avatarSrc() + '" alt=""></span>' : '<span class="mono" style="background:' + p.guide.color + '" aria-hidden="true">' + esc(p.guide.name.charAt(0)) + '</span>';
+    return '<div class="line' + (you ? ' you' : '') + (anim ? ' pop' : '') + '">' + mono + '<div class="bubble"><span class="who">' + esc(you ? (S.explorer ? S.explorer.name : 'You') : p.guide.name) + '</span>' +
+      '<div class="tx"><span lang="en">' + esc(text) + '</span>' + speakBtn(text) + '</div>' + frLine(fr) + '</div></div>';
+  }
+  function stepMeet(p) {
+    var h = '<div class="guide-tag"><span class="mono" style="background:' + p.guide.color + '" aria-hidden="true">' + esc(p.guide.name.charAt(0)) + '</span><div><b>' + esc(p.guide.name) + '</b><br><small class="muted">' + esc(p.guide.role) + '</small></div></div><div class="talk">', i, o, cls;
+    for (i = 0; i < P.line && i < p.talk.length; i++) { h += talkLine(p.talk[i][0], p.talk[i][1], p.talk[i][2], p, i === P.line - 1 && !P.replyOk); }
+    h += '</div>';
+    if (P.line < p.talk.length) { return h + '<button class="btn" data-act="nextline">Next</button>'; }
+    h += '<h3>' + esc(p.reply.prompt) + '</h3><div class="opts">';
+    for (i = 0; i < p.reply.o.length; i++) {
+      o = p.reply.o[i];
+      cls = P.replyOk && o[1] ? ' ok' : has(P.tried, i) ? ' ko' : '';
+      h += '<button class="opt' + cls + '" data-act="reply" data-i="' + i + '"' + (P.replyOk || has(P.tried, i) ? ' disabled' : '') + '>' + esc(o[0]) + '</button>';
+    }
+    h += '</div>';
+    if (P.tried.length && !P.replyOk) { h += '<div class="fb ko" role="status">' + esc(p.reply.o[P.tried[P.tried.length - 1]][2]) + ' Try again.</div>'; }
+    if (P.replyOk) {
+      for (i = 0; i < p.reply.o.length; i++) { if (p.reply.o[i][1]) { h += '<div class="fb ok" role="status">✓ ' + esc(p.reply.o[i][2]) + '</div>'; } }
+      h += '<div class="talk">' + talkLine('guide', p.outro, p.outroFr, p, true) + '</div>';
+      h += '<button class="btn" data-act="step" data-n="1">Look around</button>';
+    }
+    return h;
+  }
+  function stepExplore(p) {
+    var st = ps(p.id), n = st.clues.length, h, c, i;
+    h = '<p class="counter">🔍 Clues found: ' + n + '/' + p.clues.length + '</p>';
+    h += '<p class="muted">Tap each 🔍 on the picture to discover a clue. Read it carefully: you will need it for the challenge.</p>';
+    if (P.clue >= 0) {
+      c = p.clues[P.clue];
+      h += '<div class="clue" id="cluebox"><h3>' + c.icon + ' ' + esc(c.title) + '</h3><div class="row" style="align-items:flex-start;flex-wrap:nowrap"><p lang="en" style="flex:1">' + esc(c.fact) + '</p>' + speakBtn(c.fact) + '</div>' +
+        frLine(c.fr) + '<span class="word"><span lang="en">' + esc(c.word[0]) + '</span> <em lang="fr">= ' + esc(c.word[1]) + '</em>' + speakBtn(c.word[0], 'Listen to the word') + '</span></div>';
+    }
+    if (n) {
+      h += '<div class="row" style="margin:8px 0 14px">';
+      for (i = 0; i < p.clues.length; i++) { if (has(st.clues, i)) { h += '<button class="btn small ghost" data-act="clue" data-i="' + i + '">' + p.clues[i].icon + ' ' + esc(p.clues[i].title) + '</button>'; } }
+      h += '</div>';
+    }
+    if (n === p.clues.length) { h += '<button class="btn" data-act="startquiz">Start the challenge</button>'; }
+    return h;
+  }
+  function quizHTML(run, ctx) {
+    var q = run.qs[run.i], ord = run.orders[run.i], h = '', j, real, cls, ok;
+    h += '<p class="qnum">Question ' + (run.i + 1) + ' of ' + run.qs.length + (q.from ? ' · ' + esc(q.from) : '') + '</p>';
+    if (q.t === 'listen') {
+      h += '<div class="listen-big">' + speakBtn(q.say, 'Play the recording') + '<div><b>Listen, then answer.</b><br><small class="muted">You can listen as many times as you like.</small></div></div>';
+    }
+    h += '<h3 lang="en">' + esc(q.q) + '</h3><div class="opts">';
+    for (j = 0; j < ord.length; j++) {
+      real = ord[j]; cls = '';
+      if (run.picked >= 0) { if (real === 0) { cls = ' ok'; } else if (j === run.picked) { cls = ' ko'; } }
+      h += '<button class="opt' + cls + '" data-act="pick" data-ctx="' + ctx + '" data-j="' + j + '"' + (run.picked >= 0 ? ' disabled' : '') + '>' + esc(q.o[real]) + '</button>';
+    }
+    h += '</div>';
+    if (run.picked >= 0) {
+      ok = ord[run.picked] === 0;
+      h += '<div class="fb ' + (ok ? 'ok' : 'ko') + '" role="status">' + (ok ? '✓ Correct! ' : '✗ Not quite. ') + esc(q.why || '') + '</div>';
+      if (q.t === 'listen') { h += '<p class="transcript">🔊 “' + esc(q.say) + '”</p>'; }
+      h += '<button class="btn" data-act="qnext" data-ctx="' + ctx + '">' + (run.i + 1 < run.qs.length ? 'Next question' : 'See my result') + '</button>';
+    }
+    return h;
+  }
+  function newRun(qs) {
+    var orders = [], i;
+    for (i = 0; i < qs.length; i++) { orders.push(shuffle(range(qs[i].o.length))); }
+    return { qs: qs, orders: orders, i: 0, picked: -1, results: [] };
+  }
+  function stepResult(p) {
+    var r = P.result, h = '', nxt, i, ml = '';
+    if (r.score >= 2) {
+      h += '<div class="reward"><p class="score"><b>' + r.score + '/3</b> · ' + (r.score === 3 ? 'Perfect! Gold card won.' : 'Well done! Stamp collected.') + '</p>' +
+        '<div class="stamp' + (r.newStamp ? ' thud' : '') + '" aria-label="Passport stamp"><span class="s1">England</span><span class="s2">' + esc(p.name) + '</span><span class="s3">' + esc(prettyDate(ps(p.id).date)) + '</span></div>';
+      h += '<div style="max-width:210px;margin:0 auto 14px">' + cardHTML(p) + '</div>';
+    } else {
+      h += '<div class="reward"><p class="score"><b>' + r.score + '/3</b> · Almost there!</p><p>You need 2 good answers to get the stamp. The answers are in the clues and the conversation: read them again, then try once more.</p>';
+    }
+    var groups = {}, order = [], tot = 0, key;
+    for (i = 0; i < P.gained.length; i++) {
+      key = P.gained[i][2] || P.gained[i][1];
+      if (!groups.hasOwnProperty(key)) { groups[key] = 0; order.push(key); }
+      groups[key] += P.gained[i][0]; tot += P.gained[i][0];
+    }
+    for (i = 0; i < order.length; i++) { ml += '<span>' + esc(order[i]) + ' +' + groups[order[i]] + '</span>'; }
+    if (ml) { h += '<div class="miles-sum"><span class="tot">✈ +' + tot + ' miles</span>' + ml + '</div>'; }
+    h += '<div class="row" style="justify-content:center">';
+    if (r.score < 2) {
+      h += '<button class="btn" data-act="startquiz">Try again</button><button class="btn ghost" data-act="step" data-n="1">Read my clues</button>';
+    } else {
+      nxt = nextStep();
+      if (nxt.kind === 'place' && nxt.place.id !== p.id) { h += '<button class="btn" data-act="place" data-id="' + nxt.place.id + '">Next stop: ' + esc(nxt.place.name) + '</button>'; }
+      else if (nxt.kind === 'exam') { h += '<button class="btn" data-act="go" data-v="exam">Take the England exam</button>'; }
+      if (r.score < 3) { h += '<button class="btn ghost" data-act="startquiz">Try for gold</button>'; }
+      h += '<button class="btn ghost" data-act="go" data-v="map">Back to the map</button>';
+    }
+    h += '</div></div>';
+    if (r.unlockedBeyond) { h = '<div class="fb ok" role="status">🚂 New region unlocked: you can now travel beyond London!</div>' + h; }
+    if (r.unlockedExam) { h = '<div class="fb ok" role="status">🏅 The England exam is now open. Find it in Missions.</div>' + h; }
+    return h;
+  }
+  function vPlace() {
+    var p = place(P.id), body;
+    if (P.step === 0) { body = stepMeet(p); } else if (P.step === 1) { body = stepExplore(p); } else if (P.step === 2) { body = quizHTML(P.run, 'place'); } else { body = stepResult(p); }
+    var portrait = p.h > p.w * 1.2 && !p.pixel || p.id === 'arrival';
+    return top(p.name) + '<main class="wrap"><div class="place' + (portrait ? ' portrait' : '') + '"><div class="scene-col">' + sceneHTML(p) + '</div>' +
+      '<section aria-live="polite">' + stepsBar(P.step, P.max) + '<div class="paper">' + body + '</div></section></div></main>';
+  }
+
+  /* ----- passeport ----- */
+  function vPassport() {
+    if (!S.explorer) { return vCreate(); }
+    var i, p, st, h = '', ink, rot, nr = nextRank(), name = (S.explorer.name.normalize ? S.explorer.name.normalize('NFD') : S.explorer.name).toUpperCase().replace(/[^A-Z]/g, '');
+    for (i = 0; i < C.places.length; i++) {
+      p = C.places[i]; st = ps(p.id);
+      if (st.stamp) {
+        ink = INKS[i % INKS.length]; rot = (i * 37 % 23) - 11;
+        h += '<div class="pst"><div class="st' + (i % 3 === 1 ? ' rect' : '') + '" style="color:' + ink + ';border-color:' + ink + ';transform:rotate(' + rot + 'deg)">' +
+          (gold(p.id) ? '★ ' : '') + esc(p.name) + '<small>' + esc(prettyDate(st.date)) + '</small></div></div>';
+      } else {
+        h += '<div class="pst empty"><div class="st">' + esc(unlocked(p) ? p.name : '?') + '</div></div>';
+      }
+    }
+    if (country().exam.passed) {
+      h += '<div class="pst"><div class="st rect" style="color:#7a1f2b;border-color:#7a1f2b;transform:rotate(6deg)">England<br>explorer visa<small>APPROVED</small></div></div>';
+    }
+    return top('Pixel Passport') + '<main class="wrap"><div class="passport">' +
+      '<div class="pp-page"><h3>Pixel Passport</h3><div class="pp-id"><div class="pp-photo"><img src="' + avatarSrc() + '" alt="Passport photo"></div><div>' +
+      '<div class="pp-field"><small>NAME</small><b>' + esc(S.explorer.name) + '</b></div>' +
+      '<div class="pp-field"><small>RANK</small><b>' + rank()[1] + '</b></div>' +
+      '<div class="pp-field"><small>MILES</small><b>' + S.miles + '</b></div>' +
+      '<div class="pp-field"><small>EXPLORER SINCE</small><b>' + esc(prettyDate(S.explorer.since)) + '</b></div></div></div>' +
+      (nr ? '<p class="muted" style="font-size:.9rem">Next rank: <b>' + nr[1] + '</b> at ' + nr[0] + ' miles.</p><div class="bar"><i style="width:' + Math.min(100, Math.round(S.miles / nr[0] * 100)) + '%"></i></div>' : '<p><b>Top rank reached!</b></p>') +
+      '<p class="mrz">P&lt;GLOBETROTTER&lt;&lt;' + esc(name || 'EXPLORER') + '&lt;&lt;&lt;&lt;' + countStamps() + 'STAMPS</p>' +
+      '<button class="btn small ink" data-act="go" data-v="settings">Edit my passport</button></div>' +
+      '<div class="pp-page"><div class="row" style="justify-content:space-between"><h3 style="margin:0">Stamps · England</h3><b>' + countStamps() + '/' + C.places.length + '</b></div>' +
+      '<p class="muted" style="font-size:.9rem">★ = gold card (3/3 in the challenge)</p><div class="stamps">' + h + '</div></div></div></main>';
+  }
+
+  /* ----- missions ----- */
+  function mission(icon, title, desc, done, total, btn, off) {
+    return '<div class="paper mission' + (off ? ' off' : '') + '"><div class="mi" aria-hidden="true">' + icon + '</div><div class="mb"><h3 style="margin:0">' + esc(title) + '</h3><p class="muted" style="margin:.2em 0 .5em">' + desc + '</p>' +
+      '<div class="bar"><i style="width:' + Math.round(done / total * 100) + '%"></i></div><small class="muted">' + done + '/' + total + '</small></div>' + (done >= total ? '<span class="done-chip">✓ Done</span>' : '') + (btn || '') + '</div>';
+  }
+  function vMissions() {
+    var ex = country().exam, rv = S.review.day === today() ? S.review.count : 0, h = '';
+    h += mission('🛂', 'Border control', 'Arrive in England and get your first stamp.', stamped('arrival') ? 1 : 0, 1,
+      stamped('arrival') ? '' : '<button class="btn small" data-act="place" data-id="arrival">Go</button>');
+    h += mission('🏙️', 'Explore London', 'Visit 6 places in London and collect their stamps.', countStamps('london'), 6,
+      stamped('arrival') ? '<button class="btn small" data-act="maptab" data-t="london">Map</button>' : '', !stamped('arrival'));
+    h += mission('🚂', 'Beyond London', beyondOpen() ? 'Take the train and discover 6 places across England.' : '🔒 Unlocks after ' + C.unlockBeyond + ' London stamps.', countStamps('england'), 6,
+      beyondOpen() ? '<button class="btn small" data-act="maptab" data-t="england">Map</button>' : '', !beyondOpen());
+    h += mission('🏅', 'The England exam', examOpen() ? '10 questions about everything you learned. Score 8 or more to get your explorer visa.' + (ex.best ? ' Best score: ' + ex.best + '/10.' : '') : '🔒 Unlocks after ' + C.unlockExam + ' stamps (' + countStamps() + '/' + C.unlockExam + ').',
+      ex.passed ? 1 : 0, 1, examOpen() ? '<button class="btn small" data-act="go" data-v="exam">' + (ex.passed ? 'Retake' : 'Start') + '</button>' : '', !examOpen());
+    h += mission('📚', 'Word practice', 'Practise the words you collected. Up to 10 miles a day. Badge at 30 right answers (' + Math.min(30, S.review.total) + '/30).', Math.min(10, rv), 10,
+      foundWords().length >= 4 ? '<button class="btn small" data-act="go" data-v="review">Practise</button>' : '', foundWords().length < 4);
+    h += mission('⭐', 'Gold hunter', 'Score 3/3 in every challenge to turn your cards gold.', countGold(), C.places.length, '');
+    return top('Missions') + '<main class="wrap"><div class="head"><h2>Missions</h2><p>Your journey, step by step. Places you have visited can be replayed at any time to win gold.</p></div><div class="grid">' + h + '</div></main>';
+  }
+
+  /* ----- cartes et badges ----- */
+  function vCards() {
+    var i, h = '', b = badges(), bh = '', nb = 0;
+    for (i = 0; i < C.places.length; i++) { h += cardHTML(C.places[i]); }
+    for (i = 0; i < b.length; i++) {
+      if (b[i].ok) { nb++; }
+      bh += '<div class="badge' + (b[i].ok ? '' : ' off') + '"><span class="bi" aria-hidden="true">' + b[i].icon + '</span><div><b>' + esc(b[i].name) + '</b><small>' + esc(b[i].desc) + '</small></div></div>';
+    }
+    return top('Cards and badges') + '<main class="wrap"><div class="head"><h2>Cards · ' + countStamps() + '/' + C.places.length + '</h2><p>Each stamp gives you a silver card. Score 3/3 in the challenge to make it gold (' + countGold() + ' gold).</p></div>' +
+      '<div class="grid g4" style="margin-bottom:34px">' + h + '</div><h2>Badges · ' + nb + '/' + b.length + '</h2><div class="grid g2">' + bh + '</div></main>';
+  }
+
+  /* ----- guide culturel ----- */
+  function vGuide() {
+    var i, j, p, st, h = '', c, n = 0, tot = 0;
+    for (i = 0; i < C.places.length; i++) {
+      p = C.places[i]; st = ps(p.id);
+      h += '<section class="paper sect"><h3><span class="th" aria-hidden="true"></span>' + esc(p.name) + ' <small class="muted" style="font-family:var(--body);font-size:.85rem">' + esc(p.short) + '</small></h3><div class="grid">';
+      for (j = 0; j < p.clues.length; j++) {
+        c = p.clues[j]; tot++;
+        if (has(st.clues, j)) {
+          n++;
+          h += '<div class="fact"><span class="ic" aria-hidden="true">' + c.icon + '</span><div style="flex:1"><b>' + esc(c.title) + '</b><span lang="en">' + esc(c.fact) + '</span>' + frLine(c.fr) + '</div>' + speakBtn(c.fact) + '</div>';
+        } else {
+          h += '<div class="fact lock"><span class="ic" aria-hidden="true">🔒</span><div>Find this clue at <b>' + esc(p.name) + '</b>.</div></div>';
+        }
+      }
+      h += '</div></section>';
+    }
+    return top('Field Guide') + '<main class="wrap"><div class="head"><h2>Field Guide · ' + n + '/' + tot + ' facts</h2><p>Everything you discovered about England. Tap 🔊 to listen. Turn on FR (top right) to see the French translation.</p></div>' + h + '</main>';
+  }
+
+  /* ----- mots ----- */
+  function vWords() {
+    var w = allWords(), i, h = '', n = 0;
+    for (i = 0; i < w.length; i++) {
+      if (w[i].found) {
+        n++;
+        h += '<div class="wcard"><div><b lang="en">' + esc(w[i].en) + '</b><small lang="fr">' + esc(w[i].fr) + '</small></div>' + speakBtn(w[i].en, 'Listen to ' + w[i].en) + '</div>';
+      } else {
+        h += '<div class="wcard lock"><div><b>? ? ?</b><small>' + esc(w[i].place.name) + '</small></div></div>';
+      }
+    }
+    return top('My words') + '<main class="wrap"><div class="head"><h2>My words · ' + n + '/' + w.length + '</h2><p>Each clue gives you a new word. Practise them to remember them.</p>' +
+      '<button class="btn" data-act="go" data-v="review"' + (n < 4 ? ' disabled' : '') + '>Practise my words</button>' + (n < 4 ? ' <small>Collect 4 words first.</small>' : '') + '</div>' +
+      '<div class="paper"><div class="wgrid">' + h + '</div></div></main>';
+  }
+  function startReview() {
+    var fw = shuffle(foundWords()), aw = allWords(), qs = [], i, w, others, k, o;
+    if (fw.length < 4) { toast('Collect 4 words first.'); return false; }
+    for (i = 0; i < Math.min(8, fw.length); i++) {
+      w = fw[i];
+      others = shuffle(aw.filter(function (x) { return x.en !== w.en; })).slice(0, 3);
+      if (i % 2 === 0) {
+        o = [w.en]; for (k = 0; k < others.length; k++) { o.push(others[k].en); }
+        qs.push({ t: 'mcq', q: 'What is the English for “' + w.fr + '”?', o: o, why: w.fr + ' = ' + w.en + '.', from: w.place.name });
+      } else {
+        o = [w.fr]; for (k = 0; k < others.length; k++) { o.push(others[k].fr); }
+        qs.push({ t: 'listen', say: w.en, q: 'What does this word mean?', o: o, why: w.en + ' = ' + w.fr + '.', from: w.place.name });
+      }
+    }
+    RV = newRun(qs); RV.gained = 0;
+    return true;
+  }
+  function vReview() {
+    if (!RV) { return vWords(); }
+    var body;
+    if (RV.i >= RV.qs.length) {
+      var sc = 0, i; for (i = 0; i < RV.results.length; i++) { if (RV.results[i]) { sc++; } }
+      body = '<div class="reward"><h2>' + sc + '/' + RV.qs.length + '</h2><p>' + (RV.gained ? '+' + RV.gained + ' miles today.' : 'Daily miles limit reached: keep practising, it still counts for the Word Master badge!') + '</p>' +
+        '<p class="muted">Right answers in total: ' + S.review.total + (S.review.total < 30 ? '/30 for the Word Master badge' : ' · Word Master badge won!') + '</p>' +
+        '<div class="row" style="justify-content:center"><button class="btn" data-act="go" data-v="review">Practise again</button><button class="btn ghost" data-act="go" data-v="words">My words</button></div></div>';
+    } else { body = quizHTML(RV, 'review'); }
+    return top('Word practice') + '<main class="wrap"><div class="paper" style="max-width:720px;margin:0 auto">' + body + '</div></main>';
+  }
+
+  /* ----- examen ----- */
+  function startExam() {
+    var pool = [], i, j, p, q;
+    for (i = 0; i < C.places.length; i++) {
+      p = C.places[i];
+      for (j = 0; j < p.quiz.length; j++) { q = extend({}, p.quiz[j]); q.from = p.name; pool.push(q); }
+    }
+    EX = newRun(shuffle(pool).slice(0, 10));
+  }
+  function vExam() {
+    if (!examOpen()) { return vMissions(); }
+    var body, ex = country().exam;
+    if (!EX) {
+      body = '<h2>The England exam</h2><p>10 questions taken from all the places in England. Some are listening questions: use 🔊.</p><p>Score <b>8 or more</b> to get your <b>explorer visa</b> in your passport and the England Explorer badge.</p>' +
+        (ex.best ? '<p class="muted">Best score: ' + ex.best + '/10</p>' : '') + '<button class="btn" data-act="startexam">Start the exam</button>';
+    } else if (EX.i >= EX.qs.length) {
+      body = '<div class="reward"><h2>' + EX.score + '/10</h2>' + (EX.score >= 8 ? '<div class="stamp thud" style="border-radius:12px;color:#7a1f2b;border-color:#7a1f2b"><span class="s1">England</span><span class="s2">Explorer visa</span><span class="s3">APPROVED</span></div><p>Brilliant! Your explorer visa is in your passport.' + (EX.newPass ? ' +50 miles.' : '') + '</p>' :
+        '<p>You need 8/10 for the visa. Visit the Field Guide to revise, then try again.</p>') +
+        '<div class="row" style="justify-content:center"><button class="btn" data-act="startexam">Try again</button><button class="btn ghost" data-act="go" data-v="guide">Field Guide</button><button class="btn ghost" data-act="go" data-v="passport">My passport</button></div></div>';
+    } else { body = quizHTML(EX, 'exam'); }
+    return top('England exam') + '<main class="wrap"><div class="paper" style="max-width:760px;margin:0 auto">' + body + '</div></main>';
+  }
+
+  /* ----- voyages ----- */
+  function vTravels() {
+    var i, d, h = '';
+    for (i = 0; i < DATA.destinations.length; i++) {
+      d = DATA.destinations[i];
+      h += '<button class="dest' + (d.status === 'playable' ? '' : ' soon') + '" data-act="dest" data-id="' + d.id + '"><img src="assets/countries/countries_' + d.img + '.webp" alt="' + esc(d.name) + '">' +
+        (d.status === 'playable' ? '<span class="play-t">PLAY</span>' : '<span class="soon-t">SOON</span>') + '</button>';
+    }
+    return top('My Travels') + '<main class="wrap"><div class="head"><h2>The English-speaking world</h2><p>English is spoken all over the world. England is your first destination; new countries will open here.</p></div>' +
+      '<div class="world"><img src="assets/home/world_map.webp" alt="Illustrated world map" width="1672" height="941"></div><div class="grid g3">' + h + '</div></main>';
+  }
+
+  /* ----- réglages ----- */
+  function vSettings() {
+    var i, av = '', st = S.settings;
+    if (S.explorer && draft.name === '' && !draft.touched) { draft.name = S.explorer.name; draft.avatar = S.explorer.avatar || 0; }
+    for (i = 0; i < AVATARS.length; i++) {
+      av += '<button class="av' + (draft.avatar === i ? ' on' : '') + '" data-act="avatar" data-i="' + i + '" aria-label="Avatar ' + (i + 1) + '" aria-pressed="' + (draft.avatar === i) + '"><img src="' + AVATARS[i] + '" alt=""></button>';
+    }
+    function seg(key, opts) {
+      var h = '<span class="seg">', k;
+      for (k = 0; k < opts.length; k++) { h += '<button data-act="set" data-k="' + key + '" data-val="' + opts[k][0] + '" class="' + (String(st[key]) === String(opts[k][0]) ? 'on' : '') + '">' + opts[k][1] + '</button>'; }
+      return h + '</span>';
+    }
+    return top('Settings') + '<main class="wrap"><div class="grid" style="max-width:760px;margin:0 auto">' +
+      (S.explorer ? '<div class="paper"><h3>My passport</h3><label class="f" for="pname">First name</label><input id="pname" class="tx" maxlength="20" value="' + esc(draft.name) + '"><label class="f">Photo</label><div class="avs">' + av + '</div>' +
+        '<p style="margin-top:14px"><button class="btn small" data-act="saveprofile">Save</button></p></div>' : '') +
+      '<div class="paper"><h3>Help and sound</h3>' +
+      '<div class="set"><span><b>French help</b><br><small class="muted">Show French translations under texts</small></span>' + seg('fr', [['false', 'Off'], ['true', 'On']]) + '</div>' +
+      '<div class="set"><span><b>Voice speed</b><br><small class="muted">British English voice of your device</small></span><span class="row">' + seg('rate', [['normal', 'Normal'], ['slow', 'Slow']]) + speakBtn('Hello! Welcome to England. Have a great trip!', 'Test the voice') + '</span></div>' +
+      '<div class="set"><span><b>Sound effects</b></span>' + seg('sfx', [['true', 'On'], ['false', 'Off']]) + '</div></div>' +
+      '<div class="paper"><h3>My progress</h3><p class="muted">Your progress is saved in this browser only. Export it to keep a copy or to continue on another device.</p>' +
+      '<div class="row"><button class="btn small" data-act="export">Export my progress</button><button class="btn small ghost" data-act="import">Import a file</button>' +
+      '<button class="btn small ghost" data-act="askreset" style="color:var(--ko)">Start again from zero</button></div>' +
+      '<input type="file" id="impfile" accept=".json,application/json" hidden>' +
+      (legacyFound() ? '<div class="set" style="margin-top:10px"><span><b>Old version data found</b><br><small class="muted">Progress from Atlas Quest / Worldhop / Globetrotter v0.x is no longer used.</small></span><button class="btn small ghost" data-act="cleanlegacy">Delete old data</button></div>' : '') +
+      '</div><div class="paper"><h3>About</h3><p>Globetrotter · a travel adventure to discover the English-speaking world.</p><p class="muted">Free, no account, no advertising, works offline once loaded. Speech uses the voices installed on your device. Illustrated maps are artistic, not to scale. By BROT2YOU APP.</p></div>' +
+      '</div></main>';
+  }
+
+  /* ---------------- modale et toast ---------------- */
+  function modalHTML() {
+    if (!modal) { return ''; }
+    var inner = '';
+    if (modal.kind === 'reset') {
+      inner = '<h3>Start again from zero?</h3><p>All stamps, cards, words and miles in this browser will be deleted. Export your progress first if you want to keep it.</p>' +
+        '<div class="row"><button class="btn" data-act="doreset" style="background:var(--ko);color:#fff;box-shadow:0 4px 0 #7d1f18">Delete everything</button><button class="btn ghost" data-act="closemodal">Cancel</button></div>';
+    } else if (modal.kind === 'card') {
+      var p = place(modal.id), st = ps(p.id), j, f = '';
+      for (j = 0; j < p.clues.length; j++) { if (has(st.clues, j)) { f += '<li>' + esc(p.clues[j].fact) + '</li>'; } }
+      inner = cardHTML(p, { big: true }) + '<h3 style="margin-top:14px">' + esc(p.name) + '</h3><ul style="padding-left:1.2em">' + f + '</ul>' +
+        '<div class="row"><button class="btn small" data-act="place" data-id="' + p.id + '">Visit again</button><button class="btn small ghost" data-act="closemodal">Close</button></div>';
+    }
+    return '<div class="shade" data-act="shade"><div class="paper modal" role="dialog" aria-modal="true">' + inner + '</div></div>';
+  }
+  function toast(msg) {
+    var old = document.getElementById('toast');
+    if (old) { old.parentNode.removeChild(old); }
+    var t = document.createElement('div');
+    t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
+    document.body.appendChild(t);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { if (t.parentNode) { t.parentNode.removeChild(t); } }, 2800);
+  }
+
+  /* ---------------- rendu ---------------- */
+  var VIEWS = { home: vHome, create: vCreate, map: vMap, place: vPlace, passport: vPassport, missions: vMissions, cards: vCards,
+    guide: vGuide, words: vWords, review: vReview, exam: vExam, travels: vTravels, settings: vSettings };
+  function render() {
+    var fn = VIEWS[V.name] || vHome;
+    if (V.name === 'place' && !P) { fn = vMap; }
+    app.innerHTML = fn() + modalHTML();
+    document.title = 'Globetrotter' + (V.name === 'place' && P ? ' · ' + place(P.id).name : '');
+  }
+  function go(name) {
+    var needsExplorer = ['map', 'place', 'passport', 'missions', 'exam', 'review'];
+    if (!S.explorer && has(needsExplorer, name)) { name = 'create'; }
+    if (name === 'review' && !startReview()) { name = 'words'; }
+    if (name === 'exam') { EX = null; }
+    if (name === 'settings' || name === 'create') { draft.touched = false; if (name === 'settings') { draft.name = ''; } }
+    V = { name: name, tab: V.tab };
+    modal = null;
+    if (window.speechSynthesis) { window.speechSynthesis.cancel(); }
+    window.scrollTo(0, 0);
+    render();
+  }
+
+  /* ---------------- actions ---------------- */
+  function finishPlaceQuiz() {
+    var p = place(P.id), st = ps(p.id), sc = 0, i, r = { score: 0, newStamp: false };
+    var beyondBefore = beyondOpen(), examBefore = examOpen();
+    for (i = 0; i < P.run.results.length; i++) { if (P.run.results[i]) { sc++; } }
+    r.score = sc;
+    if (sc > st.best) { st.best = sc; }
+    if (sc >= 2 && !st.stamp) {
+      st.stamp = true; st.date = today(); r.newStamp = true;
+      addMiles(10, LABELS.stamp, P.gained);
+    }
+    if (sc === 3 && !st.goldDone) { st.goldDone = true; addMiles(10, LABELS.gold, P.gained); }
+    r.unlockedBeyond = !beyondBefore && beyondOpen();
+    r.unlockedExam = !examBefore && examOpen();
+    P.result = r; P.step = 3; P.max = 3;
+    persist();
+    sfx(sc >= 2 ? (r.newStamp ? 'stamp' : 'win') : 'ko');
+    if (r.newStamp) { setTimeout(function () { sfx('win'); }, 350); }
+  }
+  function onPick(ctx, j) {
+    var run = ctx === 'place' ? P.run : ctx === 'exam' ? EX : RV, q, ok, p, st;
+    if (!run || run.picked >= 0) { return; }
+    run.picked = j;
+    q = run.qs[run.i];
+    ok = run.orders[run.i][j] === 0;
+    run.results.push(ok);
+    sfx(ok ? 'ok' : 'ko');
+    if (ok && ctx === 'place') {
+      p = place(P.id); st = ps(p.id);
+      if (!has(st.correct, run.i)) { st.correct.push(run.i); addMiles(5, LABELS.answer, P.gained); persist(); }
+    }
+    if (ctx === 'review') {
+      if (S.review.day !== today()) { S.review.day = today(); S.review.count = 0; }
+      if (ok) {
+        S.review.total++;
+        if (S.review.count < 10) { S.review.count++; RV.gained++; addMiles(1); }
+      }
+      persist();
+    }
+    render();
+  }
+  function onNext(ctx) {
+    var run = ctx === 'place' ? P.run : ctx === 'exam' ? EX : RV, i, sc = 0, ex;
+    if (!run) { return; }
+    run.i++; run.picked = -1;
+    if (run.i >= run.qs.length) {
+      if (ctx === 'place') { finishPlaceQuiz(); }
+      if (ctx === 'exam') {
+        for (i = 0; i < run.results.length; i++) { if (run.results[i]) { sc++; } }
+        run.score = sc; ex = country().exam;
+        if (sc > ex.best) { ex.best = sc; }
+        if (sc >= 8 && !ex.passed) { ex.passed = true; run.newPass = true; addMiles(50); }
+        persist();
+        sfx(sc >= 8 ? 'stamp' : 'ko');
+      }
+      if (ctx === 'review') { sfx('win'); }
+    }
+    window.scrollTo(0, 0);
+    render();
+  }
+  function download(text, name) {
+    try {
+      var blob = new Blob([text], { type: 'application/json' }), url = URL.createObjectURL(blob), a = document.createElement('a');
+      a.href = url; a.download = name; document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); a.parentNode.removeChild(a); }, 500);
+      toast('Progress exported.');
+    } catch (e) { toast('Export failed on this browser.'); }
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = closest(e.target, '[data-act]');
+    if (!b || b.disabled) { return; }
+    var act = b.getAttribute('data-act'), p, st, i, o;
+    if (act === 'shade') { if (e.target === b) { modal = null; render(); } return; }
+    switch (act) {
+      case 'go': go(b.getAttribute('data-v')); break;
+      case 'continue':
+        o = nextStep();
+        if (o.kind === 'place') { openPlace(o.place.id); } else if (o.kind === 'exam') { go('exam'); } else { go('map'); }
+        break;
+      case 'say': speak(b.getAttribute('data-say')); break;
+      case 'fr': S.settings.fr = !S.settings.fr; persist(); render(); break;
+      case 'tab': V.tab = b.getAttribute('data-t'); render(); break;
+      case 'maptab': V.tab = b.getAttribute('data-t'); go('map'); break;
+      case 'place': modal = null; openPlace(b.getAttribute('data-id')); break;
+      case 'nextline': P.line++; render(); break;
+      case 'reply':
+        p = place(P.id); i = Number(b.getAttribute('data-i')); st = ps(p.id);
+        if (p.reply.o[i][1]) {
+          if (!st.reply && !P.tried.length) { addMiles(3, LABELS.reply, P.gained); }
+          st.reply = true; P.replyOk = true; persist(); sfx('ok');
+        } else { P.tried.push(i); sfx('ko'); }
+        render();
+        break;
+      case 'step':
+        P.step = Number(b.getAttribute('data-n')); if (P.step > P.max) { P.max = P.step; }
+        P.clue = -1; window.scrollTo(0, 0); render();
+        break;
+      case 'clue':
+        if (P.step !== 1) { P.step = 1; }
+        p = place(P.id); st = ps(p.id); i = Number(b.getAttribute('data-i'));
+        if (!has(st.clues, i)) { st.clues.push(i); addMiles(2, LABELS.clue, P.gained); persist(); sfx('ok'); }
+        P.clue = i; render();
+        o = document.getElementById('cluebox');
+        if (o && window.innerWidth < 860) { try { o.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (err) { o.scrollIntoView(); } }
+        break;
+      case 'startquiz':
+        p = place(P.id); P.run = newRun(p.quiz); P.step = 2; if (P.max < 2) { P.max = 2; } P.result = null;
+        window.scrollTo(0, 0); render();
+        break;
+      case 'pick': onPick(b.getAttribute('data-ctx'), Number(b.getAttribute('data-j'))); break;
+      case 'qnext': onNext(b.getAttribute('data-ctx')); break;
+      case 'startexam': startExam(); window.scrollTo(0, 0); render(); break;
+      case 'avatar': draft.avatar = Number(b.getAttribute('data-i')); draft.touched = true; render(); break;
+      case 'create':
+        if (!draft.name.replace(/\s/g, '')) { toast('Write your first name first.'); o = document.getElementById('pname'); if (o) { o.focus(); } break; }
+        S.explorer = { name: draft.name.replace(/^\s+|\s+$/g, '').slice(0, 20), avatar: draft.avatar, since: today() };
+        persist(); openPlace('arrival');
+        break;
+      case 'saveprofile':
+        if (!draft.name.replace(/\s/g, '')) { toast('Your name cannot be empty.'); break; }
+        S.explorer.name = draft.name.replace(/^\s+|\s+$/g, '').slice(0, 20); S.explorer.avatar = draft.avatar; persist(); toast('Passport updated.'); render();
+        break;
+      case 'set':
+        o = b.getAttribute('data-val');
+        S.settings[b.getAttribute('data-k')] = o === 'true' ? true : o === 'false' ? false : o;
+        persist(); render();
+        break;
+      case 'card': p = place(b.getAttribute('data-id')); if (stamped(p.id)) { modal = { kind: 'card', id: p.id }; render(); } else { toast('Visit ' + p.name + ' to win this card.'); } break;
+      case 'dest': if (b.getAttribute('data-id') === 'england') { go('map'); } else { toast('Coming soon: this destination is being prepared.'); } break;
+      case 'export': download(JSON.stringify(S, null, 2), 'globetrotter-progress.json'); break;
+      case 'import': o = document.getElementById('impfile'); if (o) { o.click(); } break;
+      case 'askreset': modal = { kind: 'reset' }; render(); break;
+      case 'closemodal': modal = null; render(); break;
+      case 'doreset':
+        try { localStorage.removeItem(SAVE_KEY); } catch (err) { }
+        S = fresh(); P = null; EX = null; RV = null; modal = null; draft = { name: '', avatar: 0 };
+        toast('Everything was deleted.'); go('home');
+        break;
+      case 'cleanlegacy':
+        try { for (i = 0; i < LEGACY_KEYS.length; i++) { localStorage.removeItem(LEGACY_KEYS[i]); } } catch (err) { }
+        toast('Old data deleted.'); render();
+        break;
+    }
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id === 'pname') { draft.name = e.target.value; draft.touched = true; }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal) { modal = null; render(); }
+    if (e.key === 'Enter' && e.target && e.target.id === 'pname' && V.name === 'create') {
+      var b = document.querySelector('[data-act="create"]'); if (b) { b.click(); }
+    }
+  });
+  document.addEventListener('change', function (e) {
+    if (!e.target || e.target.id !== 'impfile' || !e.target.files || !e.target.files[0]) { return; }
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var d = JSON.parse(r.result);
+        if (!d || d.v !== 2) { throw new Error('format'); }
+        localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+        S = load(); toast('Progress imported.'); go('home');
+      } catch (err) { toast('This file is not a Globetrotter v2 save.'); }
+    };
+    r.readAsText(e.target.files[0]);
+  });
+
+  render();
+}());
+
+</script>
+</body>
+</html>

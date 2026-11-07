@@ -1,0 +1,23 @@
+GLOBETROTTER v2 — refonte complète (by BROT2YOU APP)
+
+DÉPLOIEMENT (GitHub Pages)
+1. Vider le dépôt Globetrotter (ancien app.js, data.js, style.css, destinations.js,
+   countries/, make_art.py, anciens LISEZ-MOI, assets/ : tout est remplacé).
+2. Déposer à la racine : index.html, .nojekyll, LISEZ-MOI.txt et le dossier assets/.
+3. Valider et synchroniser. Tester sur iPhone et sur PC.
+
+CE QUI CHANGE
+- Une seule boucle de jeu : Meet > Explore > Challenge > Stamp, sur 13 étapes
+  (arrivée, 6 lieux à Londres, 6 lieux hors de Londres, débloqués après 3 tampons).
+- Défis réels : distracteurs plausibles, ordre mélangé, 1 question d'écoute par lieu.
+- Une seule sauvegarde : GLOBETROTTER_SAVE_V2. Export / import / remise à zéro fonctionnels.
+- Les anciennes progressions (Atlas Quest, Worldhop, v0.x) ne sont pas reprises ;
+  un bouton dans Settings efface ces anciennes données du navigateur.
+
+AJOUTER UN PAYS
+Le contenu est dans le bloc <script type="application/json" id="data-globetrotter">
+de index.html (pays > places > talk / reply / clues / quiz). Dans chaque question,
+la bonne réponse est TOUJOURS la première de la liste "o" : l'appli mélange l'ordre.
+
+Technique : un seul index.html, ES5 (compatible iOS Safari), aucune dépendance
+sauf Google Fonts (Lilita One, Lexend). Voix : synthèse vocale de l'appareil (en-GB).

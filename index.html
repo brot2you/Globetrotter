@@ -77,7 +77,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-cta .next{background:rgba(19,32,63,.88);border-radius:999px;padding:4px 14px;font-size:.9rem}
 .explorer{position:absolute;left:2%;top:3.5%;display:flex;align-items:center;gap:10px;background:rgba(19,32,63,.88);
   border:2px solid var(--gold);border-radius:999px;padding:4px 16px 4px 4px;font-weight:600;line-height:1.2}
-.explorer img{width:40px;height:40px;border-radius:50%}
+.explorer img{width:38px;height:auto;margin:-6px 0}
 .explorer small{display:block;font-weight:400;opacity:.8;font-size:.75rem}
 .foot{text-align:center;font-size:.8rem;opacity:.65;padding:16px}
 @media (max-width:860px){
@@ -88,7 +88,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .hero-cta{position:static;transform:none;width:92%;max-width:none;margin-top:6px}
   .hero-cta .btn{width:100%;font-size:1.35rem;box-shadow:0 4px 0 var(--gold2),0 6px 18px rgba(0,0,0,.35)}
   .explorer{left:10px;top:10px;padding:2px 12px 2px 2px;font-size:.85rem}
-  .explorer img{width:30px;height:30px}
+  .explorer img{width:30px;height:auto}
   .hero-menu{position:static;width:auto;display:grid;grid-template-columns:1fr 1fr;gap:6px 8px;padding:10px 8px 12px;background:none}
   .menu-b{filter:drop-shadow(0 3px 2px rgba(0,0,0,.45))}
   .menu-b:hover{transform:none}
@@ -157,12 +157,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .steps li{flex:1;text-align:center;font-size:.8rem;font-weight:600;padding:6px 4px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.65)}
 .steps li.cur{background:var(--gold);color:var(--night)}
 .steps li.done{background:rgba(46,143,87,.35);color:#fff}
-.guide-tag{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.guide-tag{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.guide-tag b{font-family:var(--head);font-weight:400;font-size:1.4rem}
 .mono{width:44px;height:44px;border-radius:50%;color:#fff;font-family:var(--head);font-size:1.3rem;display:flex;align-items:center;justify-content:center;flex:none;border:3px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.mono.you{background:transparent;overflow:visible;padding:0;border:0;box-shadow:none}
-.mono.you img{width:118%;height:118%;max-width:none;margin:-9%}
+.pic{display:block;width:3.2rem;flex:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.pic img{width:100%;height:auto}
+.pic.big{width:5.6rem}
+.mono.big{width:4rem;height:4rem;font-size:1.8rem}
 .talk{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
-.line{display:flex;gap:10px;align-items:flex-end}
+.line{display:flex;gap:10px;align-items:flex-start}
 .line.you{flex-direction:row-reverse}
 .bubble{background:#fff;border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:80%;box-shadow:0 2px 0 rgba(35,48,79,.15);position:relative}
 .line.you .bubble{border-radius:16px 16px 4px 16px;background:#e3f1f5}
@@ -284,8 +287,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 label.f{display:block;font-weight:700;margin:12px 0 6px}
 input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radius:10px;border:2px solid rgba(35,48,79,.3);background:#fff;color:var(--ink)}
 .avs{display:flex;gap:10px;flex-wrap:wrap}
-.av{border:3px solid transparent;border-radius:50%;padding:3px;background:transparent;width:96px;height:96px}
-.av img{width:100%;height:100%}
+.av{border:3px solid transparent;border-radius:14px;padding:4px;background:transparent;width:96px}
+.av img{width:100%;height:auto}
 .av.on{border-color:var(--night);box-shadow:0 0 0 3px var(--gold);transform:scale(1.06)}
 .av:not(.on){opacity:.7}
 .set{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(35,48,79,.15);flex-wrap:wrap}
@@ -313,7 +316,7 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
   .hero{max-width:none;width:min(calc(100% - 2.5rem),calc((100vh - 3.6rem) * 16 / 9));max-height:none;min-height:0;margin:1rem auto 0}
   .foot{padding:.6rem}
   .explorer{font-size:1.05rem;padding:.3rem 1.2rem .3rem .3rem}
-  .explorer img{width:3rem;height:3rem}
+  .explorer img{width:2.8rem;height:auto}
   .explorer small{font-size:.85rem}
   .hero-cta .btn{font-size:1.9rem}
   .hero-cta .next{font-size:1.05rem}
@@ -327,7 +330,8 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
   .place.portrait .scene{max-width:min(31rem,calc((100vh - 8.5rem) * .58))}
   .scene-col{top:6rem}
   .mono{width:3.4rem;height:3.4rem;font-size:1.6rem}
-  .guide-tag b{font-size:1.25rem}
+  .pic{width:4rem} .pic.big{width:6.5rem}
+  .guide-tag b{font-size:1.6rem}
   .bubble{font-size:1.15rem;padding:.8rem 1.1rem;max-width:85%}
   .bubble .who{font-size:.85rem}
   .fr{font-size:1rem}
@@ -359,7 +363,7 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
   .mission .mi{width:4.5rem;height:4.5rem;font-size:2.4rem}
   .wgrid{grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
   .wcard b{font-size:1.2rem}
-  .av{width:7.5rem;height:7.5rem}
+  .av{width:7.5rem}
   .modal{max-width:34rem}
   .toast{font-size:1.1rem}
   .listen-big .speak{width:3.8rem;height:3.8rem;font-size:1.7rem}
@@ -411,29 +415,30 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
 "h": 1448,
 "pixel": true,
 "guide": {
-"name": "Officer Patel",
-"role": "Border Force officer",
-"color": "#2a6f97"
+"name": "PC Patel",
+"role": "Airport police officer",
+"color": "#2a6f97",
+"img": "assets/npc/npc_police.webp"
 },
 "talk": [
 [
 "guide",
-"Good morning! Welcome to the United Kingdom. Can I see your passport, please?",
-"Bonjour ! Bienvenue au Royaume-Uni. Puis-je voir votre passeport, s’il vous plaît ?"
+"Good morning! Welcome to London Heathrow Airport. Are you OK? You look a bit lost.",
+"Bonjour ! Bienvenue à l’aéroport de Londres Heathrow. Ça va ? Tu as l’air un peu perdu."
 ],
 [
 "you",
-"Here you are.",
-"Le voici."
+"I’m fine, thank you. Am I in England or in the United Kingdom?",
+"Ça va, merci. Je suis en Angleterre ou au Royaume-Uni ?"
 ],
 [
 "guide",
-"Thank you. What is the purpose of your visit?",
-"Merci. Quel est le motif de votre voyage ?"
+"Both! England is one of the four countries of the UK. So, what is the purpose of your visit?",
+"Les deux ! L’Angleterre est l’un des quatre pays du Royaume-Uni. Alors, quel est le but de ton voyage ?"
 ]
 ],
 "reply": {
-"prompt": "Answer the officer.",
+"prompt": "Answer PC Patel.",
 "o": [
 [
 "I’m here on holiday. I want to explore England.",
@@ -441,19 +446,19 @@ true,
 "Perfect! You explain why you are here."
 ],
 [
-"I’m fine, thank you.",
+"I’m twelve, thank you.",
 false,
-"That answers “How are you?”. The officer asks WHY you are here."
+"That’s your age! PC Patel asks WHY you are here."
 ],
 [
 "My passport is blue.",
 false,
-"True maybe, but the officer asks about the purpose of your visit."
+"True maybe, but PC Patel asks about the purpose of your visit."
 ]
 ]
 },
-"outro": "Enjoy your trip! Look at this map: it shows where you are.",
-"outroFr": "Bon voyage ! Regarde cette carte : elle montre où tu es.",
+"outro": "Lovely! Enjoy your trip. Look at this map: it shows where you are.",
+"outroFr": "Parfait ! Bon voyage. Regarde cette carte : elle montre où tu es.",
 "clues": [
 {
 "x": 55,
@@ -515,14 +520,14 @@ false,
 },
 {
 "t": "listen",
-"say": "Good morning. Can I see your passport, please?",
-"q": "What does the officer want to see?",
+"say": "Good morning! Welcome to London Heathrow Airport.",
+"q": "Where are you?",
 "o": [
-"Your passport",
-"Your ticket",
-"Your suitcase"
+"At an airport in London",
+"At a train station in Paris",
+"At a port in Scotland"
 ],
-"why": "“Can I see your passport, please?” — a polite request you will hear at every border."
+"why": "Heathrow is the biggest airport in London and in the UK."
 }
 ]
 },
@@ -539,15 +544,16 @@ false,
 66
 ],
 "guide": {
-"name": "Ava",
+"name": "Margaret",
 "role": "London walking guide",
-"color": "#b5446e"
+"color": "#b5446e",
+"img": "assets/npc/npc_guide.webp"
 },
 "talk": [
 [
 "guide",
-"Hi, I’m Ava! Welcome to Westminster, on the River Thames.",
-"Salut, moi c’est Ava ! Bienvenue à Westminster, au bord de la Tamise."
+"Hello, dear! I’m Margaret, and I’ve been a London guide for forty years. Welcome to Westminster, on the River Thames!",
+"Bonjour ! Je m’appelle Margaret et je suis guide à Londres depuis quarante ans. Bienvenue à Westminster, au bord de la Tamise !"
 ],
 [
 "you",
@@ -561,7 +567,7 @@ false,
 ]
 ],
 "reply": {
-"prompt": "React to Ava.",
+"prompt": "React to Margaret.",
 "o": [
 [
 "Really? I didn’t know that!",
@@ -576,7 +582,7 @@ false,
 [
 "See you yesterday!",
 false,
-"“Yesterday” is in the past, and Ava is not leaving!"
+"“Yesterday” is in the past, and Margaret is not leaving!"
 ]
 ]
 },
@@ -668,14 +674,15 @@ false,
 ],
 "guide": {
 "name": "Riley",
-"role": "Bridge engineer",
-"color": "#3d7a4f"
+"role": "Yeoman Warder (Beefeater)",
+"color": "#3d7a4f",
+"img": "assets/npc/npc_beefeater.webp"
 },
 "talk": [
 [
 "guide",
-"Hello! I’m Riley. I take care of Tower Bridge.",
-"Bonjour ! Je suis Riley. Je m’occupe de Tower Bridge."
+"Hello! I’m Riley, a Yeoman Warder. People call us Beefeaters. I work at the Tower of London, right next to Tower Bridge.",
+"Bonjour ! Je suis Riley, un Yeoman Warder. On nous appelle les Beefeaters. Je travaille à la Tour de Londres, juste à côté de Tower Bridge."
 ],
 [
 "you",
@@ -795,15 +802,16 @@ false,
 8
 ],
 "guide": {
-"name": "Nia",
-"role": "Museum educator",
-"color": "#7a4fa3"
+"name": "Mr Ashby",
+"role": "Museum curator",
+"color": "#7a4fa3",
+"img": "assets/npc/npc_curator.webp"
 },
 "talk": [
 [
 "guide",
-"Welcome to the British Museum! It opened in 1759, and it’s free to visit.",
-"Bienvenue au British Museum ! Il a ouvert en 1759 et l’entrée est gratuite."
+"Good morning! I’m Mr Ashby, a curator. Welcome to the British Museum! It opened in 1759, and it’s free to visit.",
+"Bonjour ! Je suis M. Ashby, conservateur. Bienvenue au British Museum ! Il a ouvert en 1759 et l’entrée est gratuite."
 ],
 [
 "you",
@@ -817,7 +825,7 @@ false,
 ]
 ],
 "reply": {
-"prompt": "Ask Nia politely.",
+"prompt": "Ask Mr Ashby politely.",
 "o": [
 [
 "Thank you! Where is the Rosetta Stone, please?",
@@ -925,7 +933,8 @@ false,
 "guide": {
 "name": "Charlie",
 "role": "Station assistant",
-"color": "#c0392b"
+"color": "#c0392b",
+"img": "assets/npc/npc_tube.webp"
 },
 "talk": [
 [
@@ -1053,7 +1062,8 @@ false,
 "guide": {
 "name": "Sam",
 "role": "Market trader",
-"color": "#d35400"
+"color": "#d35400",
+"img": "assets/npc/npc_trader.webp"
 },
 "talk": [
 [
@@ -1180,14 +1190,15 @@ false,
 ],
 "guide": {
 "name": "Poppy",
-"role": "Tea room owner",
-"color": "#8e5b3a"
+"role": "Tea room baker",
+"color": "#8e5b3a",
+"img": "assets/npc/npc_baker.webp"
 },
 "talk": [
 [
 "guide",
-"Good afternoon! Welcome to my tea room. Would you like a cup of tea?",
-"Bon après-midi ! Bienvenue dans mon salon de thé. Veux-tu une tasse de thé ?"
+"Good afternoon! Welcome to our tea room. I bake all the cakes myself! Would you like a cup of tea?",
+"Bon après-midi ! Bienvenue dans notre salon de thé. Je fais tous les gâteaux moi-même ! Veux-tu une tasse de thé ?"
 ],
 [
 "you",
@@ -1567,14 +1578,15 @@ false,
 ],
 "guide": {
 "name": "Jade",
-"role": "Music guide",
-"color": "#a93226"
+"role": "Street musician",
+"color": "#a93226",
+"img": "assets/npc/npc_busker.webp"
 },
 "talk": [
 [
 "guide",
-"Welcome to Liverpool, a big port city in north-west England!",
-"Bienvenue à Liverpool, une grande ville portuaire du nord-ouest de l’Angleterre !"
+"Hi, I’m Jade! I play music in the streets of Liverpool, a big port city in north-west England.",
+"Salut, moi c’est Jade ! Je joue de la musique dans les rues de Liverpool, une grande ville portuaire du nord-ouest de l’Angleterre."
 ],
 [
 "you",
@@ -1954,24 +1966,25 @@ false,
 ],
 "guide": {
 "name": "Kai",
-"role": "Seaside café owner",
-"color": "#117a65"
+"role": "Fish and chip shop chef",
+"color": "#117a65",
+"img": "assets/npc/npc_chef.webp"
 },
 "talk": [
 [
 "guide",
-"Welcome to Brighton, on the south coast! Fancy a walk on the pier?",
-"Bienvenue à Brighton, sur la côte sud ! Ça te dit une balade sur la jetée ?"
+"Welcome to Brighton, on the south coast! I’m Kai, and I make the best fish and chips in town.",
+"Bienvenue à Brighton, sur la côte sud ! Je suis Kai et je fais le meilleur fish and chips de la ville."
 ],
 [
 "you",
-"Yes! What is a pier?",
-"Oui ! C’est quoi, un « pier » ?"
+"Hello! What is that long platform over the sea?",
+"Bonjour ! C’est quoi, cette longue plateforme au-dessus de la mer ?"
 ],
 [
 "guide",
-"It’s a long platform that goes out over the sea. Brighton Palace Pier opened in 1899.",
-"C’est une longue plateforme qui avance au-dessus de la mer. Le Brighton Palace Pier a ouvert en 1899."
+"That’s a pier: Brighton Palace Pier. It opened in 1899.",
+"C’est une jetée : le Brighton Palace Pier. Il a ouvert en 1899."
 ]
 ],
 "reply": {
@@ -2177,7 +2190,7 @@ false,
   var RANKS = [[0, 'Tourist'], [60, 'Traveller'], [180, 'Explorer'], [360, 'Adventurer'], [540, 'Globetrotter']];
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var INKS = ['#c8372d', '#2a5d9f', '#2e7d5b', '#7a4fa3', '#b35a1f', '#1f7a8c'];
-  var AVATARS = ['assets/avatars/hero1.webp', 'assets/avatars/hero2.webp', 'assets/avatars/hero3.webp', 'assets/avatars/hero4.webp'];
+  var AVATARS = ['assets/avatars/hero1.webp', 'assets/avatars/hero2.webp', 'assets/avatars/hero3.webp', 'assets/avatars/hero4.webp', 'assets/avatars/hero5.webp', 'assets/avatars/hero6.webp'];
 
   var app = document.getElementById('app');
   var S = load();
@@ -2347,7 +2360,11 @@ false,
     return '<button class="speak" data-act="say" data-say="' + esc(text) + '" aria-label="' + esc(label || 'Listen') + '">🔊</button>';
   }
   function frLine(text) { return S.settings.fr && text ? '<span class="fr" lang="fr">' + esc(text) + '</span>' : ''; }
-  function avatarSrc() { return AVATARS[(S.explorer && S.explorer.avatar) || 0]; }
+  function avatarSrc() { return AVATARS[(S.explorer && S.explorer.avatar) || 0] || AVATARS[0]; }
+  function guidePic(p, big) {
+    if (p.guide.img) { return '<span class="pic' + (big ? ' big' : '') + '"><img src="' + p.guide.img + '" alt="' + esc(p.guide.name) + '"></span>'; }
+    return '<span class="mono' + (big ? ' big' : '') + '" style="background:' + p.guide.color + '" aria-hidden="true">' + esc(p.guide.name.charAt(0)) + '</span>';
+  }
   function top(title) {
     return '<header class="top"><div class="top-in">' +
       '<button class="home-btn" data-act="go" data-v="home" aria-label="Home"><img src="assets/home/logo.webp" alt="Globetrotter"></button>' +
@@ -2466,12 +2483,12 @@ false,
   }
   function talkLine(who, text, fr, p, anim) {
     var you = who === 'you';
-    var mono = you ? '<span class="mono you"><img src="' + avatarSrc() + '" alt=""></span>' : '<span class="mono" style="background:' + p.guide.color + '" aria-hidden="true">' + esc(p.guide.name.charAt(0)) + '</span>';
+    var mono = you ? '<span class="pic"><img src="' + avatarSrc() + '" alt=""></span>' : guidePic(p);
     return '<div class="line' + (you ? ' you' : '') + (anim ? ' pop' : '') + '">' + mono + '<div class="bubble"><span class="who">' + esc(you ? (S.explorer ? S.explorer.name : 'You') : p.guide.name) + '</span>' +
       '<div class="tx"><span lang="en">' + esc(text) + '</span>' + speakBtn(text) + '</div>' + frLine(fr) + '</div></div>';
   }
   function stepMeet(p) {
-    var h = '<div class="guide-tag"><span class="mono" style="background:' + p.guide.color + '" aria-hidden="true">' + esc(p.guide.name.charAt(0)) + '</span><div><b>' + esc(p.guide.name) + '</b><br><small class="muted">' + esc(p.guide.role) + '</small></div></div><div class="talk">', i, o, cls;
+    var h = '<div class="guide-tag">' + guidePic(p, true) + '<div><b>' + esc(p.guide.name) + '</b><br><small class="muted">' + esc(p.guide.role) + '</small></div></div><div class="talk">', i, o, cls;
     for (i = 0; i < P.line && i < p.talk.length; i++) { h += talkLine(p.talk[i][0], p.talk[i][1], p.talk[i][2], p, i === P.line - 1 && !P.replyOk); }
     h += '</div>';
     if (P.line < p.talk.length) { return h + '<button class="btn" data-act="nextline">Next</button>'; }

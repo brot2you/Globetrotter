@@ -81,15 +81,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .explorer small{display:block;font-weight:400;opacity:.8;font-size:.75rem}
 .foot{text-align:center;font-size:.8rem;opacity:.65;padding:16px}
 @media (max-width:860px){
-  .hero{aspect-ratio:auto;max-height:none;min-height:0;border-radius:18px;width:calc(100% - 24px);margin-top:12px}
-  .hero-art{position:relative;inset:auto;padding-top:138%;background-image:url(assets/home/background_mobile.webp);background-position:center 18%}
-  .hero-logo{left:50%;top:6.5%;width:84%}
-  .hero-cta{left:50%;bottom:5%;width:88%}
-  .hero-cta .btn{width:100%;font-size:1.35rem}
-  .explorer{left:3%;top:2%;padding:2px 12px 2px 2px;font-size:.85rem}
+  .hero{aspect-ratio:auto;max-height:none;min-height:calc(100vh - 24px);border-radius:18px;width:calc(100% - 24px);margin-top:12px;
+    background:#4a7fbf url(assets/home/background_mobile.webp) center bottom/cover no-repeat;display:flex;flex-direction:column}
+  .hero-art{position:relative;inset:auto;background:none;flex:1;min-height:118vw;display:flex;flex-direction:column;align-items:center;padding:12px 12px 0}
+  .hero-logo{position:static;transform:none;width:88%;margin-top:34px}
+  .hero-cta{position:static;transform:none;width:92%;max-width:none;margin-top:6px}
+  .hero-cta .btn{width:100%;font-size:1.35rem;box-shadow:0 4px 0 var(--gold2),0 6px 18px rgba(0,0,0,.35)}
+  .explorer{left:10px;top:10px;padding:2px 12px 2px 2px;font-size:.85rem}
   .explorer img{width:30px;height:30px}
-  .hero-menu{position:static;width:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 8px;background:var(--night)}
+  .hero-menu{position:static;width:auto;display:grid;grid-template-columns:1fr 1fr;gap:6px 8px;padding:10px 8px 12px;background:none}
+  .menu-b{filter:drop-shadow(0 3px 2px rgba(0,0,0,.45))}
   .menu-b:hover{transform:none}
+}
 }
 /* ---------- paper panels ---------- */
 .paper{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:0 0 0 3px var(--gold),0 0 0 6px var(--night),0 10px 30px rgba(0,0,0,.35)}

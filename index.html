@@ -3685,7 +3685,7 @@ false,
   var V = { name: 'home', tab: 'london' };
   function setCountry(id) {
     if (!DATA.countries[id]) { id = 'england'; }
-    C = DATA.countries[id]; S.current = id; V.tab = CITY();
+    C = DATA.countries[id]; S.current = id; V.tab = BEYOND();
   }
   setCountry(S.current);
   function countryIds() { var r = [], k; for (k in DATA.countries) { if (DATA.countries.hasOwnProperty(k)) { r.push(k); } } return r; }
@@ -3925,9 +3925,9 @@ false,
   }
 
   function vMap() {
-    var tab = (V.tab === CITY() || V.tab === BEYOND()) ? V.tab : CITY(), m = C.maps[tab], list = areaPlaces(tab), arr = place('arrival'), pins = '', items = '', i, p, cls, ic, note = '';
+    var tab = (V.tab === CITY() || V.tab === BEYOND()) ? V.tab : BEYOND(), m = C.maps[tab], list = areaPlaces(tab), arr = place('arrival'), pins = '', items = '', i, p, cls, ic, note = '';
     if (tab === BEYOND() && !beyondOpen()) {
-      note = '<div class="notice">🔒 Collect <b>' + C.unlockBeyond + ' ' + C.cityName + ' stamps</b> to travel beyond ' + C.cityName + ' (' + countStamps(CITY()) + '/' + C.unlockBeyond + ').</div>';
+      note = '<div class="notice">🔒 Collect <b>' + C.unlockBeyond + ' ' + C.cityName + ' stamps</b> to travel beyond ' + C.cityName + ' (' + countStamps(CITY()) + '/' + C.unlockBeyond + '). <button class="btn small" data-act="tab" data-t="' + CITY() + '">Go to ' + esc(C.cityName) + '</button></div>';
     }
     if (!stamped('arrival')) {
       note = '<div class="notice row" style="justify-content:space-between">🛂 Your journey starts here: ' + esc(arr.name) + '.<button class="btn small" data-act="place" data-id="arrival">Start</button></div>';
@@ -3940,7 +3940,7 @@ false,
         '<span class="th' + (p.pixel ? ' pixel' : '') + '" style="' + thumbStyle(p) + '"></span><span><b>' + esc(p.name) + '</b><small>' + esc(p.short) + '</small></span>' +
         '<span class="st" aria-hidden="true">' + (cls === 'lock' ? '🔒' : gold(p.id) ? '⭐' : stamped(p.id) ? '🛂' : '›') + '</span></button>';
     }
-    if (tab === CITY()) {
+    if (tab === BEYOND()) {
       items = '<button class="pitem" data-act="place" data-id="arrival"><span class="th pixel" style="' + thumbStyle(arr) + '"></span><span><b>' + esc(arr.name) + '</b><small>' + esc(arr.short) + '</small></span>' +
         '<span class="st" aria-hidden="true">' + (gold('arrival') ? '⭐' : stamped('arrival') ? '🛂' : '›') + '</span></button>' + items;
     }
@@ -3948,8 +3948,8 @@ false,
       pins += '<button class="pin done" style="left:' + m.cityPin[0] + '%;top:' + m.cityPin[1] + '%" data-act="tab" data-t="' + CITY() + '" aria-label="Open the ' + esc(C.cityName) + ' map">🏙️<span class="lbl">' + esc(C.cityName) + '</span></button>';
     }
     return top('Explore ' + C.name) + '<main class="wrap">' +
-      '<div class="tabs" role="tablist"><button class="tab' + (tab === CITY() ? ' on' : '') + '" data-act="tab" data-t="' + CITY() + '" role="tab" aria-selected="' + (tab === CITY()) + '">' + esc(C.areas[0].label) + ' ' + countStamps(CITY()) + '/' + areaPlaces(CITY()).length + '</button>' +
-      '<button class="tab' + (tab === BEYOND() ? ' on' : '') + '" data-act="tab" data-t="' + BEYOND() + '" role="tab" aria-selected="' + (tab === BEYOND()) + '">' + esc(C.areas[1].label) + ' ' + countStamps(BEYOND()) + '/' + areaPlaces(BEYOND()).length + '</button></div>' + note +
+      '<div class="tabs" role="tablist"><button class="tab' + (tab === BEYOND() ? ' on' : '') + '" data-act="tab" data-t="' + BEYOND() + '" role="tab" aria-selected="' + (tab === BEYOND()) + '">🗺️ ' + esc(C.name) + ' ' + countStamps() + '/' + C.places.length + '</button>' +
+      '<button class="tab' + (tab === CITY() ? ' on' : '') + '" data-act="tab" data-t="' + CITY() + '" role="tab" aria-selected="' + (tab === CITY()) + '">🏙️ ' + esc(C.cityName) + ' ' + countStamps(CITY()) + '/' + areaPlaces(CITY()).length + '</button></div>' + note +
       '<div class="layout-map"><div class="mapbox' + (m.pixel ? ' pixel' : '') + (m.h > m.w * 1.1 ? ' tall' : '') + '"><img src="' + m.img + '" alt="Illustrated map of ' + esc(m.title) + '" width="' + m.w + '" height="' + m.h + '">' + pins + '</div>' +
       '<div class="plist">' + items + '</div></div></main>';
   }

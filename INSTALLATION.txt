@@ -1,8 +1,0 @@
-GLOBETROTTER V2 - 16 decors de Londres
-
-Copiez le dossier assets/london/ et london-gallery.js a la racine du depot GitHub Globetrotter-V2.
-Dans index.html, ajoutez avant </body> :
-<script src="london-gallery.js?v=london16"></script>
-
-Une entree London sera ajoutee a la navigation et un bouton a la page Story.
-Les quatre chapitres, dialogues, indices et sauvegardes ne sont pas modifies.

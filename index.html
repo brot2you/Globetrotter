@@ -299,6 +299,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .dest .soon-t{position:absolute;right:6%;top:4%;background:var(--night);border:2px solid var(--gold);color:var(--gold);font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
 .dest .play-t{position:absolute;right:6%;top:4%;background:var(--ok);border:2px solid #fff;color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
 
+.reg{margin:22px 0 10px;font-size:1.3rem;color:var(--gold)}
 /* ---------- missions ---------- */
 .mission{display:flex;gap:16px;align-items:center}
 .mission .mi{font-size:2rem;width:64px;height:64px;border-radius:16px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex:none}
@@ -5036,82 +5037,97 @@ false,
 "id": "england",
 "name": "England",
 "img": 0,
-"status": "playable"
-},
-{
-"id": "usa",
-"name": "United States",
-"img": 1
-},
-{
-"id": "canada",
-"name": "Canada",
-"img": 2
-},
-{
-"id": "australia",
-"name": "Australia",
-"img": 3
-},
-{
-"id": "nz",
-"name": "New Zealand",
-"img": 4
-},
-{
-"id": "ireland",
-"name": "Ireland",
-"img": 5
+"region": "uk"
 },
 {
 "id": "scotland",
 "name": "Scotland",
-"img": 6
+"img": 6,
+"region": "uk"
 },
 {
 "id": "wales",
 "name": "Wales",
-"img": 7
+"img": 7,
+"region": "uk"
 },
 {
 "id": "ni",
 "name": "Northern Ireland",
-"img": 8
+"img": 8,
+"region": "uk"
 },
 {
-"id": "southafrica",
-"name": "South Africa",
-"img": 9
+"id": "ireland",
+"name": "Ireland",
+"img": 5,
+"region": "uk"
+},
+{
+"id": "usa",
+"name": "United States",
+"img": 1,
+"region": "americas"
+},
+{
+"id": "canada",
+"name": "Canada",
+"img": 2,
+"region": "americas"
 },
 {
 "id": "jamaica",
 "name": "Jamaica",
-"img": 10
-},
-{
-"id": "barbados",
-"name": "Barbados",
-"img": 11
-},
-{
-"id": "trinidad",
-"name": "Trinidad and Tobago",
-"img": 12
+"img": 10,
+"region": "caribbean"
 },
 {
 "id": "bahamas",
 "name": "The Bahamas",
-"img": 13
+"img": 13,
+"region": "caribbean"
 },
 {
-"id": "singapore",
-"name": "Singapore",
-"img": 14
+"id": "barbados",
+"name": "Barbados",
+"img": 11,
+"region": "caribbean"
+},
+{
+"id": "trinidad",
+"name": "Trinidad and Tobago",
+"img": 12,
+"region": "caribbean"
+},
+{
+"id": "southafrica",
+"name": "South Africa",
+"img": 9,
+"region": "africa"
 },
 {
 "id": "india",
 "name": "India",
-"img": 15
+"img": 15,
+"region": "asia"
+},
+{
+"id": "singapore",
+"name": "Singapore",
+"img": 14,
+"region": "asia"
+},
+{
+"id": "australia",
+"name": "Australia",
+"img": 3,
+"region": "oceania"
+},
+{
+"id": "nz",
+"name": "New Zealand",
+"img": 4,
+"region": "oceania"
 }
 ]
 }
@@ -5721,15 +5737,23 @@ false,
 
   /* ----- voyages ----- */
   function vTravels() {
-    var i, d, h = '';
-    for (i = 0; i < DATA.destinations.length; i++) {
-      d = DATA.destinations[i];
+    var REG = [['uk', 'The UK and Ireland'], ['americas', 'North America'], ['caribbean', 'The Caribbean'], ['africa', 'Africa'], ['asia', 'Asia'], ['oceania', 'Oceania']];
+    function btn(d) {
       var ok = !!DATA.countries[d.id], prog = ok ? withCountry(d.id, function () { return countStamps() + '/' + C.places.length; }) : '';
-      h += '<button class="dest' + (ok ? '' : ' soon') + (d.id === S.current ? ' cur' : '') + '" data-act="dest" data-id="' + d.id + '"><img src="assets/countries/countries_' + d.img + '.webp" alt="' + esc(d.name) + '">' +
+      return '<button class="dest' + (ok ? '' : ' soon') + (d.id === S.current ? ' cur' : '') + '" data-act="dest" data-id="' + d.id + '"><img src="assets/countries/countries_' + d.img + '.webp" alt="' + esc(d.name) + '">' +
         (ok ? '<span class="play-t">' + (d.id === S.current ? 'HERE · ' : 'PLAY · ') + prog + '</span>' : '<span class="soon-t">SOON</span>') + '</button>';
     }
-    return top('My Travels') + '<main class="wrap"><div class="head"><h2>The English-speaking world</h2><p>English is spoken all over the world. Choose a destination: each country has its own map, stamps and exam. More countries will open here.</p></div>' +
-      '<div class="world"><img src="assets/home/world_map.webp" alt="Illustrated world map" width="1672" height="941"></div><div class="grid g3">' + h + '</div></main>';
+    var i, r, d, play = '', soon = '', part;
+    for (i = 0; i < DATA.destinations.length; i++) { d = DATA.destinations[i]; if (DATA.countries[d.id]) { play += btn(d); } }
+    for (r = 0; r < REG.length; r++) {
+      part = '';
+      for (i = 0; i < DATA.destinations.length; i++) { d = DATA.destinations[i]; if (d.region === REG[r][0] && !DATA.countries[d.id]) { part += btn(d); } }
+      if (part) { soon += '<h3 class="reg">' + REG[r][1] + '</h3><div class="grid g3">' + part + '</div>'; }
+    }
+    return top('My Travels') + '<main class="wrap"><div class="head"><h2>The English-speaking world</h2><p>English is spoken all over the world. Choose a destination: each country has its own map, stamps and exam.</p></div>' +
+      '<div class="world"><img src="assets/home/world_map.webp" alt="Illustrated world map" width="1672" height="941"></div>' +
+      '<h3 class="reg">✈ Ready to explore</h3><div class="grid g3">' + play + '</div>' +
+      '<h2 style="margin-top:28px">Coming soon</h2>' + soon + '</main>';
   }
 
   /* ----- réglages ----- */

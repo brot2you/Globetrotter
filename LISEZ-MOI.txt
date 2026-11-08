@@ -41,3 +41,8 @@ NOUVELLE-ZÉLANDE (ajout nov. 2026)
 - Dossier assets/nz/ : carte du pays (portrait), carte d'Auckland, 9 scènes, flag.png.
 - Portraits sources : assets/npc/nz_*.webp. Vignette existante : countries_4.webp.
 - 10 étapes : arrivée (aéroport d'Auckland), 5 lieux à Auckland, 4 au-delà (Rotorua, Wellington, Queenstown, Milford Sound).
+
+AUSTRALIE (ajout nov. 2026)
+- Dossier assets/australia/ : carte du pays, carte de Sydney, 9 scènes, flag.png.
+- Portraits sources : assets/npc/au_*.webp. Vignette existante : countries_3.webp.
+- 10 étapes : arrivée (aéroport de Sydney), 5 lieux à Sydney, 4 au-delà (Uluru, Grande Barrière, Melbourne, Rottnest).

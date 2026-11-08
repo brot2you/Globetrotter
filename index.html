@@ -3702,6 +3702,1333 @@ false,
 ]
 }
 ]
+},
+"scotland": {
+"id": "scotland",
+"name": "Scotland",
+"nameFr": "Écosse",
+"flag": "assets/scotland/flag.png",
+"cityName": "Edinburgh",
+"areas": [
+{
+"id": "edinburgh",
+"label": "Edinburgh"
+},
+{
+"id": "scotland",
+"label": "Beyond Edinburgh"
+}
+],
+"maps": {
+"edinburgh": {
+"img": "assets/scotland/edinburgh.webp",
+"w": 900,
+"h": 900,
+"title": "Edinburgh",
+"pixel": true
+},
+"scotland": {
+"img": "assets/scotland/map.webp",
+"w": 900,
+"h": 1349,
+"title": "Scotland",
+"pixel": true,
+"cityPin": [
+85,
+64
+]
+}
+},
+"unlockBeyond": 3,
+"unlockExam": 7,
+"places": [
+{
+"id": "arrival",
+"area": "arrival",
+"name": "Welcome to Scotland",
+"short": "Edinburgh Waverley station",
+"art": "assets/scotland/map.webp",
+"w": 900,
+"h": 1349,
+"pixel": true,
+"guide": {
+"name": "Callum",
+"role": "Station assistant",
+"color": "#005eb8"
+},
+"talk": [
+[
+"guide",
+"Welcome to Edinburgh Waverley! You’ve just arrived in Scotland.",
+"Bienvenue à la gare d’Édimbourg Waverley ! Tu viens d’arriver en Écosse."
+],
+[
+"you",
+"Hello! Do I need my passport between England and Scotland?",
+"Bonjour ! J’ai besoin de mon passeport entre l’Angleterre et l’Écosse ?"
+],
+[
+"guide",
+"No! Scotland and England are both in the United Kingdom, so there is no border control.",
+"Non ! L’Écosse et l’Angleterre font toutes les deux partie du Royaume-Uni, donc il n’y a pas de contrôle à la frontière."
+]
+],
+"reply": {
+"prompt": "Callum asks: “How was your train journey from London?”",
+"o": [
+[
+"It was great! It took about four and a half hours.",
+true,
+"Past simple “was” + a detail: perfect!"
+],
+[
+"It is great tomorrow.",
+false,
+"Your journey is finished: use the past (“was”)."
+],
+[
+"I am a train.",
+false,
+"You are not a train!"
+]
+]
+},
+"outro": "Brilliant! Fàilte gu Alba: that’s “Welcome to Scotland” in Scottish Gaelic.",
+"outroFr": "Génial ! Fàilte gu Alba : ça veut dire « Bienvenue en Écosse » en gaélique écossais.",
+"clues": [
+{
+"x": 55,
+"y": 45,
+"icon": "🦄",
+"title": "Scotland",
+"fact": "Scotland is one of the four countries of the UK. Its capital is Edinburgh, and its national animal is… the unicorn!",
+"fr": "L’Écosse est l’un des quatre pays du Royaume-Uni. Sa capitale est Édimbourg, et son animal national est… la licorne !",
+"word": [
+"capital",
+"capitale"
+]
+},
+{
+"x": 10,
+"y": 10,
+"icon": "✖️",
+"title": "The Saltire",
+"fact": "The flag of Scotland is the Saltire: a white diagonal cross on a blue background. It is the cross of Saint Andrew.",
+"fr": "Le drapeau écossais est le Saltire : une croix blanche en diagonale sur fond bleu. C’est la croix de saint André.",
+"word": [
+"cross",
+"croix"
+]
+},
+{
+"x": 75,
+"y": 90,
+"icon": "🚂",
+"title": "The way from England",
+"fact": "England is south of Scotland. You can travel between them by train, with no passport control.",
+"fr": "L’Angleterre est au sud de l’Écosse. On peut voyager entre les deux en train, sans contrôle de passeport.",
+"word": [
+"journey",
+"trajet, voyage"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What does the flag of Scotland look like?",
+"o": [
+"A white diagonal cross on blue",
+"A red cross on white",
+"A red dragon on green and white"
+],
+"why": "The red cross on white is England’s flag; the red dragon is the Welsh flag."
+},
+{
+"t": "mcq",
+"q": "What is the national animal of Scotland?",
+"o": [
+"The unicorn",
+"The lion",
+"The eagle"
+],
+"why": "Yes, really: a unicorn!"
+},
+{
+"t": "listen",
+"say": "Scotland and England are both in the United Kingdom.",
+"q": "Which country are Scotland and England both part of?",
+"o": [
+"The United Kingdom",
+"The European Union",
+"Ireland"
+],
+"why": "That’s why there is no passport control between them."
+}
+]
+},
+{
+"id": "castle",
+"area": "edinburgh",
+"name": "Edinburgh Castle",
+"short": "On an old volcano",
+"art": "assets/scotland/castle.webp",
+"w": 520,
+"h": 390,
+"pixel": true,
+"guide": {
+"name": "Kirsty",
+"role": "Castle guide",
+"color": "#7a1f2b"
+},
+"talk": [
+[
+"guide",
+"Hello! I’m Kirsty. This castle sits on Castle Rock, the top of an old volcano!",
+"Bonjour ! Je suis Kirsty. Ce château est posé sur Castle Rock, le sommet d’un ancien volcan !"
+],
+[
+"you",
+"A volcano? Is it dangerous?",
+"Un volcan ? C’est dangereux ?"
+],
+[
+"guide",
+"Don’t worry! It’s extinct: it stopped erupting about 350 million years ago.",
+"Ne t’inquiète pas ! Il est éteint : il a arrêté d’entrer en éruption il y a environ 350 millions d’années."
+]
+],
+"reply": {
+"prompt": "Kirsty says: “Every day at one o’clock, a cannon fires.” What do you answer?",
+"o": [
+[
+"Wow! I’d like to hear it!",
+true,
+"“I’d like to…” = a polite way to say what you want."
+],
+[
+"OK, I’m firing it now.",
+false,
+"Only soldiers can fire the gun!"
+],
+[
+"One o’clock is a cannon.",
+false,
+"That doesn’t make sense!"
+]
+]
+},
+"outro": "Come back at one o’clock, then! But cover your ears!",
+"outroFr": "Reviens à une heure, alors ! Mais bouche-toi les oreilles !",
+"clues": [
+{
+"x": 40,
+"y": 40,
+"icon": "🏰",
+"title": "Castle Rock",
+"fact": "Edinburgh Castle stands on Castle Rock, an extinct volcano. People have lived on the rock for about 3,000 years.",
+"fr": "Le château d’Édimbourg se dresse sur Castle Rock, un volcan éteint. Des gens vivent sur ce rocher depuis environ 3 000 ans.",
+"word": [
+"rock",
+"rocher"
+]
+},
+{
+"x": 70,
+"y": 60,
+"icon": "💥",
+"title": "The One O’Clock Gun",
+"fact": "The One O’Clock Gun is fired every day except Sunday. In the past, it helped ships check their clocks.",
+"fr": "Le canon d’une heure tire tous les jours sauf le dimanche. Autrefois, il aidait les navires à régler leurs horloges.",
+"word": [
+"gun",
+"canon"
+]
+},
+{
+"x": 30,
+"y": 25,
+"icon": "👑",
+"title": "The crown jewels",
+"fact": "The castle keeps the Honours of Scotland: the oldest crown jewels in the United Kingdom.",
+"fr": "Le château conserve les Honneurs d’Écosse : les plus anciens joyaux de la couronne du Royaume-Uni.",
+"word": [
+"crown",
+"couronne"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is Castle Rock?",
+"o": [
+"An extinct volcano",
+"A huge meteorite",
+"A mountain of salt"
+],
+"why": "It’s the top of a volcano that stopped erupting millions of years ago."
+},
+{
+"t": "mcq",
+"q": "When is the One O’Clock Gun fired?",
+"o": [
+"Every day except Sunday",
+"Only at Christmas",
+"Every hour"
+],
+"why": "One o’clock, every day except Sunday."
+},
+{
+"t": "listen",
+"say": "The castle keeps the oldest crown jewels in the United Kingdom.",
+"q": "What does the castle keep?",
+"o": [
+"The oldest crown jewels in the UK",
+"The biggest cannon in Europe",
+"The King’s car"
+],
+"why": "Crown jewels = joyaux de la couronne."
+}
+],
+"pin": [
+20,
+57
+]
+},
+{
+"id": "royalmile",
+"area": "edinburgh",
+"name": "The Royal Mile",
+"short": "The heart of the Old Town",
+"art": "assets/scotland/royalmile.webp",
+"w": 520,
+"h": 390,
+"pixel": true,
+"guide": {
+"name": "Angus",
+"role": "Bagpiper",
+"color": "#2e5d3a"
+},
+"talk": [
+[
+"guide",
+"Hello! I’m Angus. Welcome to the Royal Mile, the main street of the Old Town!",
+"Bonjour ! Je suis Angus. Bienvenue sur le Royal Mile, la rue principale de la vieille ville !"
+],
+[
+"you",
+"Is it really one mile long?",
+"Elle fait vraiment un mile de long ?"
+],
+[
+"guide",
+"Almost! It’s about one Scottish mile: 1.8 kilometres, from the castle to the palace.",
+"Presque ! Elle fait environ un mile écossais : 1,8 kilomètre, du château jusqu’au palais."
+]
+],
+"reply": {
+"prompt": "Angus asks: “Do you want to try the bagpipes?”",
+"o": [
+[
+"Yes, please! Can you show me how?",
+true,
+"Polite, and a good question!"
+],
+[
+"No, I am a bagpipe.",
+false,
+"You are not a bagpipe!"
+],
+[
+"Yes, I played them tomorrow.",
+false,
+"“Played” is past and “tomorrow” is future."
+]
+]
+},
+"outro": "Of course! Blow hard and squeeze the bag!",
+"outroFr": "Bien sûr ! Souffle fort et serre le sac !",
+"clues": [
+{
+"x": 50,
+"y": 35,
+"icon": "⛪",
+"title": "St Giles’ Cathedral",
+"fact": "St Giles’ Cathedral has a famous spire shaped like a crown.",
+"fr": "La cathédrale St Giles a une célèbre flèche en forme de couronne.",
+"word": [
+"spire",
+"flèche"
+]
+},
+{
+"x": 30,
+"y": 75,
+"icon": "🎭",
+"title": "The Fringe",
+"fact": "Every August, the Royal Mile is full of street performers during the Edinburgh Festival Fringe, the biggest arts festival in the world.",
+"fr": "Chaque mois d’août, le Royal Mile est rempli d’artistes de rue pendant le Festival Fringe d’Édimbourg, le plus grand festival des arts du monde.",
+"word": [
+"performer",
+"artiste"
+]
+},
+{
+"x": 70,
+"y": 58,
+"icon": "🧣",
+"title": "Tartan",
+"fact": "Tartan is a pattern of coloured stripes. Many Scottish families have their own tartan.",
+"fr": "Le tartan est un motif de bandes colorées. Beaucoup de familles écossaises ont leur propre tartan.",
+"word": [
+"pattern",
+"motif"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "How long is the Royal Mile?",
+"o": [
+"About 1.8 km",
+"About 18 km",
+"About 180 m"
+],
+"why": "About one Scottish mile: 1.8 km."
+},
+{
+"t": "mcq",
+"q": "What happens on the Royal Mile every August?",
+"o": [
+"The Fringe festival",
+"The Highland Games",
+"A big snowstorm"
+],
+"why": "The Fringe is the biggest arts festival in the world."
+},
+{
+"t": "listen",
+"say": "Many Scottish families have their own tartan.",
+"q": "What do many Scottish families have?",
+"o": [
+"Their own tartan",
+"Their own castle",
+"Their own bagpipes"
+],
+"why": "Tartan = the pattern of a kilt."
+}
+],
+"pin": [
+50,
+50
+]
+},
+{
+"id": "holyrood",
+"area": "edinburgh",
+"name": "Holyrood",
+"short": "The palace and the Parliament",
+"art": "assets/scotland/holyrood.webp",
+"w": 520,
+"h": 390,
+"pixel": true,
+"guide": {
+"name": "Mhairi",
+"role": "Palace guide",
+"color": "#5a3e8a"
+},
+"talk": [
+[
+"guide",
+"Welcome to the Palace of Holyroodhouse! It’s the King’s official home in Scotland.",
+"Bienvenue au palais de Holyroodhouse ! C’est la résidence officielle du roi en Écosse."
+],
+[
+"you",
+"Who else lived here?",
+"Qui d’autre a vécu ici ?"
+],
+[
+"guide",
+"Mary, Queen of Scots, lived here in the sixteenth century.",
+"Marie Stuart, reine d’Écosse, a vécu ici au XVIe siècle."
+]
+],
+"reply": {
+"prompt": "Mhairi asks: “Would you like to see the old abbey?”",
+"o": [
+[
+"Yes, I’d love to!",
+true,
+"“I’d love to!” = a great way to accept."
+],
+[
+"No, I saw it next week.",
+false,
+"“Saw” is past and “next week” is future."
+],
+[
+"The abbey is my cousin.",
+false,
+"That doesn’t make sense!"
+]
+]
+},
+"outro": "Lovely! Follow me, it’s just behind the palace.",
+"outroFr": "Parfait ! Suis-moi, c’est juste derrière le palais.",
+"clues": [
+{
+"x": 55,
+"y": 50,
+"icon": "🏛️",
+"title": "The palace",
+"fact": "The King stays at the Palace of Holyroodhouse when he visits Scotland.",
+"fr": "Le roi séjourne au palais de Holyroodhouse quand il vient en Écosse.",
+"word": [
+"palace",
+"palais"
+]
+},
+{
+"x": 85,
+"y": 55,
+"icon": "⛪",
+"title": "Holyrood Abbey",
+"fact": "Holyrood Abbey was founded in 1128. Today it has no roof: it’s a ruin.",
+"fr": "L’abbaye de Holyrood a été fondée en 1128. Aujourd’hui, elle n’a plus de toit : c’est une ruine.",
+"word": [
+"ruin",
+"ruine"
+]
+},
+{
+"x": 20,
+"y": 75,
+"icon": "🗳️",
+"title": "The Scottish Parliament",
+"fact": "Opposite the palace is the Scottish Parliament. Since 1999, Scotland has had its own parliament.",
+"fr": "En face du palais se trouve le Parlement écossais. Depuis 1999, l’Écosse a son propre parlement.",
+"word": [
+"parliament",
+"parlement"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Who stays at Holyroodhouse?",
+"o": [
+"The King, when he visits Scotland",
+"The Prime Minister",
+"Nobody, it’s closed"
+],
+"why": "It’s the King’s official home in Scotland."
+},
+{
+"t": "mcq",
+"q": "Since when has Scotland had its own parliament?",
+"o": [
+"Since 1999",
+"Since 1128",
+"Since 2024"
+],
+"why": "1128 is when the abbey was founded."
+},
+{
+"t": "listen",
+"say": "Mary, Queen of Scots, lived here in the sixteenth century.",
+"q": "When did Mary, Queen of Scots, live here?",
+"o": [
+"In the 16th century",
+"In the 6th century",
+"In the 20th century"
+],
+"why": "Sixteenth = 16th = XVIe."
+}
+],
+"pin": [
+78,
+46
+]
+},
+{
+"id": "arthurs",
+"area": "edinburgh",
+"name": "Arthur’s Seat",
+"short": "A volcano in the city",
+"art": "assets/scotland/arthurs.webp",
+"w": 520,
+"h": 390,
+"pixel": true,
+"guide": {
+"name": "Rory",
+"role": "Hillwalker",
+"color": "#3d7a4f"
+},
+"talk": [
+[
+"guide",
+"Hi! I’m Rory. Let’s climb Arthur’s Seat, an old volcano right in the city!",
+"Salut ! Moi, c’est Rory. Grimpons sur Arthur’s Seat, un ancien volcan en pleine ville !"
+],
+[
+"you",
+"How high is it?",
+"Il fait quelle hauteur ?"
+],
+[
+"guide",
+"It’s 251 metres high. From the top, you can see the whole city and the sea!",
+"Il fait 251 mètres. Du sommet, on voit toute la ville et la mer !"
+]
+],
+"reply": {
+"prompt": "Rory says: “It’s windy at the top. Put your jacket on!”",
+"o": [
+[
+"Good idea, thanks!",
+true,
+"Short, polite and natural."
+],
+[
+"No, I’m taking it off.",
+false,
+"That’s the opposite of Rory’s advice!"
+],
+[
+"My jacket is windy.",
+false,
+"It’s the hill that is windy, not your jacket!"
+]
+]
+},
+"outro": "Let’s go! Follow the path.",
+"outroFr": "C’est parti ! Suis le chemin.",
+"clues": [
+{
+"x": 50,
+"y": 30,
+"icon": "⛰️",
+"title": "The summit",
+"fact": "Arthur’s Seat is 251 metres high. It is what remains of a volcano that erupted about 350 million years ago.",
+"fr": "Arthur’s Seat mesure 251 mètres. C’est ce qui reste d’un volcan entré en éruption il y a environ 350 millions d’années.",
+"word": [
+"summit",
+"sommet"
+]
+},
+{
+"x": 80,
+"y": 70,
+"icon": "🪨",
+"title": "Salisbury Crags",
+"fact": "The cliffs below the summit are called Salisbury Crags.",
+"fr": "Les falaises sous le sommet s’appellent Salisbury Crags.",
+"word": [
+"cliff",
+"falaise"
+]
+},
+{
+"x": 30,
+"y": 60,
+"icon": "🌼",
+"title": "Gorse",
+"fact": "The yellow flowers on the hill are gorse. They smell of coconut!",
+"fr": "Les fleurs jaunes sur la colline sont des ajoncs. Elles sentent la noix de coco !",
+"word": [
+"path",
+"chemin"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What was Arthur’s Seat a long time ago?",
+"o": [
+"A volcano",
+"A lake",
+"A castle"
+],
+"why": "Like Castle Rock, it’s an old volcano."
+},
+{
+"t": "mcq",
+"q": "What colour are gorse flowers?",
+"o": [
+"Yellow",
+"Blue",
+"Black"
+],
+"why": "Yellow flowers that smell of coconut."
+},
+{
+"t": "listen",
+"say": "From the top, you can see the whole city and the sea.",
+"q": "What can you see from the top?",
+"o": [
+"The city and the sea",
+"Only clouds",
+"London"
+],
+"why": "The whole city and the sea."
+}
+],
+"pin": [
+78,
+75
+]
+},
+{
+"id": "scott",
+"area": "edinburgh",
+"name": "The Scott Monument",
+"short": "Princes Street Gardens",
+"art": "assets/scotland/scott.webp",
+"w": 520,
+"h": 390,
+"pixel": true,
+"guide": {
+"name": "Eilidh",
+"role": "Tour guide",
+"color": "#a93226"
+},
+"talk": [
+[
+"guide",
+"Hello! I’m Eilidh. This tall dark tower is the Scott Monument, for the writer Sir Walter Scott.",
+"Bonjour ! Je suis Eilidh. Cette grande tour sombre, c’est le Scott Monument, en hommage à l’écrivain Sir Walter Scott."
+],
+[
+"you",
+"Can we go up?",
+"On peut monter ?"
+],
+[
+"guide",
+"Yes! There are 287 steps to the top.",
+"Oui ! Il y a 287 marches jusqu’en haut."
+]
+],
+"reply": {
+"prompt": "Eilidh asks: “Are you ready to climb 287 steps?”",
+"o": [
+[
+"I think so! Let’s do it!",
+true,
+"“Let’s do it!” = let’s go!"
+],
+[
+"Yes, I climbed it tomorrow.",
+false,
+"“Climbed” is past and “tomorrow” is future."
+],
+[
+"The steps are my lunch.",
+false,
+"That doesn’t make sense!"
+]
+]
+},
+"outro": "Brave explorer! Take your time.",
+"outroFr": "Quel explorateur courageux ! Prends ton temps.",
+"clues": [
+{
+"x": 37,
+"y": 55,
+"icon": "🗼",
+"title": "The monument",
+"fact": "The Scott Monument is 61 metres high. It is one of the largest monuments to a writer in the world.",
+"fr": "Le Scott Monument mesure 61 mètres. C’est l’un des plus grands monuments dédiés à un écrivain au monde.",
+"word": [
+"step",
+"marche"
+]
+},
+{
+"x": 35,
+"y": 85,
+"icon": "⛲",
+"title": "Princes Street Gardens",
+"fact": "Princes Street Gardens were made where a lake used to be: the Nor Loch.",
+"fr": "Les jardins de Princes Street ont été aménagés là où se trouvait un lac : le Nor Loch.",
+"word": [
+"loch",
+"lac (en Écosse)"
+]
+},
+{
+"x": 85,
+"y": 85,
+"icon": "🚂",
+"title": "Waverley station",
+"fact": "The train station, Waverley, takes its name from Walter Scott’s novels.",
+"fr": "La gare de Waverley tient son nom des romans de Walter Scott.",
+"word": [
+"novel",
+"roman"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Who is the Scott Monument for?",
+"o": [
+"The writer Sir Walter Scott",
+"A Scottish king",
+"A football player"
+],
+"why": "Sir Walter Scott, a famous Scottish writer."
+},
+{
+"t": "mcq",
+"q": "What was there before the gardens?",
+"o": [
+"A lake: the Nor Loch",
+"A volcano",
+"An airport"
+],
+"why": "The Nor Loch was drained to make the gardens."
+},
+{
+"t": "listen",
+"say": "There are two hundred and eighty-seven steps to the top.",
+"q": "How many steps are there?",
+"o": [
+"287",
+"278",
+"827"
+],
+"why": "Two hundred and eighty-seven = 287."
+}
+],
+"pin": [
+24,
+30
+]
+},
+{
+"id": "glasgow",
+"area": "scotland",
+"name": "Glasgow",
+"short": "Scotland’s biggest city",
+"art": "assets/scotland/glasgow.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"guide": {
+"name": "Amir",
+"role": "Glasgow student",
+"color": "#1f4e8c"
+},
+"talk": [
+[
+"guide",
+"Hiya! I’m Amir. Welcome to Glasgow, the biggest city in Scotland!",
+"Salut ! Moi, c’est Amir. Bienvenue à Glasgow, la plus grande ville d’Écosse !"
+],
+[
+"you",
+"What is that huge crane by the river?",
+"C’est quoi, cette énorme grue au bord de la rivière ?"
+],
+[
+"guide",
+"It’s the Finnieston Crane. It lifted trains onto ships when Glasgow built ships for the world.",
+"C’est la grue de Finnieston. Elle soulevait des locomotives sur les navires, à l’époque où Glasgow construisait des bateaux pour le monde entier."
+]
+],
+"reply": {
+"prompt": "Amir asks: “Do you like concerts?”",
+"o": [
+[
+"Yes, I love live music!",
+true,
+"Present simple for what you like: perfect."
+],
+[
+"Yes, I loved it next year.",
+false,
+"“Loved” is past and “next year” is future."
+],
+[
+"No, I am a concert.",
+false,
+"You are not a concert!"
+]
+]
+},
+"outro": "Then you’ll love Glasgow: it’s a UNESCO City of Music!",
+"outroFr": "Alors tu vas adorer Glasgow : c’est une « Ville de la musique » de l’UNESCO !",
+"clues": [
+{
+"x": 35,
+"y": 85,
+"icon": "🌊",
+"title": "The River Clyde",
+"fact": "The River Clyde flows through Glasgow. Famous ships, like the Queen Mary, were built here.",
+"fr": "La Clyde traverse Glasgow. Des navires célèbres, comme le Queen Mary, ont été construits ici.",
+"word": [
+"ship",
+"navire"
+]
+},
+{
+"x": 32,
+"y": 55,
+"icon": "🏗️",
+"title": "The Finnieston Crane",
+"fact": "The Finnieston Crane is 53 metres tall. It lifted heavy trains onto ships.",
+"fr": "La grue de Finnieston mesure 53 mètres. Elle soulevait de lourdes locomotives sur les navires.",
+"word": [
+"crane",
+"grue"
+]
+},
+{
+"x": 48,
+"y": 63,
+"icon": "🎵",
+"title": "The Armadillo",
+"fact": "This concert hall is nicknamed “the Armadillo” because of its shape.",
+"fr": "Cette salle de concert est surnommée « le Tatou » à cause de sa forme.",
+"word": [
+"nickname",
+"surnom"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "What is Glasgow?",
+"o": [
+"The biggest city in Scotland",
+"The capital of Scotland",
+"A small village"
+],
+"why": "Glasgow is the biggest city, but Edinburgh is the capital."
+},
+{
+"t": "mcq",
+"q": "Why is the concert hall called “the Armadillo”?",
+"o": [
+"Because of its shape",
+"Because armadillos live there",
+"Because it’s very old"
+],
+"why": "Its shape looks like an armadillo’s shell."
+},
+{
+"t": "listen",
+"say": "Famous ships were built on the River Clyde.",
+"q": "What was built on the Clyde?",
+"o": [
+"Famous ships",
+"Famous planes",
+"Famous castles"
+],
+"why": "Glasgow was a great shipbuilding city."
+}
+],
+"pin": [
+30,
+62
+]
+},
+{
+"id": "lochness",
+"area": "scotland",
+"name": "Loch Ness",
+"short": "Looking for Nessie",
+"art": "assets/scotland/lochness.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"guide": {
+"name": "Captain MacLeod",
+"role": "Boat captain",
+"color": "#2a6f97"
+},
+"talk": [
+[
+"guide",
+"Ahoy! I’m Captain MacLeod. Welcome aboard on Loch Ness!",
+"Ohé ! Je suis le capitaine MacLeod. Bienvenue à bord sur le Loch Ness !"
+],
+[
+"you",
+"Is the Loch Ness Monster real?",
+"Le monstre du Loch Ness existe vraiment ?"
+],
+[
+"guide",
+"Ha! Many people say they saw Nessie, but nobody has ever proved it!",
+"Ha ! Beaucoup de gens disent avoir vu Nessie, mais personne ne l’a jamais prouvé !"
+]
+],
+"reply": {
+"prompt": "The captain asks: “What will you do if you see Nessie?”",
+"o": [
+[
+"I’ll take a photo, of course!",
+true,
+"“I’ll…” for a decision about the future: great."
+],
+[
+"I took a photo yesterday tomorrow.",
+false,
+"Yesterday or tomorrow? Not both!"
+],
+[
+"Nessie is a boat.",
+false,
+"Nessie is a legendary monster, not a boat!"
+]
+]
+},
+"outro": "Good plan! Keep your camera ready.",
+"outroFr": "Bonne idée ! Garde ton appareil photo à portée de main.",
+"clues": [
+{
+"x": 65,
+"y": 75,
+"icon": "💧",
+"title": "The loch",
+"fact": "Loch Ness is about 36 km long and very deep: about 230 metres.",
+"fr": "Le Loch Ness mesure environ 36 km de long et il est très profond : environ 230 mètres.",
+"word": [
+"deep",
+"profond"
+]
+},
+{
+"x": 50,
+"y": 40,
+"icon": "🏰",
+"title": "Urquhart Castle",
+"fact": "Urquhart Castle is a ruined castle on the shore of the loch.",
+"fr": "Le château d’Urquhart est un château en ruine au bord du loch.",
+"word": [
+"shore",
+"rive"
+]
+},
+{
+"x": 35,
+"y": 85,
+"icon": "🦕",
+"title": "Nessie",
+"fact": "Nessie is a legend: many people have looked for her, but there is no proof that she exists.",
+"fr": "Nessie est une légende : beaucoup de gens l’ont cherchée, mais rien ne prouve qu’elle existe.",
+"word": [
+"proof",
+"preuve"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Is there proof that Nessie exists?",
+"o": [
+"No, there is no proof",
+"Yes, scientists found her",
+"Yes, she lives in a zoo"
+],
+"why": "Nessie is a legend."
+},
+{
+"t": "mcq",
+"q": "In Scotland, what is a “loch”?",
+"o": [
+"A lake",
+"A castle",
+"A mountain"
+],
+"why": "Loch = lake (or an arm of the sea)."
+},
+{
+"t": "listen",
+"say": "Loch Ness is about thirty-six kilometres long.",
+"q": "How long is Loch Ness?",
+"o": [
+"About 36 km",
+"About 6 km",
+"About 360 km"
+],
+"why": "Thirty-six = 36."
+}
+],
+"pin": [
+55,
+47
+]
+},
+{
+"id": "glenfinnan",
+"area": "scotland",
+"name": "Glenfinnan",
+"short": "The Highlands by steam train",
+"art": "assets/scotland/glenfinnan.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"guide": {
+"name": "Ailsa",
+"role": "Steam train guard",
+"color": "#7a1f2b"
+},
+"talk": [
+[
+"guide",
+"All aboard! I’m Ailsa, the guard on this steam train.",
+"En voiture ! Je suis Ailsa, la cheffe de bord de ce train à vapeur."
+],
+[
+"you",
+"Wow! Is this the Harry Potter train?",
+"Waouh ! C’est le train de Harry Potter ?"
+],
+[
+"guide",
+"Yes! In the films, the Hogwarts Express crosses the Glenfinnan Viaduct, right here!",
+"Oui ! Dans les films, le Poudlard Express traverse le viaduc de Glenfinnan, juste ici !"
+]
+],
+"reply": {
+"prompt": "Ailsa says: “Please stay in your seat while the train is moving.”",
+"o": [
+[
+"Sure, no problem!",
+true,
+"Short and polite."
+],
+[
+"OK, I’m jumping out.",
+false,
+"That’s very dangerous!"
+],
+[
+"My seat is moving.",
+false,
+"It’s the train that is moving!"
+]
+]
+},
+"outro": "Thank you! Look out of the window: here’s the viaduct!",
+"outroFr": "Merci ! Regarde par la fenêtre : voilà le viaduc !",
+"clues": [
+{
+"x": 72,
+"y": 38,
+"icon": "🌉",
+"title": "The viaduct",
+"fact": "The Glenfinnan Viaduct has 21 arches. It was finished in 1901.",
+"fr": "Le viaduc de Glenfinnan a 21 arches. Il a été achevé en 1901.",
+"word": [
+"arch",
+"arche"
+]
+},
+{
+"x": 55,
+"y": 55,
+"icon": "⛰️",
+"title": "Ben Nevis",
+"fact": "Not far from here is Ben Nevis, the highest mountain in the UK: 1,345 metres.",
+"fr": "Non loin d’ici se trouve le Ben Nevis, la plus haute montagne du Royaume-Uni : 1 345 mètres.",
+"word": [
+"highest",
+"le plus haut"
+]
+},
+{
+"x": 15,
+"y": 50,
+"icon": "🗿",
+"title": "The Highlands",
+"fact": "The Glenfinnan Monument, by Loch Shiel, remembers the Highlanders of 1745.",
+"fr": "Le monument de Glenfinnan, au bord du Loch Shiel, rend hommage aux Highlanders de 1745.",
+"word": [
+"Highlands",
+"Hautes-Terres"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "How many arches does the viaduct have?",
+"o": [
+"21",
+"12",
+"100"
+],
+"why": "21 arches, finished in 1901."
+},
+{
+"t": "mcq",
+"q": "What is Ben Nevis?",
+"o": [
+"The highest mountain in the UK",
+"A famous Scottish singer",
+"A train station"
+],
+"why": "1,345 metres high."
+},
+{
+"t": "listen",
+"say": "In the films, the Hogwarts Express crosses the viaduct.",
+"q": "Which train crosses the viaduct in the films?",
+"o": [
+"The Hogwarts Express",
+"The Orient Express",
+"The Polar Express"
+],
+"why": "Hogwarts = Poudlard in French."
+}
+],
+"pin": [
+53,
+55
+]
+},
+{
+"id": "skye",
+"area": "scotland",
+"name": "The Isle of Skye",
+"short": "Highland cows and wild landscapes",
+"art": "assets/scotland/skye.webp",
+"w": 440,
+"h": 330,
+"pixel": true,
+"guide": {
+"name": "Flora",
+"role": "Farmer",
+"color": "#8e5b3a"
+},
+"talk": [
+[
+"guide",
+"Hello! I’m Flora. Welcome to the Isle of Skye! You crossed the bridge to get here.",
+"Bonjour ! Je suis Flora. Bienvenue sur l’île de Skye ! Tu as traversé le pont pour venir."
+],
+[
+"you",
+"Are these your cows? They have very long hair!",
+"Ce sont tes vaches ? Elles ont les poils très longs !"
+],
+[
+"guide",
+"Yes! They’re Highland cows. Their long hair keeps them warm in the wind and the rain.",
+"Oui ! Ce sont des vaches Highland. Leurs longs poils les protègent du vent et de la pluie."
+]
+],
+"reply": {
+"prompt": "Flora asks: “Would you like to give them some hay?”",
+"o": [
+[
+"Yes, please! Is it safe?",
+true,
+"Polite, and a sensible question."
+],
+[
+"Yes, I gave them my phone.",
+false,
+"Cows don’t eat phones!"
+],
+[
+"No, I am hay.",
+false,
+"You are not hay!"
+]
+]
+},
+"outro": "Yes, they’re very gentle. Hold your hand flat!",
+"outroFr": "Oui, elles sont très douces. Tends la main bien à plat !",
+"clues": [
+{
+"x": 35,
+"y": 45,
+"icon": "🏝️",
+"title": "Skye",
+"fact": "Skye is the biggest island of the Inner Hebrides. A bridge connects it to the mainland.",
+"fr": "Skye est la plus grande île des Hébrides intérieures. Un pont la relie au continent.",
+"word": [
+"mainland",
+"continent"
+]
+},
+{
+"x": 40,
+"y": 75,
+"icon": "🏰",
+"title": "Eilean Donan Castle",
+"fact": "Eilean Donan Castle stands on a tiny island near Skye. It is one of the most photographed castles in Scotland.",
+"fr": "Le château d’Eilean Donan se dresse sur une minuscule île près de Skye. C’est l’un des châteaux les plus photographiés d’Écosse.",
+"word": [
+"tiny",
+"minuscule"
+]
+},
+{
+"x": 15,
+"y": 30,
+"icon": "🐄",
+"title": "Highland cows",
+"fact": "Highland cows have long hair and big horns. Their hair keeps them warm.",
+"fr": "Les vaches Highland ont de longs poils et de grandes cornes. Leurs poils leur tiennent chaud.",
+"word": [
+"horn",
+"corne"
+]
+}
+],
+"quiz": [
+{
+"t": "mcq",
+"q": "Why do Highland cows have long hair?",
+"o": [
+"To keep warm",
+"To look nice",
+"To swim faster"
+],
+"why": "Their hair protects them from the wind and the rain."
+},
+{
+"t": "mcq",
+"q": "How can you get to Skye by car?",
+"o": [
+"By bridge",
+"Through a tunnel under the sea",
+"You can’t"
+],
+"why": "The Skye Bridge connects the island to the mainland."
+},
+{
+"t": "listen",
+"say": "A bridge connects Skye to the mainland.",
+"q": "What connects Skye to the mainland?",
+"o": [
+"A bridge",
+"A tunnel",
+"A cable car"
+],
+"why": "Mainland = continent."
+}
+],
+"pin": [
+28,
+48
+]
+}
+]
 }
 },
 "destinations": [

@@ -21,3 +21,10 @@ la bonne réponse est TOUJOURS la première de la liste "o" : l'appli mélange l
 
 Technique : un seul index.html, ES5 (compatible iOS Safari), aucune dépendance
 sauf Google Fonts (Lilita One, Lexend). Voix : synthèse vocale de l'appareil (en-GB).
+
+IRLANDE DU NORD (ajout nov. 2026)
+- Dossier assets/ni/ : carte du pays, carte de Belfast, 9 scènes, flag.png (Union Jack :
+  l'Irlande du Nord n'a pas de drapeau officiel propre).
+- Portraits sources : assets/npc/ni_*.webp (embarqués aussi dans index.html).
+- Vignette de destination remplacée : assets/countries/countries_8.webp (Union Jack).
+- 10 étapes : arrivée (Belfast Grand Central), 5 lieux à Belfast, 4 au-delà (débloqués après 3 tampons).

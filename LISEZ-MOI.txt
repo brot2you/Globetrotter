@@ -36,3 +36,8 @@ CARAÏBES (ajout nov. 2026)
 - Portraits sources : assets/npc/cb_*.webp ; vignette : assets/countries/countries_16.webp.
 - Nouveau réglage par pays : cityIcon / beyondIcon (icônes des deux zones, par défaut 🏙️ et 🚂).
 - Les anciennes vignettes countries_10 à 13 ne sont plus utilisées.
+
+NOUVELLE-ZÉLANDE (ajout nov. 2026)
+- Dossier assets/nz/ : carte du pays (portrait), carte d'Auckland, 9 scènes, flag.png.
+- Portraits sources : assets/npc/nz_*.webp. Vignette existante : countries_4.webp.
+- 10 étapes : arrivée (aéroport d'Auckland), 5 lieux à Auckland, 4 au-delà (Rotorua, Wellington, Queenstown, Milford Sound).

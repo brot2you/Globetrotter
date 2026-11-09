@@ -66,3 +66,8 @@ SINGAPOUR (ajout nov. 2026)
 CORRECTIF (nov. 2026, tous les pays)
 - Dialogue « Meet » : la bonne réponse était toujours le premier bouton. L'ordre des réponses est désormais
   mélangé à chaque visite (le contenu n'a pas changé : la bonne réponse reste notée true dans les données).
+
+MY TRAVELS : TRI DES DESTINATIONS (nov. 2026)
+- Boutons « Sort by » au-dessus des destinations jouables : Region (par défaut, avec sous-titres
+  par région), A–Z (« The » ignoré), Progress (les plus avancées d'abord).
+- Le choix est mémorisé dans la sauvegarde. Un pays dont l'examen est réussi affiche « VISA » sur sa vignette.

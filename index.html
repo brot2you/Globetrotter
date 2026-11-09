@@ -323,6 +323,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .dest .play-t{position:absolute;right:6%;top:4%;background:var(--ok);border:2px solid #fff;color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
 
 .reg{margin:22px 0 10px;font-size:1.3rem;color:var(--gold)}
+.tr-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:22px 0 10px}
+.tr-head .reg{margin:0}
+.sortbar{display:flex;align-items:center;gap:8px;font-size:.85rem;opacity:.95}
+.seg.light{border-color:rgba(255,255,255,.75)}
+.seg.light button{color:#fff;padding:5px 12px}
+.seg.light button.on{background:var(--gold);color:var(--ink)}
+.subreg{margin:16px 0 8px;font-size:1rem;color:#fff;opacity:.85}
 /* ---------- missions ---------- */
 .mission{display:flex;gap:16px;align-items:center}
 .mission .mi{font-size:2rem;width:64px;height:64px;border-radius:16px;background:var(--paper2);display:flex;align-items:center;justify-content:center;flex:none}
@@ -1038,11 +1045,36 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
     var REG = [['uk', 'The UK and Ireland'], ['americas', 'North America'], ['caribbean', 'The Caribbean'], ['africa', 'Africa'], ['asia', 'Asia'], ['oceania', 'Oceania']];
     function btn(d) {
       var ok = !!DATA.countries[d.id], prog = ok ? withCountry(d.id, function () { return countStamps() + '/' + C.places.length; }) : '';
+      var visa = ok && S.countries[d.id] && S.countries[d.id].exam && S.countries[d.id].exam.passed;
       return '<button class="dest' + (ok ? '' : ' soon') + (d.id === S.current ? ' cur' : '') + '" data-act="dest" data-id="' + d.id + '"><img src="assets/countries/countries_' + d.img + '.webp" alt="' + esc(d.name) + '">' +
-        (ok ? '<span class="play-t">' + (d.id === S.current ? 'HERE · ' : 'PLAY · ') + prog + '</span>' : '<span class="soon-t">SOON</span>') + '</button>';
+        (ok ? '<span class="play-t">' + (d.id === S.current ? 'HERE · ' : 'PLAY · ') + prog + (visa ? ' · VISA' : '') + '</span>' : '<span class="soon-t">SOON</span>') + '</button>';
     }
-    var i, r, d, play = '', soon = '', part;
-    for (i = 0; i < DATA.destinations.length; i++) { d = DATA.destinations[i]; if (DATA.countries[d.id]) { play += btn(d); } }
+    var i, r, d, play = '', soon = '', part, list = [], mode = S.settings.tsort || 'region', sortBtns = '', SORTS = [['region', 'Region'], ['az', 'A–Z'], ['progress', 'Progress']];
+    function sortName(x) { return x.replace(/^The /, ''); }
+    for (i = 0; i < DATA.destinations.length; i++) {
+      d = DATA.destinations[i];
+      if (DATA.countries[d.id]) {
+        list.push({ d: d, i: i, ratio: withCountry(d.id, function () { return countStamps() / C.places.length; }) });
+      }
+    }
+    if (mode === 'az') {
+      list.sort(function (a, b) { var x = sortName(a.d.name), y = sortName(b.d.name); return x < y ? -1 : x > y ? 1 : a.i - b.i; });
+    } else if (mode === 'progress') {
+      list.sort(function (a, b) { return b.ratio - a.ratio || a.i - b.i; });
+    }
+    if (mode === 'region') {
+      for (r = 0; r < REG.length; r++) {
+        part = '';
+        for (i = 0; i < list.length; i++) { if (list[i].d.region === REG[r][0]) { part += btn(list[i].d); } }
+        if (part) { play += '<h4 class="subreg">' + REG[r][1] + '</h4><div class="grid g3">' + part + '</div>'; }
+      }
+    } else {
+      for (i = 0; i < list.length; i++) { play += btn(list[i].d); }
+      play = '<div class="grid g3">' + play + '</div>';
+    }
+    for (i = 0; i < SORTS.length; i++) {
+      sortBtns += '<button data-act="set" data-k="tsort" data-val="' + SORTS[i][0] + '" class="' + (mode === SORTS[i][0] ? 'on' : '') + '" aria-pressed="' + (mode === SORTS[i][0]) + '">' + SORTS[i][1] + '</button>';
+    }
     for (r = 0; r < REG.length; r++) {
       part = '';
       for (i = 0; i < DATA.destinations.length; i++) { d = DATA.destinations[i]; if (d.region === REG[r][0] && !DATA.countries[d.id]) { part += btn(d); } }
@@ -1050,7 +1082,7 @@ input.tx{width:100%;max-width:360px;font:inherit;padding:.65em .9em;border-radiu
     }
     return top('My Travels') + '<main class="wrap"><div class="head"><h2>The English-speaking world</h2><p>English is spoken all over the world. Choose a destination: each country has its own map, stamps and exam.</p></div>' +
       '<div class="world"><img src="assets/home/world_map.webp" alt="Illustrated world map" width="1672" height="941"></div>' +
-      '<h3 class="reg">✈ Ready to explore</h3><div class="grid g3">' + play + '</div>' +
+      '<div class="tr-head"><h3 class="reg">✈ Ready to explore</h3><div class="sortbar"><span>Sort by</span><span class="seg light" role="group" aria-label="Sort destinations">' + sortBtns + '</span></div></div>' + play +
       '<h2 style="margin-top:28px">Coming soon</h2>' + soon + '</main>';
   }
 

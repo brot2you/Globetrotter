@@ -56,3 +56,13 @@ AFRIQUE DU SUD (ajout nov. 2026)
 - Dossier assets/southafrica/ : carte du pays, carte du Cap et de la péninsule, 9 scènes, flag.png.
 - Portraits sources : assets/npc/za_*.webp. Vignette existante : countries_9.webp.
 - 10 étapes : arrivée (aéroport du Cap), 5 lieux au Cap, 4 au-delà (Kruger, Soweto, Durban, Drakensberg).
+
+SINGAPOUR (ajout nov. 2026)
+- Dossier assets/singapore/ : carte de l'île, carte du centre (Downtown), 9 scènes, flag.png (drapeau au tracé officiel).
+- Portraits sources : assets/npc/sg_*.webp (embarqués aussi dans index.html). Vignette existante : countries_14.webp.
+- 10 étapes : arrivée (Changi), 5 lieux Downtown (Merlion, Gardens by the Bay, Chinatown, Little India, Kampong Glam),
+  4 autour de l'île (Sentosa, Night Safari, Pulau Ubin, Toa Payoh), débloqués après 3 tampons. Icône de zone : 🚇.
+
+CORRECTIF (nov. 2026, tous les pays)
+- Dialogue « Meet » : la bonne réponse était toujours le premier bouton. L'ordre des réponses est désormais
+  mélangé à chaque visite (le contenu n'a pas changé : la bonne réponse reste notée true dans les données).
